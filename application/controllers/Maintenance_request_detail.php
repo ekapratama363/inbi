@@ -16,13 +16,33 @@ class Maintenance_request_detail extends CI_Controller
 
         foreach(array_keys($posts['no']) as $key) {
             $data_insert[] = [
-                'id_mesin' => $posts['id_mesin'][$key],
-                'date' => $posts['date'][$key],
-                'remarks2' => $posts['remarks2'][$key],
+                'id_mtr_head' => $posts['id_mtr_head'],
+                'id_mesin'    => $posts['id_mesin'][$key],
+                'date'        => $posts['date'][$key],
+                'remarks2'    => $posts['remarks2'][$key],
             ];
         }
 
-        $insert = $this->Maintenance_request_detail_model->insert_batch_maintenance_requests_detail($data_insert);
+        $insert = $this->Maintenance_request_detail_model->insert_batch($data_insert);
+
+        echo json_encode($insert);
+    }
+
+    public function update()
+    {
+        $posts = $this->input->post();
+
+        foreach(array_keys($posts['no']) as $key) {
+            $data_update[] = [
+                'id_mtr_head' => $posts['id_mtr_head'],
+                'id_mesin'    => $posts['id_mesin'][$key],
+                'date'        => $posts['date'][$key],
+                'remarks2'    => $posts['remarks2'][$key],
+            ];
+        }
+        $id = $posts['id_mtr_head'];
+
+        $insert = $this->Maintenance_request_detail_model->update_batch($data_update, $id);
 
         echo json_encode($insert);
     }

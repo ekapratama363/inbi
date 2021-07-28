@@ -8,6 +8,7 @@ class Maintenance_request extends CI_Controller
 		parent::__construct();
 		$this->load->library('form_validation');
 		$this->load->model('Maintenance_request_model');
+		$this->load->model('Maintenance_request_detail_model');
 	}
 
 	public function index()
@@ -46,6 +47,11 @@ class Maintenance_request extends CI_Controller
 
 	public function edit($id_mtr='')
 	{
+        // ====get list mtr details====
+        $mtr_details = $this->Maintenance_request_detail_model->get_by_id_mtr_head($id_mtr);
+        $data['mtr_details'] = $mtr_details;
+        // ====end get list mtr details====
+
 		$hasil = $this->Maintenance_request_model->getMasterById($id_mtr);
         $hasil = $hasil->result();
 

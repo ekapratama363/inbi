@@ -73,6 +73,13 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-xl-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <?php $this->load->view('master_maintenance_request/mesin'); ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
