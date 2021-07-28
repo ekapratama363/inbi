@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 27, 2021 at 11:09 AM
--- Server version: 10.4.20-MariaDB
--- PHP Version: 7.3.29
+-- Host: localhost:3306
+-- Generation Time: Jul 28, 2021 at 10:18 PM
+-- Server version: 8.0.23-0ubuntu0.20.04.1
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -28,9 +29,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `counter_key` (
-  `id_key_number` int(11) NOT NULL,
+  `id_key_number` int NOT NULL,
   `key_code` varchar(50) NOT NULL,
-  `counter_key` int(11) NOT NULL
+  `counter_key` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -9800,7 +9801,8 @@ INSERT INTO `counter_key` (`id_key_number`, `key_code`, `counter_key`) VALUES
 (9755, 'PRG2121', 3),
 (9756, 'MRSPG2122jefr', 2),
 (9757, 'MRSPG2122yodi', 6),
-(9758, 'MTR-G2127', 133);
+(9758, 'MTR-G2127', 148),
+(9759, 'MTR-G2128', 118);
 
 -- --------------------------------------------------------
 
@@ -9809,7 +9811,7 @@ INSERT INTO `counter_key` (`id_key_number`, `key_code`, `counter_key`) VALUES
 --
 
 CREATE TABLE `master_brg_rm_stock` (
-  `id` int(10) NOT NULL,
+  `id` int NOT NULL,
   `kode_barang` varchar(255) NOT NULL,
   `nama_barang` text NOT NULL,
   `stock_awal` decimal(11,2) NOT NULL,
@@ -10289,7 +10291,7 @@ INSERT INTO `master_brg_rm_stock` (`id`, `kode_barang`, `nama_barang`, `stock_aw
 --
 
 CREATE TABLE `master_mesin` (
-  `id_mesin` int(10) NOT NULL,
+  `id_mesin` int NOT NULL,
   `plant_name` varchar(200) NOT NULL,
   `equipment_name` varchar(100) NOT NULL,
   `mc_no` varchar(50) NOT NULL,
@@ -10298,7 +10300,7 @@ CREATE TABLE `master_mesin` (
   `capacity` varchar(50) NOT NULL,
   `electric_cons` double NOT NULL,
   `satuan_electric` varchar(10) NOT NULL,
-  `nominal_curr` int(11) NOT NULL,
+  `nominal_curr` int NOT NULL,
   `working_current` double NOT NULL,
   `remarks` varchar(150) NOT NULL,
   `remarks2` text NOT NULL,
@@ -10906,11 +10908,39 @@ INSERT INTO `master_mesin` (`id_mesin`, `plant_name`, `equipment_name`, `mc_no`,
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `mtr_detail`
+--
+
+CREATE TABLE `mtr_detail` (
+  `id` int NOT NULL,
+  `id_mtr_head` int NOT NULL,
+  `id_mesin` int NOT NULL,
+  `date` date NOT NULL,
+  `remarks2` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `mtr_detail`
+--
+
+INSERT INTO `mtr_detail` (`id`, `id_mtr_head`, `id_mesin`, `date`, `remarks2`) VALUES
+(1, 1, 1, '2021-07-29', 'Apr-06\r\n NO : 0804021 \r\n Rpm : 1040 \r\n KW : 22 \r\n Kapasitas : 30 L \r\n OIL : DIALA B \r\n'),
+(2, 0, 6, '2021-07-12', ' Shuang Fong \r\nNov-10\r\n NO : 1011272 \r\n Rpm : 1040 \r\n KW : 22 \r\n Kapasitas : 30 L \r\n OIL : DIALA B \r\n'),
+(3, 0, 4, '2021-07-29', ' Shuang Fong \r\nMar-06\r\n NO : 0603162 \r\n Rpm : 1040 \r\n KW : 22 \r\n Kapasitas : 30 L \r\n OIL : DIALA B \r\n'),
+(4, 0, 0, '0000-00-00', ''),
+(5, 0, 4, '2021-07-29', ' Shuang Fong \r\nMar-06\r\n NO : 0603162 \r\n Rpm : 1040 \r\n KW : 22 \r\n Kapasitas : 30 L \r\n OIL : DIALA B \r\n'),
+(6, 0, 6, '2021-07-29', ' Shuang Fong \r\nNov-10\r\n NO : 1011272 \r\n Rpm : 1040 \r\n KW : 22 \r\n Kapasitas : 30 L \r\n OIL : DIALA B \r\n'),
+(7, 0, 6, '2021-07-07', ' Shuang Fong \r\nNov-10\r\n NO : 1011272 \r\n Rpm : 1040 \r\n KW : 22 \r\n Kapasitas : 30 L \r\n OIL : DIALA B \r\n'),
+(8, 1, 1, '2021-07-29', 'Apr-06\r\n NO : 0804021 \r\n Rpm : 1040 \r\n KW : 22 \r\n Kapasitas : 30 L \r\n OIL : DIALA B \r\n');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `mtr_head`
 --
 
 CREATE TABLE `mtr_head` (
-  `id_mtr` int(100) NOT NULL,
+  `id_mtr` int NOT NULL,
   `no_bukti_mtr` varchar(100) NOT NULL,
   `kode_ddi_mtr` varchar(100) NOT NULL,
   `kode_machine` varchar(150) NOT NULL,
@@ -10943,7 +10973,7 @@ CREATE TABLE `mtr_head` (
   `holded_date` date DEFAULT NULL,
   `holded_time` time DEFAULT NULL,
   `pic_holded` varchar(50) DEFAULT NULL,
-  `qty_mtr` int(11) NOT NULL DEFAULT 1,
+  `qty_mtr` int NOT NULL DEFAULT '1',
   `pic_opened` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -11517,7 +11547,7 @@ INSERT INTO `mtr_head` (`id_mtr`, `no_bukti_mtr`, `kode_ddi_mtr`, `kode_machine`
 
 CREATE TABLE `nofak` (
   `head` varchar(30) NOT NULL DEFAULT '',
-  `counter` int(11) DEFAULT NULL
+  `counter` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -19718,6 +19748,12 @@ ALTER TABLE `master_mesin`
   ADD PRIMARY KEY (`id_mesin`);
 
 --
+-- Indexes for table `mtr_detail`
+--
+ALTER TABLE `mtr_detail`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `mtr_head`
 --
 ALTER TABLE `mtr_head`
@@ -19737,25 +19773,31 @@ ALTER TABLE `nofak`
 -- AUTO_INCREMENT for table `counter_key`
 --
 ALTER TABLE `counter_key`
-  MODIFY `id_key_number` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9759;
+  MODIFY `id_key_number` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9760;
 
 --
 -- AUTO_INCREMENT for table `master_brg_rm_stock`
 --
 ALTER TABLE `master_brg_rm_stock`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=458;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=458;
 
 --
 -- AUTO_INCREMENT for table `master_mesin`
 --
 ALTER TABLE `master_mesin`
-  MODIFY `id_mesin` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=581;
+  MODIFY `id_mesin` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=581;
+
+--
+-- AUTO_INCREMENT for table `mtr_detail`
+--
+ALTER TABLE `mtr_detail`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `mtr_head`
 --
 ALTER TABLE `mtr_head`
-  MODIFY `id_mtr` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=553;
+  MODIFY `id_mtr` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=553;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
