@@ -105,6 +105,27 @@ class Maintenance_request extends CI_Controller
 
 	public function simpan_ajax() 
     { 
+        
+        foreach(array_keys($this->input->post('no')) as $key) {
+            $data_post[] = [
+                'id_mesin' => $this->input->post('id_mesin')[$key],
+            ];
+
+            $id_mesin[] = $this->input->post('id_mesin')[$key];
+        }
+
+        $array_id_mesin = array_count_values($id_mesin);
+        if(count($data_post) != count($array_id_mesin)) {
+            foreach($data_post as $key => $post) {
+                if($array_id_mesin[$post['id_mesin']] > 1) {
+                    echo json_encode([
+                        "statusCode"=>422,
+                        "message"=> "Duplikat memilih master mesin pada baris ke " . $key+1
+                    ]); die();
+                }
+            }
+        }
+
         $kode_dept = $this->input->post('kode_dept');
         $kode_ddi_mtr = $this->input->post('kode_ddi_mtr');
         $datepicker = $this->input->post('datepicker');

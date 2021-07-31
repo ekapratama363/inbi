@@ -174,7 +174,7 @@
                             }
                             else if(dataResult.statusCode!=200)
                             {
-                               alert("Error occured !");
+                               alert(dataResult.message);
                             }
                         }
                     });
