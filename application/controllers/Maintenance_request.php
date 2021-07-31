@@ -118,12 +118,32 @@ class Maintenance_request extends CI_Controller
         #simpan head
         if($this->input->post('type')==1)
 		{
-	        $this->db->query("INSERT INTO mtr_head SET 
-					            no_bukti_mtr = '$no_bukti_mtr',
-					            kode_ddi_mtr = '$kode_ddi_mtr',
-					            kode_dept = '$kode_dept',
-					            tgl_req = '$datepicker'
-	        				");
+
+            $this->db->insert('mtr_head', [
+                'no_bukti_mtr' => $no_bukti_mtr,
+                'kode_ddi_mtr' => $kode_ddi_mtr,
+                'kode_dept' => $kode_dept,
+                'tgl_req' => $datepicker,
+            ]);
+            $insert_mtr_head = $this->db->insert_id();
+            
+            foreach(array_keys($this->input->post('no')) as $key) {
+                $data_insert[] = [
+                    'id_mtr_head' => $insert_mtr_head,
+                    'id_mesin'    => $this->input->post('id_mesin')[$key],
+                    'date'        => $this->input->post('date')[$key],
+                    'remarks2'    => $this->input->post('remarks2')[$key],
+                ];
+            }
+
+            $insert_mtr_detail = $this->Maintenance_request_detail_model->insert_batch($data_insert);
+
+	        // $mtr_head = $this->db->query("INSERT INTO mtr_head SET 
+			// 		            no_bukti_mtr = '$no_bukti_mtr',
+			// 		            kode_ddi_mtr = '$kode_ddi_mtr',
+			// 		            kode_dept = '$kode_dept',
+			// 		            tgl_req = '$datepicker'
+	        // 				");
 
         	echo json_encode(array(
 				"statusCode"=>200,
