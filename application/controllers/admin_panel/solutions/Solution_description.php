@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class About extends CI_Controller {
+class Solution_description extends CI_Controller {
 
     public function __construct()
     {
@@ -14,17 +14,17 @@ class About extends CI_Controller {
 
 		$this->load->helper('upload_file');
 
-        $this->load->model('About_model');
+        $this->load->model('Solution_description_model');
     }
 
     public function index($id="")
     {
-        $data['filePage'] = 'admin_panel/pages/about/create';
+        $data['filePage'] = 'admin_panel/pages/solution_description/create';
 
-        $get_about     = $this->About_model->get_about();
-        $about_id      = isset($get_about->id) ? $get_about->id : null;
-        $about         = $this->About_model->get_about_by_id($about_id);
-        $data['value'] = $about;
+        $get_solution_description     = $this->Solution_description_model->get_solution_description();
+        $solution_description_id      = isset($get_solution_description->id) ? $get_solution_description->id : null;
+        $solution_description         = $this->Solution_description_model->get_solution_description_by_id($solution_description_id);
+        $data['value'] = $solution_description;
 
         $this->load->view('admin_panel/app', $data);
     }
@@ -35,25 +35,23 @@ class About extends CI_Controller {
         $id = $this->input->post('id');
 
         $this->form_validation->set_rules('title', 'title', 'required');
-        $this->form_validation->set_rules('sub_title', 'sub title', 'required');
         $this->form_validation->set_rules('description', 'description', 'required');
 
         if ($this->form_validation->run() == FALSE){
-            $data['filePage'] = 'admin_panel/pages/about/create';
+            $data['filePage'] = 'admin_panel/pages/solution_description/create';
             
             $this->load->view('admin_panel/app', $data);
         } else {
             $data = [
                 'title' => $this->input->post('title'),
-                'sub_title' => $this->input->post('sub_title'),
                 'description' => $this->input->post('description'),
             ];
 
-            if($_FILES['image_header']['name'] || $_FILES['image_footer']['name']) {
+            if($_FILES['image']['name']) {
                 $message = "";
                 foreach($_FILES as $key => $file) {
                     if($file['name']) {
-                        $upload = upload_file($file, 'about');
+                        $upload = upload_file($file, 'solution_description');
                         if($upload == $file['name']) {
                             $image  = [$key => $upload];
                             $data = array_merge($data, $image);
@@ -64,7 +62,7 @@ class About extends CI_Controller {
                 }
             } 
 
-            $save = $this->About_model->update_about_by_id($id, $data);
+            $save = $this->Solution_description_model->update_solution_description_by_id($id, $data);
      
             if($message) {
                 $this->session->set_flashdata('failed', $message);
@@ -72,7 +70,7 @@ class About extends CI_Controller {
                 $this->session->set_flashdata('success', 'save data successfully');
             }
 
-            redirect(base_url("admin_panel/abouts/about"));
+            redirect(base_url("admin_panel/solutions/solution_description"));
         }
     }
 

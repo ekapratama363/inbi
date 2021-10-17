@@ -84,7 +84,7 @@ class Contact_message extends CI_Controller {
 
                 $posts[$key]->no = $no;
                 $posts[$key]->check_box = $check_box;
-                $posts[$key]->message = '<p data-toggle="tooltip" data-placement="bottom" title="'.$value->message.'">' . substr($value->message, 0, 20) . '...</p>';
+                // $posts[$key]->message = '<p data-toggle="tooltip" data-placement="bottom" title="'.$value->message.'">' . substr($value->message, 0, 20) . '...</p>';
                 
                 $posts[$key]->action = $action;
             }
