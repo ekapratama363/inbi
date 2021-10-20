@@ -91,13 +91,13 @@
             <div class="input-group mb-3">
                 <input class="form-control" name="missions[]" type="text" value="">
                 <div class="input-group-append">
-                  <button type="button" class="removeVission btn btn-danger"><i class="fa fa-times"></i></button>
+                  <button type="button" class="removeMission btn btn-danger"><i class="fa fa-times"></i></button>
                 </div>
             </div>`
         );
     });
 
-    $(document).on('click', '.removeVission', function() {
+    $(document).on('click', '.removeMission', function() {
       $(this).parent().parent('div').remove(); x--;
     });
   });

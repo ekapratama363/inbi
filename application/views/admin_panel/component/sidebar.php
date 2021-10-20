@@ -12,6 +12,47 @@
             <ul class="metismenu list-unstyled" id="side-menu">
                 <li class="menu-title">Main</li>
 
+                <li class="<?php if($seg2 == 'homes') echo 'mm-active'; ?>">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="mdi mdi-buffer"></i>
+                        <span>Homes</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/homes/slider" 
+                                class="<?php if($seg3 == 'slider') echo 'active'; ?>">Slider</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/homes/profile" 
+                                class="<?php if($seg3 == 'profile') echo 'active'; ?>">Profile</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/homes/why_choose_us" 
+                                class="<?php if($seg3 == 'why_choose_us') echo 'active'; ?>">Why Choose Us</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/homes/technology" 
+                                class="<?php if($seg3 == 'technology') echo 'active'; ?>">Technology</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/homes/what_we_do" 
+                                class="<?php if($seg3 == 'what_we_do') echo 'active'; ?>">What We Do</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/homes/technology_item" 
+                                class="<?php if($seg3 == 'technology_item') echo 'active'; ?>">Technology Item</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/homes/quality" 
+                                class="<?php if($seg3 == 'quality') echo 'active'; ?>">Quality</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/homes/made_of" 
+                                class="<?php if($seg3 == 'made_of') echo 'active'; ?>">Made Of</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="<?php if($seg2 == 'abouts') echo 'mm-active'; ?>">
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-buffer"></i>
