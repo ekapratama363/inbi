@@ -29,15 +29,3 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
-uploads/about/*
-uploads/article/*
-uploads/certificate/*
-uploads/customer/*
-uploads/policy/*
-uploads/product/*
-uploads/product_category/*
-uploads/product_description/*
-uploads/raw_material/*
-
-/application/views/lexa.django.themesbrand.com
-/application/views/lexa.django.themesbrand.com.zip
