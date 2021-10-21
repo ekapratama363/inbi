@@ -15,6 +15,11 @@ class About extends CI_Controller {
 		$this->load->helper('upload_file');
 
         $this->load->model('About_model');
+        
+		if($this->session->userdata('is_login') != "true"){
+			redirect(base_url("admin_panel/auth"));
+        }
+        
     }
 
     public function index($id="")

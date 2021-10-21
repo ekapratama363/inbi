@@ -15,6 +15,10 @@ class Solution_description extends CI_Controller {
 		$this->load->helper('upload_file');
 
         $this->load->model('Solution_description_model');
+        
+		if($this->session->userdata('is_login') != "true"){
+			redirect(base_url("admin_panel/auth"));
+        }
     }
 
     public function index($id="")

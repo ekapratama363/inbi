@@ -13,6 +13,10 @@ class Contact_message extends CI_Controller {
         $this->load->library('session');
 
         $this->load->model('Contact_message_model');
+        
+		if($this->session->userdata('is_login') != "true"){
+			redirect(base_url("admin_panel/auth"));
+        }
     }
     
     public function index()

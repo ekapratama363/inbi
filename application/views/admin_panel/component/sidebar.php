@@ -14,7 +14,7 @@
 
                 <li class="<?php if($seg2 == 'homes') echo 'mm-active'; ?>">
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-buffer"></i>
+                        <i class="mdi mdi-home"></i>
                         <span>Homes</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -55,7 +55,7 @@
 
                 <li class="<?php if($seg2 == 'abouts') echo 'mm-active'; ?>">
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-buffer"></i>
+                        <i class="mdi mdi-account"></i>
                         <span>Abouts</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -84,7 +84,7 @@
 
                 <li class="<?php if($seg2 == 'products') echo 'mm-active'; ?>">
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-buffer"></i>
+                        <i class="mdi mdi-folder-multiple"></i>
                         <span>Products</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -109,7 +109,7 @@
 
                 <li class="<?php if($seg2 == 'solutions') echo 'mm-active'; ?>">
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
-                        <i class="mdi mdi-buffer"></i>
+                        <i class="mdi mdi-lightbulb-on-outline"></i>
                         <span>Solutions</span>
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
@@ -141,15 +141,22 @@
 
                 <li class="<?php if($seg2 == 'article') echo 'mm-active'; ?>">
                     <a href="<?php echo base_url(); ?>admin_panel/article" class=" waves-effect">
-                        <i class="mdi mdi-calendar-check"></i>
+                        <i class="mdi mdi-lead-pencil"></i>
                         <span>Article</span>
                     </a>
                 </li>
 
                 <li class="<?php if($seg2 == 'contact_message') echo 'mm-active'; ?>">
                     <a href="<?php echo base_url(); ?>admin_panel/contact_message" class=" waves-effect">
-                        <i class="mdi mdi-calendar-check"></i>
+                        <i class="mdi mdi-message-reply"></i>
                         <span>Contact Message</span>
+                    </a>
+                </li>
+
+                <li class="<?php if($seg2 == 'company_profile') echo 'mm-active'; ?>">
+                    <a href="<?php echo base_url(); ?>admin_panel/company_profile" class=" waves-effect">
+                        <i class="mdi mdi-information-variant"></i>
+                        <span>Company Profile</span>
                     </a>
                 </li>
             </ul>

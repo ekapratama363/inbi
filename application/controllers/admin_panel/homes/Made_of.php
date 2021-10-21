@@ -13,6 +13,10 @@ class Made_of extends CI_Controller {
         $this->load->library('session');
 
         $this->load->model('Made_of_model');
+        
+		if($this->session->userdata('is_login') != "true"){
+			redirect(base_url("admin_panel/auth"));
+        }
     }
     
     public function index()

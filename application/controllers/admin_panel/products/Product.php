@@ -15,6 +15,10 @@ class Product extends CI_Controller {
         $this->load->model('Product_model');
         $this->load->model('Product_category_model');
         $this->load->model('Product_category_detail_model');
+        
+		if($this->session->userdata('is_login') != "true"){
+			redirect(base_url("admin_panel/auth"));
+        }
 
     }
 

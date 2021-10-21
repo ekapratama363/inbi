@@ -13,6 +13,10 @@ class Technology_item extends CI_Controller {
         $this->load->library('session');
 
         $this->load->model('Technology_item_model');
+        
+		if($this->session->userdata('is_login') != "true"){
+			redirect(base_url("admin_panel/auth"));
+        }
     }
     
     public function index()

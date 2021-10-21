@@ -15,6 +15,10 @@ class What_we_do extends CI_Controller {
 		$this->load->helper('upload_file');
 
         $this->load->model('What_we_do_model');
+        
+		if($this->session->userdata('is_login') != "true"){
+			redirect(base_url("admin_panel/auth"));
+        }
     }
 
     public function index($id="")

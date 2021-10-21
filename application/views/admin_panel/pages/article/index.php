@@ -42,9 +42,6 @@
     </form>
   </div>
 </div>
-
-<script src="<?php echo base_url(); ?>assets/vendors/jquery/jquery.min.js"></script>
-
 <!-- Data Table -->
 <script>
     $(document).ready(function(){
