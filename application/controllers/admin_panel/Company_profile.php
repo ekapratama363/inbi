@@ -28,13 +28,6 @@ class Company_profile extends CI_Controller {
         $get_company_profile  = $this->Company_profile_model->get_company_profile();
         $company_profile_id   = isset($get_company_profile->id) ? $get_company_profile->id : null;
         $company_profile      = $this->Company_profile_model->get_company_profile_by_id($company_profile_id);
-
-        if($company_profile) {
-            $social_medias = json_decode($company_profile->social_medias);
-            $company_profile->type = $social_medias->type;
-            $company_profile->link = $social_medias->link;
-        }
-
         $data['value']        = $company_profile;
 
         $this->load->view('admin_panel/app', $data);

@@ -180,7 +180,7 @@
     });
 
     $(document).on('click', '.removeSocialMedia', function() {
-      $(this).parent().parent('div').remove(); x--;
+      $(this).parent().parent().parent('div').remove(); x--;
     });
   });
 </script>

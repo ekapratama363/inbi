@@ -15,8 +15,16 @@ class Company_profile_model extends CI_Model
                 ->from('company_profiles')
                 ->get();
 
-        return $query->row_object();
+        $query = $query->row_object();
 
+
+        if($query) {
+            $social_medias = json_decode($query->social_medias);
+            $query->type = $social_medias->type;
+            $query->link = $social_medias->link;
+        }
+
+        return $query;
     }
 
     public function set_profile($data) 
@@ -36,7 +44,16 @@ class Company_profile_model extends CI_Model
                 ->where('company_profiles.id', $id)
                 ->get();
 
-        return $query->row_object();
+        $query = $query->row_object();
+
+
+        if($query) {
+            $social_medias = json_decode($query->social_medias);
+            $query->type = $social_medias->type;
+            $query->link = $social_medias->link;
+        }
+
+        return $query;
     }
 
     public function update_company_profile_by_id($id, $data)
