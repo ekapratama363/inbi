@@ -79,7 +79,7 @@ class Technology_item extends CI_Controller {
 
                 // redirect(base_url("admin_panel/homes/technology_item/create"));
 
-            } elseif ($ext != "jpg" && $ext != "png" && $ext != "jpeg" && $ext != "gif") {
+            } elseif ($ext != "jpg" && $ext != "png" && $ext != "jpeg" && $ext != "gif" && $ext != "svg") {
                 
                 $message = 'The filetype you are attempting to upload is not allowed.';
 

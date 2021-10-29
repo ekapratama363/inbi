@@ -25,6 +25,7 @@ class About extends CI_Controller {
         $data['filePage'] = 'frontend/pages/about/index';
 
         $data['company_profile'] = $this->Company_profile_model->get_company_profile();
+        $data['about'] = $this->About_model->get_about();
         $data['customers'] = $this->Customer_model->get_customer();
         $data['vision_mission_image'] = $this->Vision_mission_image_model->get_vision_mission();
         $mission = $this->Mission_model->get_mission();

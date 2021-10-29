@@ -44,7 +44,7 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <div class="mb-3">
                 <label for="mission">Mission</label>
 
@@ -71,7 +71,7 @@
                 <div class="inputMission"></div>
 
               </div>
-            </div>
+            </div> -->
 
             <button type="submit" class="btn btn-primary mr-2">Submit</button>
           </div>

@@ -25,11 +25,11 @@
         		<div class="testimonials_s_slider">
         			<div class="item">
         				<div class="testi_s_inner">
-        					<img src="<?php echo base_url(); ?>assets/frontend/images/pancanature.png" alt="" style="width: 100px;">
-        					<h4>PT. Panca Nature Indonesia</h4>
-        					<h5>Produser Natural</h5>
-        					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
-        					<img src="<?php echo base_url(); ?>assets/frontend/img/signature.png" alt="" style="width: 200px;">
+        					<img src="<?php echo base_url(); ?>uploads/about/<?php echo $about->image_header; ?>" alt="<?php echo $about->image_header; ?>" style="width: 100px;">
+        					<h4><?php echo $about->title; ?></h4>
+        					<h5><?php echo $about->sub_title; ?></h5>
+                            <div><?php echo $about->description; ?></div>
+        					<img src="<?php echo base_url(); ?>uploads/about/<?php echo $about->image_footer; ?>" alt="<?php echo $about->image_footer; ?>" style="width: 200px;">
         				</div>
         			</div>
         		</div>
