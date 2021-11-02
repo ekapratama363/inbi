@@ -313,11 +313,6 @@ class Product_description extends CI_Controller {
                         style='margin-right: 5px;' title='Edit'>
                         <i class='fa fa-edit'></i>
                     </a>
-
-                    <a onclick='".'return confirm("'."delete this item?".'")'."'
-                        href='".base_url()."admin_panel/products/product_description/delete/".$value->id."' class='btn btn-danger delete-list'>
-                        <i class='fa fa-trash'></i>
-                    </a>
                 ";
 
                 $posts[$key]->no = $no;

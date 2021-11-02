@@ -6,9 +6,9 @@
                 <div class="grid-margin">
                     <!-- for type submit delete or print -->
                     <input type="hidden" name="type" id="type">
-                    <a href="<?php echo base_url() . $this->uri->segment(1) .'/'. $this->uri->segment(2) . '/' . $this->uri->segment(3) ; ?>/create" 
+                    <!-- <a href="<?php echo base_url() . $this->uri->segment(1) .'/'. $this->uri->segment(2) . '/' . $this->uri->segment(3) ; ?>/create" 
                     class="btn btn-primary" title="Create">
-                        <i class="fa fa-plus"></i></a>
+                        <i class="fa fa-plus"></i></a> -->
                 </div>
             </form>
         </div>
