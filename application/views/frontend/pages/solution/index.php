@@ -11,13 +11,6 @@
     </div>
 </section>
 
-<!-- <div id="ftco-loader" class="show fullscreen preloader d-flex align-items-center justify-content-center">
-    <div class="preloader-circle"></div>
-    <div class="preloader-img">
-        <img src="images/pni_logo.png" alt="">
-    </div>
-</div> -->
-
 <!-- Start about Area -->
     <section class="section-gap info-area" id="about">
         <div class="container">

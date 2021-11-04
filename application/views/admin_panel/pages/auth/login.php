@@ -29,14 +29,14 @@
 
                                 <h3 class="text-center mt-5 mb-4">
                                     <a href="index.html" class="d-block auth-logo">
-                                        <img src="<?php echo base_url(); ?>assets/images/logo-dark.png" alt="" height="30" class="auth-logo-dark">
-                                        <img src="<?php echo base_url(); ?>assets/images/logo-light.png" alt="" height="30" class="auth-logo-light">
+                                        <img src="<?php echo base_url(); ?>assets/frontend/images/pancanature.png" alt="pancanature" height="100" class="auth-logo-dark">
+                                        <img src="<?php echo base_url(); ?>assets/frontend/images/pancanature.png" alt="pancanature" height="100" class="auth-logo-light">
                                     </a>
                                 </h3>
 
                                 <div class="p-3">
                                     <h4 class="text-muted font-size-18 mb-1 text-center">Welcome Back !</h4>
-                                    <p class="text-muted text-center">Sign in to continue to Lexa.</p>
+                                    <p class="text-muted text-center">Log in to continue.</p>
 
                                     <?php if(validation_errors()) { ?>
                                         <div class="alert alert-danger alert-dismissible">
@@ -83,8 +83,8 @@
                             </div>
                         </div>
                         <div class="mt-5 text-center">
-                            <p>Don't have an account ? <a href="pages-register.html" class="text-primary"> Signup Now </a></p>
-                            © <script>document.write(new Date().getFullYear())</script> Lexa <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand.</span>
+                            <!-- <p>Don't have an account ? <a href="pages-register.html" class="text-primary"> Signup Now </a></p> -->
+                            © <?php echo date('Y') ?> Lexa <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand.</span>
                         </div>
                     </div>
                 </div>

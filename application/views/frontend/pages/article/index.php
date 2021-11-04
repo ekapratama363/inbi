@@ -10,13 +10,6 @@
                 </div>
             </div>
         </section>
-        
-        <!-- <div id="ftco-loader" class="show fullscreen preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-circle"></div>
-            <div class="preloader-img">
-                <img src="images/pni_logo.png" alt="">
-            </div>
-        </div> -->
 
         <section class="ftco-section">
             <div class="container">
@@ -26,9 +19,9 @@
                     <div class="col-md-4 d-flex ftco-animate">
                         <div class="blog-entry justify-content-end">
                             <div class="text">
-                                <a href="blog-single.html" class="block-20 img" style="background-image: url(<?php echo base_url(); ?>uploads/article/<?php echo $article->image ?>);"></a>
+                                <a href="<?php echo base_url() ?>article/page/<?php echo $article->id ?>" class="block-20 img" style="background-image: url(<?php echo base_url(); ?>uploads/article/<?php echo $article->image ?>);"></a>
                                 <h3 class="heading">
-                                    <a href="blog-single.html"><?php echo $article->title ?></a>
+                                    <a href="<?php echo base_url() ?>article/page/<?php echo $article->id ?>"><?php echo $article->title ?></a>
                                 </h3>
                                 <p><?php echo $article->description ?></p>
                         

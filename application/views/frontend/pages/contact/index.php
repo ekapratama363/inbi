@@ -11,13 +11,6 @@
     </div>
 </section>
 
-<!-- <div id="ftco-loader" class="show fullscreen preloader d-flex align-items-center justify-content-center">
-    <div class="preloader-circle"></div>
-    <div class="preloader-img">
-        <img src="images/pni_logo.png" alt="">
-    </div>
-</div> -->
-
 <section class="ftco-section contact-section">
     <div class="container">
     <div class="row d-flex mb-5 contact-info justify-content-center">

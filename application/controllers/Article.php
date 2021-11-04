@@ -38,4 +38,11 @@ class Article extends CI_Controller {
         $this->load->view('frontend/app', $data);
     }
 
+    public function page($id) 
+    {
+        $data['company_profile'] = $this->Company_profile_model->get_company_profile();
+        $data['filePage'] = 'frontend/pages/article/page';
+        $this->load->view('frontend/app', $data);
+    }
+
 }

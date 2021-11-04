@@ -63,6 +63,13 @@
             </div>
         </nav>
 
+        <!-- <div id="ftco-loader" class="show fullscreen preloader d-flex align-items-center justify-content-center">
+            <div class="preloader-circle"></div>
+            <div class="preloader-img">
+                <img src="images/pni_logo.png" alt="">
+            </div>
+        </div> -->
+
         <!-- Content -->
         <?php $this->load->view("{$filePage}") ?>
         <!-- End Content -->

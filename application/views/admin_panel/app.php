@@ -6,26 +6,26 @@
 <head>
 
         <meta charset="utf-8" />
-        <title>Dashboard | Lexa - Admin & Dashboard Template</title>
+        <title>Admin | Pancanature</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
+        <meta content="Pancanature" name="Pancanature Indonesia" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="<?= base_url(); ?>assets/images/favicon.ico">
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/frontend/images/pancanature.png">
 
         <!-- Bootstrap Css -->
-        <link href="<?= base_url(); ?>assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet"/>
+        <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet"/>
         <!-- Icons Css -->
-        <link href="<?= base_url(); ?>assets/css/icons.min.css" rel="stylesheet"/>
+        <link href="<?php echo base_url(); ?>assets/css/icons.min.css" rel="stylesheet"/>
         <!-- App Css-->
-        <link href="<?= base_url(); ?>assets/css/app.min.css" id="app-style" rel="stylesheet"/>
-        <link href="<?= base_url(); ?>assets/libs/select2/css/select2.min.css" rel="stylesheet" >
+        <link href="<?php echo base_url(); ?>assets/css/app.min.css" id="app-style" rel="stylesheet"/>
+        <link href="<?php echo base_url(); ?>assets/libs/select2/css/select2.min.css" rel="stylesheet" >
 
         <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.min.css">
         
         <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
         <!-- JAVASCRIPT -->
-        <script src="<?= base_url(); ?>assets/libs/jquery/jquery.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/libs/jquery/jquery.min.js"></script>
 
     </head>
 
@@ -45,19 +45,19 @@
                         <div class="navbar-brand-box">
                             <a href="index.html" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="<?= base_url(); ?>assets/images/logo-sm.png" alt="" height="22">
+                                    <img src="<?php echo base_url(); ?>assets/images/logo-sm.png" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?= base_url(); ?>assets/images/logo-dark.png" alt="" height="17">
+                                    <img src="<?php echo base_url(); ?>assets/images/logo-dark.png" alt="" height="17">
                                 </span>
                             </a>
 
                             <a href="index.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="<?= base_url(); ?>assets/images/logo-sm.png" alt="" height="22">
+                                    <img src="<?php echo base_url(); ?>assets/images/logo-sm.png" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?= base_url(); ?>assets/images/logo-light.png" alt="" height="18">
+                                    <img src="<?php echo base_url(); ?>assets/images/logo-light.png" alt="" height="18">
                                 </span>
                             </a>
                         </div>
@@ -74,7 +74,7 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="<?= base_url(); ?>assets/images/users/user-4.jpg"
+                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/images/users/user-4.jpg"
                                     alt="Header Avatar">
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -149,14 +149,14 @@
 
 
         <!-- JAVASCRIPT -->
-        <script src="<?= base_url(); ?>assets/libs/select2/js/select2.min.js"></script>
-        <script src="<?= base_url(); ?>assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <script src="<?= base_url(); ?>assets/libs/metismenu/metisMenu.min.js"></script>
-        <script src="<?= base_url(); ?>assets/libs/simplebar/simplebar.min.js"></script>
-        <script src="<?= base_url(); ?>assets/libs/node-waves/waves.min.js"></script>
-        <script src="<?= base_url(); ?>assets/libs/jquery-sparkline/jquery.sparkline.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/libs/select2/js/select2.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/libs/metismenu/metisMenu.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/libs/simplebar/simplebar.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/libs/node-waves/waves.min.js"></script>
+        <script src="<?php echo base_url(); ?>assets/libs/jquery-sparkline/jquery.sparkline.min.js"></script>
 
-        <script src="<?= base_url(); ?>assets/js/app.js"></script>
+        <script src="<?php echo base_url(); ?>assets/js/app.js"></script>
 
         <script src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
         <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>

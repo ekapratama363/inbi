@@ -11,13 +11,6 @@
             </div>
         </div>
     </section>
-    
-    <!-- <div id="ftco-loader" class="show fullscreen preloader d-flex align-items-center justify-content-center">
-        <div class="preloader-circle"></div>
-        <div class="preloader-img">
-            <img src="images/pni_logo.png" alt="">
-        </div>
-    </div> -->
 
         <!--================Testimonial Seven Area =================-->
     <section class="testimonials_seven_area" id="team">
