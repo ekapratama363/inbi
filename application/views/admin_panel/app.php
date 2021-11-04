@@ -43,21 +43,21 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box">
-                            <a href="index.html" class="logo logo-dark">
+                            <a href="<?php echo base_url() ?>" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="<?php echo base_url(); ?>assets/images/logo-sm.png" alt="" height="22">
+                                    <img src="<?php echo base_url(); ?>assets/frontend/images/pni_logo.png" alt="pancanature" height="40">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/images/logo-dark.png" alt="" height="17">
+                                    <img src="<?php echo base_url(); ?>assets/frontend/img2/signature.png" alt="pancanature">
                                 </span>
                             </a>
 
-                            <a href="index.html" class="logo logo-light">
+                            <a href="<?php echo base_url() ?>" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="<?php echo base_url(); ?>assets/images/logo-sm.png" alt="" height="22">
+                                    <img src="<?php echo base_url(); ?>assets/frontend/images/pni_logo.png" alt="pancanature" height="40">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/images/logo-light.png" alt="" height="18">
+                                    <img src="<?php echo base_url(); ?>assets/frontend/img2/signature.png" alt="pancanature">
                                 </span>
                             </a>
                         </div>
@@ -74,7 +74,7 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/images/users/user-4.jpg"
+                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/frontend/images/pni_logo.png"
                                     alt="Header Avatar">
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -136,7 +136,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12">
-                                © <script>document.write(new Date().getFullYear())</script> Lexa <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand.</span>
+                                © <?php echo date('Y') ?> Lexa <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand.</span>
                             </div>
                         </div>
                     </div>
