@@ -46,9 +46,6 @@ class Article_model extends CI_Model
 
     public function get_ajax_list_article($data = NULL)
     {
-        // echo json_encode($data);
-        // die();
-
         $match = isset($data['search']) ? $data['search'] : '';
         
         $query = $this->db->select('*')
@@ -57,7 +54,10 @@ class Article_model extends CI_Model
                 ->order_by('id', isset($data['order']) ? 'desc' : 'asc');
                 
         if(isset($data['length']) && isset($data['start'])) {
-            $query = $query->limit($data['length'], $data['start']);
+
+            $start = $data['start'] == 1 ? 0 : $data['start'];
+
+            $query = $query->limit($data['length'], $start);
         }
 
         $query = $query->get('articles');
@@ -75,10 +75,6 @@ class Article_model extends CI_Model
                 ->get();
 
         return $query->row_object();
-
-        // $query = $this->db->get_where('articles', ['id' => $id]);
-
-        // return $query->row_object();
     }
 
     public function update_article_by_id($id, $data)
@@ -107,43 +103,26 @@ class Article_model extends CI_Model
         return $query->result_object();
     }
 
-    public function get_article($limit = NULL, $start = NULL, $category = NULL)
+    public function get_article($limit = NULL, $start = NULL, $q = NULL)
     {
         $query = $this->db
-                ->select('article.id, article.title, article.description, article.image,
-                    article_category.description as article_category_description, article_category.category,
-                    article_category.slug')
-                ->from('articles')
-                ->join('article_category', 'article_category.id = article.article_category_id', 'left')
-                // ->where('(article.title LIKE \'%'.$match.'%\' 
-                //             or article.description LIKE \'%'.$match.'%\'
-                //             or article_category.category LIKE \'%'.$match.'%\')')
-                ->where('article_category.slug', $category)
-                ->order_by('article.id', 'desc')
+                ->select('*')
+                ->where('(title LIKE \'%'.$q.'%\' 
+                            or description LIKE \'%'.$q.'%\')')
                 ->limit($limit, $start)
-                ->get();
+                ->get('articles');
         
         return $query->result_object();
     }
 
-    public function count_article($category = NULl)
+    public function count_article()
     {
         $query = $this->db
-                ->select('article.id, article.title, article.description, article.image,
-                    article_category.description as article_category_description, article_category.category')
+                ->select('*')
                 ->from('articles')
-                ->join('article_category', 'article_category.id = article.article_category_id', 'left')
-                // ->where('(article.title LIKE \'%'.$match.'%\' 
-                //             or article.description LIKE \'%'.$match.'%\'
-                //             or article_category.category LIKE \'%'.$match.'%\')')
-                ->where('article_category.category', $category)
-                ->order_by('article.id', 'desc')
-                // ->limit($limit, $start);
                 ->get();
 
         return $query->num_rows();
-
-		// return $this->db->get('articles')->num_rows();
 	}
 
     public function delete_article_by_array_id($id)
