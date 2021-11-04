@@ -23,7 +23,7 @@
           </div>
       <?php } ?>
 
-      <?php echo form_open_multipart($this->uri->segment(1) .'/'. $this->uri->segment(2) . '/update'); ?>
+      <?php echo form_open_multipart($this->uri->segment(1) .'/'. $this->uri->segment(2) .'/'. $this->uri->segment(3) . '/update'); ?>
       <!-- <form class="forms-sample"> -->
         <input type="hidden" name="id" value="<?php echo isset($value->id) ? $value->id : ''; ?>">
         <div class="row">

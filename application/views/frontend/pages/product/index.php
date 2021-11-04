@@ -65,10 +65,9 @@
 		<div class="row justify-content-center filters portfolio-filter">
 			<ul>
 				<li class="active" data-filter="*">All</li>
-				<li data-filter=".liquid">Liquid</li>
-				<li data-filter=".powder"> Powder</li>
-				<li data-filter=".scrub"> Scrub</li>
-				<li data-filter=".essential"> Essential Oil</li>
+				<?php foreach($products as $product) { ?>
+				<li data-filter=".<?php echo strtolower($product->category); ?>"><?php echo $product->category; ?></li>
+				<?php } ?>
 			</ul>
 		</div>
 
@@ -76,71 +75,30 @@
 			<div class="row portfolio-grid">
 				<div class="grid-sizer"></div>
 				<div class="row">
-					<div class="col-md-6 col-lg-4 mb-4 all liquid">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="images/img_1.jpg" alt="">
-							<div class="short_info">
-								<h4>Aloe Vera Concentrate</h4>
-								<p>Application : Cosmetic, Food, Beverage</p>
-								<p>Keterangan : </p>
-							</div>
-						</div>
-					</div>
 
-					<div class="col-md-6 col-lg-4 mb-4 all liquid">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="images/img_2.jpg" alt="">
-							<div class="short_info">
-								<h4>Aloe Vera Colorless</h4>
-								<p>Application : Cosmetic, Food, Beverage</p>
-								<p>Keterangan : </p>
-							</div>
-						</div>
-					</div>
+					<?php foreach($products as $product) { ?>
+						<?php if(count($product->prod_cat_details) > 0 ) { ?>
+							<?php foreach($product->prod_cat_details as $prod) { ?>
 
-					<div class="col-md-6 col-lg-4 mb-4 all liquid">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="images/img_3.jpg" alt="">
-							<div class="short_info">
-								<h4>Bidara Oil</h4>
-								<p>Application : Cosmetic, Food, Beverage</p>
-								<p>Keterangan : </p>
-							</div>
-						</div>
-					</div>
+								<div class="col-md-6 col-lg-4 mb-4 all <?php echo strtolower($product->category); ?>">
+									<div class="single_portfolio">
+										<img class="img-fluid w-100" src="<?php echo base_url() ?>uploads/product/<?php echo $prod->products->image ?>" alt="<?php echo $prod->products->image ?>">
+										<div class="short_info">
+											<h4><?php echo $prod->products->title ?></h4>
 
-					<div class="col-md-6 col-lg-4 mb-4 all scrub">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="images/img_4.jpg" alt="">
-							<div class="short_info">
-								<h4>Black Rice Scrub Mesh 20</h4>
-								<p>Application : Cosmetic, Food, Beverage</p>
-								<p>Keterangan : </p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-lg-4 mb-4 all scrub">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="images/img_5.jpg" alt="">
-							<div class="short_info">
-								<h4>Strawberry Scrub Mesh 20</h4>
-								<p>Application : Cosmetic, Food, Beverage</p>
-								<p>Keterangan : </p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-6 col-lg-4 mb-4 all powder">
-						<div class="single_portfolio">
-							<img class="img-fluid w-100" src="images/img_6.jpg" alt="">
-							<div class="short_info">
-								<h4>Pomegranate Dried Powder</h4>
-								<p>Application : Cosmetic, Food, Beverage</p>
-								<p>Keterangan : </p>
-							</div>
-						</div>
-					</div>
+											<p>
+												Categories: 
+												<?php foreach($prod->categories as $category) { ?>
+													<?php echo $category->category ?>,
+												<?php } ?>
+											</p>
+											<p>Description: <?php echo $prod->products->description ?></p>
+										</div>
+									</div>
+								</div>
+							<?php } ?>
+						<?php } ?>
+					<?php } ?>
 
 				</div>
 			</div>

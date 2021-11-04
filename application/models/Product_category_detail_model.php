@@ -27,7 +27,13 @@ class Product_category_detail_model extends CI_Model
 
     public function get_product_category_detail_by_product_id($product_id)
     {
-        $query = $this->db->get_where('product_category_details', ['product_id' => $product_id]);
+        $query = $this->db
+                ->select('*')
+                ->from('product_category_details')
+                ->join('product_categories', 'product_categories.id = product_category_details.product_category_id', 'left')
+                ->where('product_category_details.product_id', $product_id)
+                ->order_by('product_category_details.id', 'desc')
+                ->get();
 
         return $query->result_object();
     }
