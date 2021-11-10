@@ -31,14 +31,24 @@ class Contact extends CI_Controller {
         $this->form_validation->set_rules('subject', 'subject', 'required');
         $this->form_validation->set_rules('email', 'email', 'trim|required|valid_email');
         $this->form_validation->set_rules('message', 'message', 'required');
+        $this->form_validation->set_rules('g-recaptcha-response', 'reCAPTCHA', 'required');
+
+        $data['filePage'] = 'frontend/pages/contact/index';
+        $data['company_profile'] = $this->Company_profile_model->get_company_profile();
 
         if ($this->form_validation->run() == FALSE){
-            $data['filePage'] = 'frontend/pages/contact/index';
-
-            $data['company_profile'] = $this->Company_profile_model->get_company_profile();
-        
             $this->load->view('frontend/app', $data);
         } else {
+
+            $reCaptcha      = $this->input->post("g-recaptcha-response");
+            $secret         = getenv('RECAPTCHA_KEY');
+            $verifyResponse = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$reCaptcha");
+            $responseData   = json_decode($verifyResponse);
+
+            if(!$responseData->success) {
+                $this->session->set_flashdata('error', 'The reCaptcha is not valid');
+                redirect(base_url("contact"));
+            }
  
             $data = [
                 'name' => $this->input->post('name'),
@@ -54,6 +64,4 @@ class Contact extends CI_Controller {
             redirect(base_url("contact"));
         }
     }
-
-
 }

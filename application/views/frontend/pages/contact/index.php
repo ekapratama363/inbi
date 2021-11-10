@@ -44,7 +44,14 @@
         <?php if(validation_errors()) { ?>
             <div class="alert alert-warning alert-dismissible">
                 <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                <p class="text-white"><?php echo validation_errors(); ?></p>
+                <p class="text-black"><?php echo validation_errors(); ?></p>
+            </div>
+        <?php } ?>
+        
+        <?php if($this->session->flashdata('error') != NULL) { ?>
+            <div class="alert alert-warning alert-dismissible">
+                <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                <p class="text-black"><?php echo $this->session->flashdata('error') ?></p>
             </div>
         <?php } ?>
 
@@ -67,6 +74,10 @@
             </div>
             <div class="form-group">
                 <textarea cols="30" rows="7" name="message" class="form-control" placeholder="Message"><?php echo set_value('message'); ?></textarea>
+            </div>
+            <div class="form-group">
+                <div class="g-recaptcha" data-sitekey="6LfbHacbAAAAAEvCl6mIzk1K7rVYkAgreU0-kmnc" 
+                    data-theme="light"></div>
             </div>
             <div class="form-group">
                 <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">

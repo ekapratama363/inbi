@@ -168,6 +168,8 @@
         <script src="<?php echo base_url(); ?>assets/frontend/js/main.js"></script>
         <script src="<?php echo base_url(); ?>assets/frontend/js/main2.js"></script>
 
+        <script src='https://www.google.com/recaptcha/api.js' async defer ></script>
+
         <script>
             let carousels = jQuery('#kindergarten-carousel-img, #kindergarten-carousel-text');
             jQuery('.carousel-control-prev').on( 'click', function(){
