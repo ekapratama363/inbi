@@ -22,9 +22,8 @@
                             <th style="width: 5%">No</th>
                             <th>Title</th>
                             <th>Description</th>
-                            <th>Image</th>
                             <th>Image Title</th>
-                            <th>Image Caption</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -69,9 +68,8 @@
                 {"data": "no"},
                 {"data": "title"},
                 {"data": "description"},
-                {"data": "image"},
                 {"data": "image_title"},
-                {"data": "image_caption"},
+                {"data": "image"},
                 {"data": "action"},
             ],
             columnDefs : [

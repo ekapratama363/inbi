@@ -13,43 +13,79 @@
 	</div>
 </section>
 
-<div class="site-section" id="about-section">
+<!-- section -->
+<section class="layout_padding_2 padding-top_0 service_section">
 	<div class="container">
-		<div class="row align-items-lg-center">
-			<div class="col-md-8 mb-5 mb-lg-0 position-relative">
-				<img src="<?php echo base_url() ?>uploads/product_description/<?php echo $product_description[0]->image ?>" class="img-fluid" alt="Image" style="width: 600px;">
-				<div class="experience">
-					<span class="year"><?php echo $product_description[0]->image_title ?></span>
-					<span class="caption"><?php echo $product_description[0]->image_caption ?></span>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="full">
+				<div class="catergary_tab_bar">
+					<ul class="nav nav-tabs" role="tablist">
+						<li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#hair"> 
+							<span><span class="tab_icon"><img src="<?php echo base_url(); ?>uploads/product_description/<?php echo $product_description[0]->image_title ?>" alt="<?php echo $product_description[0]->image_title ?>" /></span> 
+							<span class="tab_head"><?php echo $product_description[0]->title ?></span></span> </a> </li>
+						<li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#make"> 
+							<span><span class="tab_icon"><img src="<?php echo base_url(); ?>uploads/product_description/<?php echo $product_description[1]->image_title ?>" alt="<?php echo $product_description[1]->image_title ?>" /></span> 
+							<span class="tab_head"><?php echo $product_description[1]->title ?></span></span></a></li>
+					</ul>
+					<!-- Tab panes -->
+					<div class="tab-content" style="margin-top: 50px;">
+						<div id="hair" class="tab-pane active">
+							<div class="service_inner">
+							<div class="row">
+								<div class="col-md-12">
+									<img class="img-responsive" src="<?php echo base_url(); ?>uploads/product_description/<?php echo $product_description[1]->image ?>" alt="<?php echo $product_description[0]->image ?>" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="full">
+										<div class="service_cont">
+										<h3><?php echo $product_description[0]->title ?></h3>
+										<p><?php echo $product_description[0]->description ?></p>
+										</div>
+									</div>
+									<!-- <div class="full">
+										<div class="center">
+										<a class="bt_main" href="make_appoinment.html">Make An Appoinment</a>
+										</div>
+									</div> -->
+								</div>
+							</div>
+							</div>
+						</div>
+						<div id="make" class="tab-pane fade">
+							<div class="service_inner">
+							<div class="row">
+								<div class="col-md-12">
+									<img class="img-responsive" src="<?php echo base_url(); ?>uploads/product_description/<?php echo $product_description[0]->image ?>" alt="<?php echo $product_description[1]->image ?>" />
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="full">
+										<div class="service_cont">
+										<h3><?php echo $product_description[1]->title ?></h3>
+										<p><?php echo $product_description[1]->description ?></p>
+										</div>
+									</div>
+									<!-- <div class="full">
+										<div class="center">
+										<a class="bt_main" href="make_appoinment.html">Make An Appoinment</a>
+										</div>
+									</div> -->
+								</div>
+							</div>
+							</div>
+						</div>
+					</div>
 				</div>
-			</div>
-			<div class="col-md-4 ml-auto">
-				<h2 class="section-title mb-3" style="font-weight: bold;"><?php echo $product_description[0]->title ?></h2>
-				<p class="mb-4"><?php echo $product_description[0]->description ?></p>
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
-
-<div class="site-section" id="about-section">
-	<div class="container">
-		<div class="row align-items-lg-center">
-
-			<div class="col-md-4 ml-auto">
-				<h2 class="section-title mb-3" style="font-weight: bold;"><?php echo $product_description[1]->title ?></h2>
-				<p class="mb-4"><?php echo $product_description[1]->description ?></p>
-			</div>
-
-			<div class="col-md-8 mb-5 mb-lg-0 position-relative">
-				<img src="<?php echo base_url() ?>uploads/product_description/<?php echo $product_description[1]->image ?>" class="img-fluid" alt="Image" style="width: 600px;">
-				<div class="experience">
-					<span class="year"><?php echo $product_description[1]->image_title ?></span>
-					<span class="caption"><?php echo $product_description[1]->image_caption ?></span>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+</section>
+<!-- end section -->
 
 
 <!--================ Start Product Area =================-->

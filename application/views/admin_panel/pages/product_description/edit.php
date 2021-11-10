@@ -69,24 +69,33 @@
                 </div>
               </div>
             </div>
-
-            <div class="form-group">
-              <div class="mb-3">
-                <label for="image_title">Image Title</label>
-                <input type="text" class="form-control" id="image_title" name="image_title"
-                  value="<?php echo isset($value->image_title) ? $value->image_title : ''; ?>">
-              </div>
-            </div>
-
-            <div class="form-group">
-              <div class="mb-3">
-                <label for="image_caption">Image Caption</label>
-                <input type="text" class="form-control" id="image_caption" name="image_caption"
-                  value="<?php echo isset($value->image_caption) ? $value->image_caption : ''; ?>">
-              </div>
-            </div>
-
             <?php } ?>
+
+            <div class="form-group">
+              <div class="mb-3">
+                <label>Image Title</label>
+                <div class="input-group col-xs-12">
+                  <input type="file" name="image_title" id="image_title" class="form-control file-upload-info" placeholder="Upload Image">
+                  <!-- <span class="input-group-append">
+                    <button class="file-upload-browse btn btn-info" type="button">Upload</button>
+                  </span> -->
+                </div>
+              </div>
+            </div>
+
+            <input type="hidden" name="image_title_hidden" value="<?php echo isset($value->image_title) ? $value->image_title : ''; ?>">
+            <?php if(isset($value->image_title)) { ?>
+            <div class="form-group">
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="<?php echo base_url() . 'uploads/product_description/' . $value->image_title ; ?>" 
+                  alt="Card image cap">
+                <div class="card-body">
+                  <p class="card-text"><?php echo $value->image_title; ?></p>
+                </div>
+              </div>
+            </div>
+            <?php } ?>
+
             <button type="submit" class="btn btn-primary mr-2">Submit</button>
             <a href="<?php echo base_url() . $this->uri->segment(1) .'/'. $this->uri->segment(2) .'/'. $this->uri->segment(3); ?>/index"><button type="button" 
                 class="btn btn-light">Cancel</button></a>

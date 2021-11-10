@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['article/(:num)'] = 'article/index/$1';
+$route['login'] = 'admin_panel/auth/index';

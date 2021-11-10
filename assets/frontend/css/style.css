@@ -4,7 +4,7 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
-:root {
+ :root {
   --blue: #007bff;
   --indigo: #6610f2;
   --purple: #6f42c1;
@@ -11878,3 +11878,366 @@ div[class^="bg-dark"] .testimonial-grid-box:before {
   .experience .caption {
     color: #fff;
     text-transform: uppercase; }
+
+    .bg-overlay-1 {
+      position: relative;
+      background-image: url(../images/bg-overlay-1.png);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: bottom;
+    }
+
+    .bg-black {
+      background-color: #222222;
+      border-top: 1px solid #444;
+    }
+
+    .section-title.section-title-left {
+      max-width: 100%;
+    }
+    
+
+.section-title {
+  max-width: 900px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 60px;
+}
+
+.section-title small {
+  color: #FFCC00;
+  font-size: 20px;
+  font-weight: 400;
+  margin-bottom: 10px;
+  display: block;
+  font-family: 'Fredericka the Great', cursive;
+  line-height: 1;
+}
+
+.section-title h2 {
+  color: #222222;
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  line-height: 55px;
+  font-family: 'Abril Fatface', cursive;
+  letter-spacing: 1px;
+}
+
+.section-title h2 span {
+  color: #E7272D;
+}
+
+.section-title p {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 25px;
+}
+
+.section-title p a {
+  color: #E7272D;
+  border-bottom: 1px solid #E7272D;
+}
+
+.section-title.section-title-lg {
+  max-width: 820px;
+}
+
+.section-title.section-title-white small {
+  color: #fff;
+}
+
+.section-title.section-title-white h2 {
+  color: #fff;
+}
+
+.section-title.section-title-white p {
+  color: #fff;
+}
+
+.section-title.section-title-white p a {
+  color: #fff;
+}
+
+.section-title.section-title-left {
+  max-width: 100%;
+}
+
+.section-title.section-title-default small {
+  color: #E7272D;
+}
+
+
+.about-image-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  margin-left: -10px;
+  margin-right: -10px;
+}
+
+.about-image-grid-item {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.about-image-grid-inner {
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.pt-100 {
+  padding-top: 100px;
+}
+
+.pb-70 {
+  padding-bottom: 70px;
+}
+
+.color-white {
+  color: #fff !important;
+}
+
+.fluid-height {
+  height: calc(100% - 30px);
+  margin-bottom: 30px;
+}
+
+.mb-30 {
+  margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 767px) {
+  .about-image-grid {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+.layout_padding {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+.layout_padding_2 {
+  padding-top: 75px;
+  padding-bottom: 75px;
+  margin-top: 150px;
+}
+
+
+.bg_2_style {
+  background-image: url(../images/design_bg.png);
+  background-size: cover;
+}
+
+.white_fonts p,
+.white_fonts h1,
+.white_fonts h2,
+.white_fonts h3,
+.white_fonts h4,
+.white_fonts h5,
+.white_fonts h6,
+.white_fonts ul,
+.white_fonts ul li,
+.white_fonts ul li a,
+.white_fonts ul i,
+.white_fonts .post_info i,
+.white_fonts div,
+.white_fonts a.read_more {
+    color: #fff !important;
+}
+
+.white_fonts .read_more_bt {
+  font-size: 14px;
+  color: #fff;
+}
+
+/** catergary tab bar **/
+
+.catergary_tab_bar {
+  margin: -70px 0 0 0;
+  padding: 0;
+  position: relative;
+}
+
+.catergary_tab_bar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0px 3px 21px 0 rgba(0, 0, 0, .18);
+}
+
+.catergary_tab_bar ul li.nav-item {
+  width: 50%;
+  float: left;
+  border: none;
+  min-height: 170px;
+  position: relative;
+}
+
+.catergary_tab_bar ul li.nav-item a {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  float: left;
+  border-radius: 10px;
+  transition: ease all 0.5s;
+}
+
+.catergary_tab_bar ul li.nav-item a:after {
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  position: absolute;
+  bottom: -13px;
+  border-radius: 5px;
+  transform: rotate(45deg);
+  background: #4ca8b3;
+  transition: ease all 1s;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.catergary_tab_bar ul li.nav-item a.active::after {
+  background: #4ca8b3;
+  opacity: 1;
+  visibility: visible;
+}
+
+.catergary_tab_bar ul li.nav-item a.active {
+  background: #4ca8b3;
+}
+
+.catergary_tab_bar ul li.nav-item a span.tab_head {
+  float: left;
+  width: 100%;
+  margin: 10px 0 0 0;
+  font-size: 17px;
+  line-height: 18px;
+  margin-top: 10px;
+  color: #000;
+  font-weight: 500;
+}
+
+.catergary_tab_bar ul li.nav-item a.active span.tab_head {
+  color: #fff;
+}
+
+.catergary_tab_bar ul li.nav-item a span {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+
+.catergary_tab_bar .product_img {
+  box-shadow: 0 15px 25px -28px rgba(0, 0, 0, 1);
+}
+
+.catergary_tab_bar ul li.nav-item a span img {
+    height: 90px;
+}
+
+
+.service_inner img {
+  border: solid #eee 10px;
+}
+
+.bt_main {
+  color: #fff;
+  font-size: 14px;
+  min-width: 148px;
+  float: left;
+  text-align: center;
+  height: 48px;
+  border-radius: 5px;
+  line-height: 48px;
+  font-weight: 400;
+  border: none;
+  padding: 0 35px;
+}
+
+.bt_main:hover,
+.bt_main:focus {
+  color: #fff;
+}
+
+.reverse_bt.bt_main {
+  color: #fff;
+}
+
+.white_bt.bt_main {
+  background: #fff;
+}
+
+.white_bt.bt_main:hover,
+.white_bt.bt_main:focus {
+  color: #fff;
+}
+
+.service_cont {
+  width: 90%;
+  margin: 0 5%;
+  background: rgba(255, 255, 255, .95);
+  padding: 30px 45px;
+  margin-top: -120px;
+  box-shadow: 0 0 25px -20px #000;
+  border-bottom: solid #4ca8b3 5px;
+  margin-bottom: 35px;
+}
+
+.service_cont h3 {
+  font-size: 28px;
+  margin-bottom: 5px;
+  text-transform: none;
+  font-weight: 400;
+}
+
+.service_cont p.service_pr {
+  color: #4ca8b3;
+  font-weight: 500;
+  font-size: 17px;
+}
+
+.product_detail_page .tab_bar_section .tab-content {
+  float: left;
+  width: 100%;
+  padding: 35px 0;
+}
+
+.product_detail_page .tab_bar_section .tab-content h3 {
+  font-weight: 500;
+  text-transform: none;
+}
+
+.tab_bar_section .tab-content {
+  float: left;
+  width: 100%;
+}
+
+.padding-top_0 {
+  padding-top: 0 !important;
+}
+
+.full {
+  width: 100%;
+  float: left;
+  margin: 0;
+  padding: 0;
+}

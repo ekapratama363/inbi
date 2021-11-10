@@ -12,6 +12,8 @@ class Product_description extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->library('session');
 
+		$this->load->helper('upload_file');
+
         $this->load->model('Product_description_model');
         
 		if($this->session->userdata('is_login') != "true"){
@@ -152,8 +154,6 @@ class Product_description extends CI_Controller {
 
         $this->form_validation->set_rules('title', 'title', 'required');
         $this->form_validation->set_rules('description', 'description', 'required');
-        $this->form_validation->set_rules('image_title', 'image title', 'required');
-        $this->form_validation->set_rules('image_caption', 'image caption', 'required');
 
         if ($this->form_validation->run() == FALSE){
             $data['filePage'] = 'admin_panel/pages/product_description/edit';
@@ -161,88 +161,36 @@ class Product_description extends CI_Controller {
             $this->load->view('admin_panel/app', $data);
         } else {
 
-            $filename = $_FILES['image']['name'];
+            $data = [
+                'title' => $this->input->post('title'),
+                'description' => $this->input->post('description'),    
+                'image_title' => $this->input->post('image_title'),    
+            ];
 
-            if(!$filename) {
-
-                $data = [
-                    'title' => $this->input->post('title'),
-                    // 'slug' => $this->slug($this->input->post('title')),
-                    'description' => $this->input->post('description'),
-                    'image' => $this->input->post('image_hidden'), //$_FILES['image']['name'],
-                    'image_title' => $this->input->post('image_title'),    
-                    'image_caption' => $this->input->post('image_caption'),    
-                ];
-
-                $this->Product_description_model->update_product_description_by_id($id, $data);
-                $this->session->set_flashdata('success', 'update data successfully');
-
-                redirect(base_url("admin_panel/products/product_description/index"));
-
-            } else {
-
-                $ext = pathinfo($filename, PATHINFO_EXTENSION);
-
-                $target_dir = "uploads/product_description/";
-                $target_file = $target_dir . basename($filename);
-            
-                if ($ext != "jpg" && $ext != "png" && $ext != "jpeg" && $ext != "gif") {
-                    
-                    $message = 'The filetype you are attempting to upload is not allowed.';
-
-                    $this->session->set_flashdata('failed', $message);
-
-                    redirect(base_url("admin_panel/products/product_description/index"));
-                
-                } elseif ($_FILES["image"]["size"] > 2000000) {
-                    
-                    $message = 'Sorry, your file is too large.';
-
-                    $this->session->set_flashdata('failed', $message);
-
-                    redirect(base_url("admin_panel/products/product_description/index"));
-
-                } else {
-
-                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-
-                        $data = [
-                            'title' => $this->input->post('title'),
-                            // 'slug' => $this->slug($this->input->post('title')),
-                            'description' => $this->input->post('description'),    
-                            // 'type' => $this->input->post('type'),    
-                            'image' => $_FILES['image']['name'],
-                            'image_title' => $this->input->post('image_title'),    
-                            'image_caption' => $this->input->post('image_caption'),    
-                        ];
-                        
-                        $this->Product_description_model->update_product_description_by_id($id, $data);
-
-                        $this->session->set_flashdata('success', 'save data successfully');
-        
-                        redirect(base_url("admin_panel/products/product_description/index"));
-
-                    } else {
-
-                        $message = 'Upload image failed';
-
-                        $this->session->set_flashdata('failed', $message);
-
-                        redirect(base_url("admin_panel/products/product_description/index"));
-
+            if($_FILES['image']['name'] || $_FILES['image_title']['name']) {
+                $message = "";
+                foreach($_FILES as $key => $file) {
+                    if($file['name']) {
+                        $upload = upload_file($file, 'product_description');
+                        if($upload == $file['name']) {
+                            $image  = [$key => $upload];
+                            $data = array_merge($data, $image);
+                        } else {
+                            $message = $upload;
+                        }
                     }
                 }
+            } 
+
+            $save = $this->Product_description_model->update_product_description_by_id($id, $data);
+     
+            if($message) {
+                $this->session->set_flashdata('failed', $message);
+            } else {
+                $this->session->set_flashdata('success', 'save data successfully');
             }
-            // $data = [
-            //     'title' => $this->input->post('title'),
-            //     'description' => $this->input->post('description'),
-            // ];
 
-            // $this->Product_description_model->update_product_description_by_id($id, $data);
-            // $this->session->set_flashdata('success', 'update data successfully');
-
-            // redirect(base_url("admin_panel/products/product_description/index"));
-
+            redirect(base_url("admin_panel/products/product_description/index"));
         }
     }
 
@@ -306,6 +254,7 @@ class Product_description extends CI_Controller {
                 $no++;
 
                 $image = "<img src='" . base_url() . "uploads/product_description/" . $value->image . "' width='50px' height='50px'>";
+                $image_title = "<img src='" . base_url() . "uploads/product_description/" . $value->image_title . "' width='50px' height='50px'>";
                 
                 $action = "
                     <a href='".base_url()."admin_panel/products/product_description/edit/".$value->id."' 
@@ -319,6 +268,7 @@ class Product_description extends CI_Controller {
                 $posts[$key]->description = '<p data-toggle="tooltip" data-placement="bottom" title="'.$value->description.'">' . substr($value->description, 0, 20) . '...</p>';
                 
                 $posts[$key]->image = $image;
+                $posts[$key]->image_title = $image_title;
                 $posts[$key]->action = $action;
             }
         }
