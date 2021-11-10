@@ -36,7 +36,7 @@
 
                             <?php foreach($recent_articles as $article) { ?>
                             <div class="block-21 mb-4 d-flex">
-                                <a class="blog-img mr-4" style="background-image: url(<?php echo base_url() ?>uploads/article/<?php echo $article->title ?>);"></a>
+                                <a class="blog-img mr-4" style="background-image: url(<?php echo base_url() ?>uploads/article/<?php echo $article->image ?>);"></a>
                                 <div class="text">
                                     <h3 class="heading"><a href="#"><?php echo $article->title ?></a></h3>
                                     <div class="meta">
