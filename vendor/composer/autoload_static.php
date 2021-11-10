@@ -29,6 +29,7 @@ class ComposerStaticInitd9f2e46b55ecfe94367d748ddeb3fc0d
         array (
             'Prophecy\\' => 9,
             'PhpOption\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'D' => 
         array (
@@ -64,6 +65,10 @@ class ComposerStaticInitd9f2e46b55ecfe94367d748ddeb3fc0d
         'PhpOption\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'Dotenv\\' => 
         array (
