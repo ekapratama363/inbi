@@ -136,7 +136,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12">
-                                © <?php echo date('Y') ?> Lexa <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand.</span>
+                                © <?php echo date('Y') ?> Pancanature <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> </span>
                             </div>
                         </div>
                     </div>

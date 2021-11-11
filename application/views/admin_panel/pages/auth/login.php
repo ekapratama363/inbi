@@ -3,12 +3,12 @@
 <head>
 
         <meta charset="utf-8" />
-        <title>Login | Lexa - Admin & Dashboard Template</title>
+        <title>Login | Pancanature</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/favicon.ico"> 
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/frontend/images/pancanature.png">
         
         <!-- Bootstrap Css -->
         <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
@@ -84,7 +84,7 @@
                         </div>
                         <div class="mt-5 text-center">
                             <!-- <p>Don't have an account ? <a href="pages-register.html" class="text-primary"> Signup Now </a></p> -->
-                            © <?php echo date('Y') ?> Lexa <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand.</span>
+                            © <?php echo date('Y') ?> Pancanature <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> </span>
                         </div>
                     </div>
                 </div>
