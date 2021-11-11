@@ -25,7 +25,8 @@ if (! function_exists('send_email')) {
             $mail->Username   = getenv('MAIL_USERNAME');            
             $mail->Password   = getenv('MAIL_PASSWORD');                         
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;            
-            $mail->Port       = getenv('MAIL_PORT');;                                    
+            $mail->Port       = getenv('MAIL_PORT');
+            $mail->SMTPDebug  = getenv('MAIL_SMTPDDEBUG');                                  
         
             //Recipients
             $mail->setFrom(getenv('MAIL_USERNAME'), getenv('MAIL_FROM_NAME'));
