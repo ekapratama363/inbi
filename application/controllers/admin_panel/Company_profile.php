@@ -61,8 +61,8 @@ class Company_profile extends CI_Controller {
                 'social_medias' => json_encode($social_medias),
             ];
 
+            $message = "";
             if($_FILES['logo']['name']) {
-                $message = "";
                 foreach($_FILES as $key => $file) {
                     if($file['name']) {
                         $upload = upload_file($file, 'company_profile');
