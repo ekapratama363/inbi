@@ -51,8 +51,8 @@ class Certificate_image extends CI_Controller {
                 'description' => $this->input->post('description'),
             ];
 
+            $message = "";
             if($_FILES['image']['name']) {
-                $message = "";
                 foreach($_FILES as $key => $file) {
                     if($file['name']) {
                         $upload = upload_file($file, 'certificate_image');

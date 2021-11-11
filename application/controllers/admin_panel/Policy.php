@@ -54,8 +54,8 @@ class Policy extends CI_Controller {
                 'description' => $this->input->post('description'),
             ];
 
+            $message = "";
             if($_FILES['image_header']['name'] || $_FILES['image_footer']['name']) {
-                $message = "";
                 foreach($_FILES as $key => $file) {
                     if($file['name']) {
                         $upload = upload_file($file, 'policy');
