@@ -4,8 +4,8 @@
             <div class="container">
                 <div class="row no-gutters slider-text js-fullheight align-items-center justify-content-center">
                     <div class="col-md-9 ftco-animate pb-5 text-center">
-                        <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url(); ?>">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Article </span></p>
-                         <h1 class="mb-3 bread">Article</h1>
+                        <p class="breadcrumbs"><span class="mr-2"><a href="<?php echo base_url(); ?>">Home <i class="ion-ios-arrow-forward"></i></a></span> <span>Blog </span></p>
+                         <h1 class="mb-3 bread">Blog</h1>
                     </div>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                                 <h3 class="heading">
                                     <a href="<?php echo base_url() ?>article/page/<?php echo $article->id ?>"><?php echo $article->title ?></a>
                                 </h3>
-                                <p><?php echo $article->description ?></p>
+                                <p><?php echo substr($article->description, 0, 50)."..." ?></p>
                         
                                 <div class="meta mb-3">
                                     <div><a><?php echo $article->created_at ?></a></div>
