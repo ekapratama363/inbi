@@ -19,7 +19,7 @@
 
       <?php if($this->session->flashdata('failed') != NULL) { ?>
           <div class="alert alert-danger alert-dismissible">
-              <p class="text-white"><?php echo $this->session->flashdata('failed') ?></p>
+              <p class="text-black"><?php echo $this->session->flashdata('failed') ?></p>
           </div>
       <?php } ?>
 

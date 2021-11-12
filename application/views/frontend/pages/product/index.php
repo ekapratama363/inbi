@@ -123,12 +123,11 @@
 											<h4><?php echo $prod->products->title ?></h4>
 
 											<p>
-												Categories: 
 												<?php foreach($prod->categories as $category) { ?>
 													<?php echo $category->category ?>,
 												<?php } ?>
 											</p>
-											<p>Description: <?php echo $prod->products->description ?></p>
+											<p><?php echo $prod->products->description ?></p>
 										</div>
 									</div>
 								</div>

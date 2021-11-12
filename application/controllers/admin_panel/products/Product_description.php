@@ -167,8 +167,8 @@ class Product_description extends CI_Controller {
                 'image_title' => $this->input->post('image_title'),    
             ];
 
+            $message = "";
             if($_FILES['image']['name'] || $_FILES['image_title']['name']) {
-                $message = "";
                 foreach($_FILES as $key => $file) {
                     if($file['name']) {
                         $upload = upload_file($file, 'product_description');
@@ -190,7 +190,7 @@ class Product_description extends CI_Controller {
                 $this->session->set_flashdata('success', 'save data successfully');
             }
 
-            redirect(base_url("admin_panel/products/product_description/index"));
+            redirect(base_url("admin_panel/products/product_description/edit/{$id}"));
         }
     }
 

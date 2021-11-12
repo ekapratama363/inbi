@@ -65,8 +65,15 @@
             <div class="form-group">
               <div class="mb-3">
                 <label for="phone">Phone</label>
-                <input type="text" class="form-control" id="phone" name="phone"
-                  value="<?php echo isset($value->phone) ? $value->phone : ''; ?>">
+
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text">62</span>
+                  </div>
+                  <input type="number" class="form-control" id="phone" name="phone"
+                    placeholder="89630158851"
+                    value="<?php echo isset($value->phone) ? $value->phone : ''; ?>">
+                </div>
               </div>
             </div>
             

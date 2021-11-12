@@ -54,7 +54,7 @@
                             <a href="<?php echo base_url(); ?>policy" class="nav-link">Policy</a></li>
                             
                         <li class="nav-item <?php if($this->uri->segment(1) == "article") echo 'active'; ?>">
-                            <a href="<?php echo base_url(); ?>article" class="nav-link">Article</a></li>
+                            <a href="<?php echo base_url(); ?>article" class="nav-link">Blog</a></li>
                             
                         <li class="nav-item <?php if($this->uri->segment(1) == "contact") echo 'active'; ?>">
                             <a href="<?php echo base_url(); ?>contact" class="nav-link">Contact</a></li>
@@ -102,7 +102,8 @@
                       <div class="block-23 mb-3">
                         <ul>
                           <li><span class="icon icon-map-marker"></span><span class="text"><?php echo $company_profile->address; ?></span></li>
-                          <li><a href="#"><span class="icon icon-phone"></span><span class="text"><?php echo $company_profile->phone; ?></span></a></li>
+                          <li><a href="<?php echo $_SERVER['REQUEST_SCHEME']; ?>://wa.me/62<?php echo $company_profile->phone ?>"
+                                target="_blank"><span class="icon icon-phone"></span><span class="text"><?php echo "+62 ".$company_profile->phone; ?></span></a></li>
                           <li><a href="#"><span class="icon icon-envelope pr-4"></span><span class="text"><?php echo $company_profile->email; ?></span></a></li>
                         </ul>
                       </div>

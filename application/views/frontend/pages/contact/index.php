@@ -26,7 +26,8 @@
             <div class="icon">
                 <span class="icon-mobile-phone"></span>
             </div>
-            <p><span>Phone:</span> <a href="tel://<?php echo $company_profile->phone ?>"><?php echo $company_profile->phone ?></a></p>
+            <p><span>Phone: </span> <a href="<?php echo $_SERVER['REQUEST_SCHEME']; ?>://wa.me/62<?php echo $company_profile->phone ?>"
+                    target="_blank"><?php echo "+62 ".$company_profile->phone ?></a></p>
             </div>
             <div class="col-md-4 text-center py-4">
             <div class="icon">
