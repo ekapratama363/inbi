@@ -39,14 +39,11 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <div class="mb-3">
                 <label>Image</label>
                 <div class="input-group col-xs-12">
                   <input type="file" name="image" id="image" class="form-control file-upload-info" placeholder="Upload Image">
-                  <!-- <span class="input-group-append">
-                    <button class="file-upload-browse btn btn-info" type="button">Upload</button>
-                  </span> -->
                 </div>
               </div>
             </div>
@@ -69,7 +66,7 @@
                 <label for="description">Description</label>
                 <textarea class="form-control" id="description" name="description" rows="2"><?php echo isset($value->description) ? $value->description : ''; ?></textarea>
               </div>
-            </div>
+            </div> -->
             <button type="submit" class="btn btn-primary mr-2">Submit</button>
             <a href="<?php echo base_url() . $this->uri->segment(1) .'/'. $this->uri->segment(2) .'/'. $this->uri->segment(3); ?>/index"><button type="button" 
                 class="btn btn-light">Cancel</button></a>

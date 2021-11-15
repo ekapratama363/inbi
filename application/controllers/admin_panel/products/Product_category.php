@@ -46,13 +46,13 @@ class Product_category extends CI_Controller {
     public function store()
     {
         $this->form_validation->set_rules('category', 'category', 'required');
-        $this->form_validation->set_rules('description', 'description', 'required');
+        // $this->form_validation->set_rules('description', 'description', 'required');
 
         if ($this->form_validation->run() == FALSE){
             $data['filePage'] = 'admin_panel/pages/product_category/create';
             $this->load->view('admin_panel/app', $data);
         } else {
-            $filename = $_FILES['image']['name'];
+            $filename = isset($_FILES['image']['name']) ? $_FILES['image']['name'] : "";
             $ext = pathinfo($filename, PATHINFO_EXTENSION);
 
             $target_dir = "uploads/product_category/";
@@ -63,7 +63,7 @@ class Product_category extends CI_Controller {
                 $data = [
                     'category' => $this->input->post('category'),
                     // 'slug' => $this->slug($this->input->post('category')),
-                    'description' => $this->input->post('description'),    
+                    'description' => "-",//$this->input->post('description'),    
                     'image'     => '',//$_FILES['image']['name'],
                 ];
                 
@@ -145,7 +145,7 @@ class Product_category extends CI_Controller {
         $id = $this->input->post('id');
 
         $this->form_validation->set_rules('category', 'category', 'required');
-        $this->form_validation->set_rules('description', 'description', 'required');
+        // $this->form_validation->set_rules('description', 'description', 'required');
 
         if ($this->form_validation->run() == FALSE){
             $data['filePage'] = 'admin_panel/pages/product_category/edit';

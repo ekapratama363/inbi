@@ -180,7 +180,13 @@ class Product_description extends CI_Controller {
                         }
                     }
                 }
-            } 
+            } else {
+                $image = [
+                    'image' => $this->input->post('image_hidden'),
+                    'image_title' => $this->input->post('image_title_hidden')
+                ];
+                $data = array_merge($data, $image);
+            }
 
             $save = $this->Product_description_model->update_product_description_by_id($id, $data);
      
