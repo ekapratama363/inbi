@@ -34,7 +34,9 @@
 							<div class="service_inner">
 							<div class="row">
 								<div class="col-md-12">
-									<img class="img-responsive" src="<?php echo base_url(); ?>uploads/product_description/<?php echo $product_description[1]->image ?>" alt="<?php echo $product_description[0]->image ?>" />
+									<img class="img-responsive" 
+										src="<?php echo base_url(); ?>uploads/product_description/<?php echo $product_description[1]->image ?>" 
+										alt="<?php echo $product_description[0]->image ?>" />
 								</div>
 							</div>
 							<div class="row">
@@ -58,7 +60,9 @@
 							<div class="service_inner">
 							<div class="row">
 								<div class="col-md-12">
-									<img class="img-responsive" src="<?php echo base_url(); ?>uploads/product_description/<?php echo $product_description[0]->image ?>" alt="<?php echo $product_description[1]->image ?>" />
+									<img class="img-responsive" 
+										src="<?php echo base_url(); ?>uploads/product_description/<?php echo $product_description[1]->image ?>" 
+										alt="<?php echo $product_description[1]->image ?>" />
 								</div>
 							</div>
 							<div class="row">
