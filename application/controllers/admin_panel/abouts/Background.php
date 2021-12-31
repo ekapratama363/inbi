@@ -34,7 +34,7 @@ class Background extends CI_Controller {
         $this->load->view('admin_panel/app', $data);
     }
 
-    public function update($id="")
+    public function update_background($id="")
     {
 
         $id = $this->input->post('id');
