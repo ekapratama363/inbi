@@ -55,6 +55,10 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['article/(:num)'] = 'article/index/$1';
 $route['login'] = 'admin_panel/auth/index';
+$route['admin_panel/abouts/background/update_background'] = 'admin_panel/abouts/background/update_background';
+$route['admin_panel/solutions/background/update_background'] = 'admin_panel/solutions/background/update_background';
+$route['admin_panel/products/background/update_background'] = 'admin_panel/products/background/update_background';
+$route['admin_panel/abouts/background/update_background'] = 'admin_panel/abouts/background/update_background';
 $route['admin_panel/policy/background/update_background'] = 'admin_panel/policy/update_background';
 $route['admin_panel/article/background/update_background'] = 'admin_panel/article/update_background';
 $route['admin_panel/contact_message/background/update_background'] = 'admin_panel/contact_message/update_background';
