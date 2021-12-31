@@ -16,6 +16,7 @@ class Article extends CI_Controller {
         $this->load->helper('pagination_helper');
         $this->load->model('Article_model');
         $this->load->model('Company_profile_model');
+        $this->load->model('Background_model');
     }
 
     public function index($start = "")
@@ -30,6 +31,8 @@ class Article extends CI_Controller {
 
         $this->pagination->initialize($pagination);	
         $data['articles'] = $this->Article_model->get_article($config['per_page'], $start);
+        $data['background'] = $this->Background_model->get_background($this->uri->segment(1));
+
 
         $data['filePage'] = 'frontend/pages/article/index';
 

@@ -16,6 +16,7 @@ class Solution extends CI_Controller {
         $this->load->model('Certificate_model');
         $this->load->model('Certificate_image_model');
         $this->load->model('Solution_description_model');
+        $this->load->model('Background_model');
     }
 
     public function index()
@@ -26,6 +27,7 @@ class Solution extends CI_Controller {
         $data['certificate_image'] = $this->Certificate_image_model->get_certificate_image();
         $data['certificate'] = $this->Certificate_model->get_certificate();
         $data['company_profile'] = $this->Company_profile_model->get_company_profile();
+        $data['background'] = $this->Background_model->get_background($this->uri->segment(1));
 
         $this->load->view('frontend/app', $data);
     }

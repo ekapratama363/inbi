@@ -14,6 +14,7 @@ class Policy extends CI_Controller {
 
         $this->load->model('Policy_model');
         $this->load->model('Company_profile_model');
+        $this->load->model('Background_model');
     }
 
     public function index()
@@ -22,6 +23,7 @@ class Policy extends CI_Controller {
 
         $data['company_profile'] = $this->Company_profile_model->get_company_profile();
         $data['policy'] = $this->Policy_model->get_policy();
+        $data['background'] = $this->Background_model->get_background($this->uri->segment(1));
 
         $this->load->view('frontend/app', $data);
     }

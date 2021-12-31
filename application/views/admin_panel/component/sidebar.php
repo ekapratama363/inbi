@@ -60,6 +60,10 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/abouts/background" 
+                                class="<?php if($seg3 == 'background') echo 'active'; ?>">Background</a>
+                        </li>
+                        <li>
                             <a href="<?php echo base_url(); ?>admin_panel/abouts/about" 
                                 class="<?php if($seg3 == 'about') echo 'active'; ?>">About</a>
                         </li>
@@ -89,6 +93,10 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/products/background" 
+                                class="<?php if($seg3 == 'background') echo 'active'; ?>">Background</a>
+                        </li>
+                        <li>
                             <a href="<?php echo base_url(); ?>admin_panel/products/product_description" 
                                 class="<?php if($seg3 == 'product_description') echo 'active'; ?>">Product Description</a>
                         </li>
@@ -114,17 +122,17 @@
                     </a>
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/solutions/background" 
+                                class="<?php if($seg3 == 'background') echo 'active'; ?>">Background</a>
+                        </li>
+                        <li>
                             <a href="<?php echo base_url(); ?>admin_panel/solutions/solution_description" 
                                 class="<?php if($seg3 == 'solution_description') echo 'active'; ?>">Solution Description</a>
                         </li>
-                    </ul>
-                    <ul class="sub-menu" aria-expanded="false">
                         <li>
                             <a href="<?php echo base_url(); ?>admin_panel/solutions/certificate_image" 
                                 class="<?php if($seg3 == 'certificate_image') echo 'active'; ?>">Certificate Image</a>
                         </li>
-                    </ul>
-                    <ul class="sub-menu" aria-expanded="false">
                         <li>
                             <a href="<?php echo base_url(); ?>admin_panel/solutions/certificate" 
                                 class="<?php if($seg3 == 'certificate') echo 'active'; ?>">Certificate</a>
@@ -133,24 +141,54 @@
                 </li>
 
                 <li class="<?php if($seg2 == 'policy') echo 'mm-active'; ?>">
-                    <a href="<?php echo base_url(); ?>admin_panel/policy" class=" waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-calendar-check"></i>
                         <span>Policy</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/policy/background" 
+                                class="<?php if($seg3 == 'background') echo 'active'; ?>">Background</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/policy" 
+                                class="<?php if($seg3 == 'policy') echo 'active'; ?>">Policy</a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="<?php if($seg2 == 'article') echo 'mm-active'; ?>">
-                    <a href="<?php echo base_url(); ?>admin_panel/article" class=" waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-lead-pencil"></i>
                         <span>Article</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/article/background" 
+                                class="<?php if($seg3 == 'background') echo 'active'; ?>">Background</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/article" 
+                                class="<?php if($seg3 == 'article') echo 'active'; ?>">Article</a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="<?php if($seg2 == 'contact_message') echo 'mm-active'; ?>">
-                    <a href="<?php echo base_url(); ?>admin_panel/contact_message" class=" waves-effect">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-message-reply"></i>
-                        <span>Contact Message</span>
+                        <span>Contact</span>
                     </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/contact_message/background" 
+                                class="<?php if($seg3 == 'background') echo 'active'; ?>">Background</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/contact_message" 
+                                class="<?php if($seg3 == 'contact_message') echo 'active'; ?>">Contact Message</a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="<?php if($seg2 == 'company_profile') echo 'mm-active'; ?>">

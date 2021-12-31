@@ -18,6 +18,7 @@ class About extends CI_Controller {
         $this->load->model('Vision_model');
         $this->load->model('Mission_model');
         $this->load->model('Vision_mission_image_model');
+        $this->load->model('Background_model');
     }
 
     public function index()
@@ -28,6 +29,9 @@ class About extends CI_Controller {
         $data['about'] = $this->About_model->get_about();
         $data['customers'] = $this->Customer_model->get_customer();
         $data['vision_mission_image'] = $this->Vision_mission_image_model->get_vision_mission();
+
+        $data['background'] = $this->Background_model->get_background($this->uri->segment(1));
+
         $mission = $this->Mission_model->get_mission();
         $vision  = $this->Vision_model->get_vision();
         

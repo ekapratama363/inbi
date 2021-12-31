@@ -18,6 +18,7 @@ class Product extends CI_Controller {
         $this->load->model('Product_category_model');
         $this->load->model('Product_model');
         $this->load->model('Product_category_detail_model');
+        $this->load->model('Background_model');
     }
 
     public function index()
@@ -27,6 +28,8 @@ class Product extends CI_Controller {
         $data['company_profile'] = $this->Company_profile_model->get_company_profile();
         $data['product_description'] = $this->Product_description_model->get_product_description();
         $data['raw_material'] = $this->Raw_material_model->get_raw_material();
+
+        $data['background'] = $this->Background_model->get_background($this->uri->segment(1));
 
         $product_categories = $this->Product_category_model->get_ajax_list_product_category();
         

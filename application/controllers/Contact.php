@@ -16,6 +16,7 @@ class Contact extends CI_Controller {
 
         $this->load->model('Company_profile_model');
         $this->load->model('Contact_message_model');
+        $this->load->model('Background_model');
     }
 
     public function index()
@@ -23,6 +24,7 @@ class Contact extends CI_Controller {
         $data['filePage'] = 'frontend/pages/contact/index';
 
         $data['company_profile'] = $this->Company_profile_model->get_company_profile();
+        $data['background'] = $this->Background_model->get_background($this->uri->segment(1));
 
         $this->load->view('frontend/app', $data);
     }
