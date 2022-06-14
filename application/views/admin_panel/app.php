@@ -6,12 +6,12 @@
 <head>
 
         <meta charset="utf-8" />
-        <title>Admin | Pancanature</title>
+        <title>Admin | Inbi</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta content="Pancanature" name="Pancanature Indonesia" />
+        <meta content="Inbi" name="Inbi Indonesia" />
         <meta content="Themesbrand" name="author" />
         <!-- App favicon -->
-        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/frontend/images/pancanature.png">
+        <link rel="shortcut icon" href="<?php echo base_url(); ?>assets/images/fav-icon.png">
 
         <!-- Bootstrap Css -->
         <link href="<?php echo base_url(); ?>assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet"/>
@@ -45,19 +45,19 @@
                         <div class="navbar-brand-box">
                             <a href="<?php echo base_url() ?>" class="logo logo-dark">
                                 <span class="logo-sm">
-                                    <img src="<?php echo base_url(); ?>assets/frontend/images/pni_logo.png" alt="pancanature" height="40">
+                                    <img src="<?php echo base_url(); ?>assets/images/fav-icon.png" alt="inbi" height="40">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/frontend/img2/signature.png" alt="pancanature">
+                                    <img src="<?php echo base_url(); ?>assets/images/signature2.png" alt="inbi">
                                 </span>
                             </a>
 
                             <a href="<?php echo base_url() ?>" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="<?php echo base_url(); ?>assets/frontend/images/pni_logo.png" alt="pancanature" height="40">
+                                    <img src="<?php echo base_url(); ?>assets/images/fav-icon.png" alt="inbi" height="40">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="<?php echo base_url(); ?>assets/frontend/img2/signature.png" alt="pancanature">
+                                    <img src="<?php echo base_url(); ?>assets/images/signature2.png" alt="inbi" width="200">
                                 </span>
                             </a>
                         </div>
@@ -74,7 +74,7 @@
                         <div class="dropdown d-inline-block">
                             <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/frontend/images/pni_logo.png"
+                                <img class="rounded-circle header-profile-user" src="<?php echo base_url(); ?>assets/images/fav-icon.png"
                                     alt="Header Avatar">
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
@@ -136,7 +136,7 @@
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-sm-12">
-                                © <?php echo date('Y') ?> Pancanature <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> </span>
+                                © <?php echo date('Y') ?> Inbi <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> </span>
                             </div>
                         </div>
                     </div>

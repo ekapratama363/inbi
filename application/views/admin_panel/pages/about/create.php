@@ -55,17 +55,17 @@
             
             <div class="form-group">
               <div class="mb-3">
-                <label for="title">Title</label>
-                <input type="text" class="form-control" id="title" name="title"
-                  value="<?php echo isset($value->title) ? $value->title : ''; ?>">
+                <label for="sub_title">Video Link</label>
+                <input type="text" class="form-control" id="sub_title" name="sub_title"
+                  value="<?php echo isset($value->sub_title) ? $value->sub_title : ''; ?>">
               </div>
             </div>
             
             <div class="form-group">
               <div class="mb-3">
-                <label for="sub_title">Sub Title</label>
-                <input type="text" class="form-control" id="sub_title" name="sub_title"
-                  value="<?php echo isset($value->sub_title) ? $value->sub_title : ''; ?>">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title"
+                  value="<?php echo isset($value->title) ? $value->title : ''; ?>">
               </div>
             </div>
 
@@ -76,7 +76,7 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label>Image Footer</label>
               <div class="mb-3">
                 <div class="input-group col-xs-12">
@@ -98,7 +98,7 @@
                 </div>
               </div>
             </div>
-            <?php } ?>
+            <?php } ?> -->
 
             <button type="submit" class="btn btn-primary mr-2">Submit</button>
           </div>

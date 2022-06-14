@@ -30,7 +30,7 @@
                             <a href="<?php echo base_url(); ?>admin_panel/homes/why_choose_us" 
                                 class="<?php if($seg3 == 'why_choose_us') echo 'active'; ?>">Why Choose Us</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo base_url(); ?>admin_panel/homes/technology" 
                                 class="<?php if($seg3 == 'technology') echo 'active'; ?>">Technology</a>
                         </li>
@@ -45,11 +45,7 @@
                         <li>
                             <a href="<?php echo base_url(); ?>admin_panel/homes/quality" 
                                 class="<?php if($seg3 == 'quality') echo 'active'; ?>">Quality</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>admin_panel/homes/made_of" 
-                                class="<?php if($seg3 == 'made_of') echo 'active'; ?>">Made Of</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
 
@@ -68,21 +64,25 @@
                                 class="<?php if($seg3 == 'about') echo 'active'; ?>">About</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>admin_panel/abouts/vision_mission_image" 
-                                class="<?php if($seg3 == 'vision_mission_image') echo 'active'; ?>">Vision Mission Image</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>admin_panel/abouts/vision" 
-                                class="<?php if($seg3 == 'vision') echo 'active'; ?>">Vision</a>
-                        </li>
-                        <li>
                             <a href="<?php echo base_url(); ?>admin_panel/abouts/mission" 
                                 class="<?php if($seg3 == 'mission') echo 'active'; ?>">Mission</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url(); ?>admin_panel/abouts/customer" 
-                                class="<?php if($seg3 == 'customer') echo 'active'; ?>">Customer</a>
+                            <a href="<?php echo base_url(); ?>admin_panel/abouts/certificate" 
+                                class="<?php if($seg3 == 'certificate') echo 'active'; ?>">Certificate</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/abouts/made_of" 
+                                class="<?php if($seg3 == 'made_of') echo 'active'; ?>">Made Of</a>
+                        </li>
+                        <!-- <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/abouts/vision_mission_image" 
+                                class="<?php if($seg3 == 'vision_mission_image') echo 'active'; ?>">Vision Mission Image</a>
+                        </li> -->
+                        <!-- <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/abouts/vision" 
+                                class="<?php if($seg3 == 'vision') echo 'active'; ?>">Vision</a>
+                        </li> -->
                     </ul>
                 </li>
 
@@ -108,14 +108,14 @@
                             <a href="<?php echo base_url(); ?>admin_panel/products/product" 
                                 class="<?php if($seg3 == 'product') echo 'active'; ?>">Product</a>
                         </li>
-                        <li>
+                        <!-- <li>
                             <a href="<?php echo base_url(); ?>admin_panel/products/raw_material" 
                                 class="<?php if($seg3 == 'raw_material') echo 'active'; ?>">Raw Material</a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
 
-                <li class="<?php if($seg2 == 'solutions') echo 'mm-active'; ?>">
+                <!-- <li class="<?php if($seg2 == 'solutions') echo 'mm-active'; ?>">
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="mdi mdi-lightbulb-on-outline"></i>
                         <span>Solutions</span>
@@ -138,7 +138,7 @@
                                 class="<?php if($seg3 == 'certificate') echo 'active'; ?>">Certificate</a>
                         </li>
                     </ul>
-                </li>
+                </li> -->
 
                 <li class="<?php if($seg2 == 'policy') echo 'mm-active'; ?>">
                     <a href="javascript: void(0);" class="has-arrow waves-effect">

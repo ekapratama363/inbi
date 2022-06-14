@@ -62,13 +62,13 @@ class Company_profile extends CI_Controller {
             ];
 
             $message = "";
-            if($_FILES['logo']['name']) {
+            if($_FILES['logo']['name'] || $_FILES['signature']['name']) {
                 foreach($_FILES as $key => $file) {
                     if($file['name']) {
                         $upload = upload_file($file, 'company_profile');
                         if($upload == $file['name']) {
-                            $logo  = [$key => $upload];
-                            $data = array_merge($data, $logo);
+                            $image  = [$key => $upload];
+                            $data = array_merge($data, $image);
                         } else {
                             $message = $upload;
                         }

@@ -34,7 +34,7 @@
                   value="<?php echo set_value('category'); ?>">
               </div>
             </div>
-            <!-- <div class="form-group">
+            <div class="form-group">
               <div class="mb-3">
                 <label>Image</label>
                 <div class="input-group col-xs-12">
@@ -48,7 +48,7 @@
                 <label for="description">Description</label>
                 <textarea class="form-control" id="description" name="description" rows="2"><?php echo set_value('description'); ?></textarea>
               </div>
-            </div> -->
+            </div>
             <button type="submit" class="btn btn-primary mr-2">Submit</button>
             <a href="<?php echo base_url() . $this->uri->segment(1) .'/'. $this->uri->segment(2) .'/'. $this->uri->segment(3); ?>/index"><button type="button" 
                 class="btn btn-light">Cancel</button></a>

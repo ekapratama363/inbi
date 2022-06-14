@@ -76,16 +76,16 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label>Image Footer</label>
               <div class="mb-3">
                 <div class="input-group col-xs-12">
                   <input type="file" name="image_footer" id="image_footer" class="form-control file-upload-info" placeholder="Upload Image">
                 </div>
               </div>
-            </div>
+            </div> -->
 
-            <input type="hidden" name="image_footer_hidden" value="<?php echo isset($value->image_footer) ? $value->image_footer : ''; ?>">
+            <!-- <input type="hidden" name="image_footer_hidden" value="<?php echo isset($value->image_footer) ? $value->image_footer : ''; ?>">
             <?php if(isset($value->image_footer)) { ?>
             <div class="form-group">
               <div class="mb-3">
@@ -98,7 +98,7 @@
                 </div>
               </div>
             </div>
-            <?php } ?>
+            <?php } ?> -->
 
             <button type="submit" class="btn btn-primary mr-2">Submit</button>
           </div>

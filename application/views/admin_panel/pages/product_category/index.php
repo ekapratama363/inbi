@@ -21,8 +21,8 @@
                             <!-- <th style="width: 5%"><input type="checkbox" id="checkAll" class="customcheck"></th>         -->
                             <th style="width: 5%">No</th>
                             <th>Category</th>
-                            <!-- <th>Description</th>
-                            <th>Image</th> -->
+                            <th>Description</th>
+                            <th>Image</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -66,8 +66,8 @@
                 // {"data": "check_box"},
                 {"data": "no"},
                 {"data": "category"},
-                // {"data": "description"},
-                // {"data": "image"},
+                {"data": "description"},
+                {"data": "image"},
                 {"data": "action"},
             ],
             columnDefs : [

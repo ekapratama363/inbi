@@ -29,13 +29,13 @@
         <div class="row">
           <div class="col-md-6">
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <div class="mb-3">
                 <label for="title">Title</label>
                 <input type="text" class="form-control" id="title" name="title"
                   value="<?php echo isset($value->title) ? $value->title : ''; ?>">
               </div>
-            </div>
+            </div> -->
 
             <!-- <div class="form-group">
               <div class="mb-3">

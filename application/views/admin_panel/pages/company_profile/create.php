@@ -94,6 +94,30 @@
             </div>
 
             <div class="form-group">
+              <label>Signature</label>
+              <div class="mb-3">
+                <div class="input-group col-xs-12">
+                  <input type="file" name="signature" id="logo" class="form-control file-upload-info" placeholder="Upload Image">
+                </div>
+              </div>
+            </div>
+
+            <input type="hidden" name="signature_hidden" value="<?php echo isset($value->signature) ? $value->signature : ''; ?>">
+            <?php if(isset($value->signature)) { ?>
+            <div class="form-group">
+              <div class="mb-3">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="<?php echo base_url() . 'uploads/company_profile/' . $value->signature ; ?>" 
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text"><?php echo $value->signature; ?></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <?php } ?>
+
+            <div class="form-group">
                 <div class="input-group mb-3">
 
                     <div class="form-group">

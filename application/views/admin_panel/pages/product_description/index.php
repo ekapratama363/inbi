@@ -22,7 +22,7 @@
                             <th style="width: 5%">No</th>
                             <th>Title</th>
                             <th>Description</th>
-                            <th>Image Title</th>
+                            <!-- <th>Image Title</th> -->
                             <th>Image</th>
                             <th>Action</th>
                         </tr>
@@ -68,7 +68,7 @@
                 {"data": "no"},
                 {"data": "title"},
                 {"data": "description"},
-                {"data": "image_title"},
+                // {"data": "image_title"},
                 {"data": "image"},
                 {"data": "action"},
             ],
