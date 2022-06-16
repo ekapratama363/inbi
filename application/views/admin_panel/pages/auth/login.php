@@ -29,8 +29,8 @@
 
                                 <h3 class="text-center mt-5 mb-4">
                                     <a href="index.html" class="d-block auth-logo">
-                                        <img src="<?php echo base_url(); ?>assets/frontend/images/pancanature.png" alt="pancanature" height="100" class="auth-logo-dark">
-                                        <img src="<?php echo base_url(); ?>assets/frontend/images/pancanature.png" alt="pancanature" height="100" class="auth-logo-light">
+                                        <img src="<?php echo base_url(); ?>assets/images/fav-icon.png" alt="inbi" height="100" class="auth-logo-dark">
+                                        <img src="<?php echo base_url(); ?>assets/images/fav-icon.png" alt="inbi" height="100" class="auth-logo-light">
                                     </a>
                                 </h3>
 
@@ -84,7 +84,7 @@
                         </div>
                         <div class="mt-5 text-center">
                             <!-- <p>Don't have an account ? <a href="pages-register.html" class="text-primary"> Signup Now </a></p> -->
-                            © <?php echo date('Y') ?> Pancanature <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> </span>
+                            © <?php echo date('Y') ?> Inbi <span class="d-none d-sm-inline-block"> - Crafted with <i class="mdi mdi-heart text-danger"></i> </span>
                         </div>
                     </div>
                 </div>

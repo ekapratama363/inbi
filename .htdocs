@@ -1,3 +1,0 @@
-$old = umask(0);
-mkdir($dir, 0755, true);
-umask($old);
