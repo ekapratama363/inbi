@@ -49,32 +49,24 @@
                 </div>
                 <div class="col-lg-2 col-sm-4">
                     <div class="logo text-center">
-                        <a href="<?php echo base_url(); ?>"><img src="<?php echo base_url(); ?>assets/frontend/assets/img/logo/fav-icon.png" alt="NatureCircle"
-                                style="width: 90px;"></a>
+                        <a href="<?php echo base_url(); ?>">
+                            <img src="<?php echo base_url(); ?>uploads/company_profile/<?php echo $company_profile->logo; ?>" 
+                                alt="NatureCircle"
+                                style="width: 90px;">
+                        </a>
                     </div>
                 </div>
                 <div class="col-lg-5 col-sm-8">
                     <div class="header-content d-flex justify-content-end">
-                        <div class="settings-wrapper">
-                            <a href="#">
-                                <i class="fa fa-linkedin"></i>
-                            </a>
-                        </div>
-                        <div class="settings-wrapper">
-                            <a href="#">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </div>
-                        <div class="settings-wrapper">
-                            <a href="#">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </div>
-                        <div class="settings-wrapper">
-                            <a href="#">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </div>
+                        <?php if(count($company_profile->type) > 0) { ?>
+                            <?php for($x = 0; $x < count($company_profile->type); $x++) { ?>
+                                <div class="settings-wrapper">
+                                    <a href="<?php echo $company_profile->link[$x]; ?>" target="_blank">
+                                        <i class="fa fa-<?php echo $company_profile->type[$x]; ?>"></i>
+                                    </a>
+                                </div>
+                            <?php } ?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -115,39 +107,38 @@
                                 <div class="footer-logo">
                                     <a href="#"><img src="<?php echo base_url(); ?>assets/frontend/assets/img/logo/fav-icon.png" style="width: 90px;" alt=""></a>
                                 </div>
-                                <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium
-                                    lectorum.</p>
+                                <p><?php echo $company_profile->motto; ?></p>
                                 <div class="footer-text">
-                                    <span><i class="icon icon-Pointer"></i>Address : Banjar, Jl. Dukuh, Bunutin,
-                                        Kec. Bangli, Kabupaten Bangli, Bali 80614.</span>
-                                    <span><i class="icon icon-Phone"></i>Phone : 0361 3206099</span>
-                                    <span><i class="icon icon-Mail"></i>Email : sales@inbinusantara.com</span>
+                                    <span><i class="icon icon-Pointer"></i>Address: <?php echo $company_profile->address; ?></span>
+                                    <span><i class="icon icon-Phone"></i>Phone: +62<?php echo $company_profile->phone; ?></span>
+                                    <span><i class="icon icon-Mail"></i>Email: <?php echo $company_profile->email; ?></span>
                                 </div>
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-3">
                             <div class="single-footer-widget">
-                                <h3>Products</h3>
+                                <!-- <h3>Products</h3>
                                 <ul class="footer-widget-list">
                                     <li><a href="shop.html">Prices drop</a></li>
                                     <li><a href="shop.html">New products</a></li>
                                     <li><a href="shop.html">Best sales</a></li>
                                     <li><a href="shop.html">Stores</a></li>
-                                    <li><a href="#">Login</a></li>
+                                    <li><a href="<?php echo base_url(); ?>login">Login</a></li>
                                     <li><a href="#">My Account</a></li>
-                                </ul>
+                                </ul> -->
                             </div>
                         </div>
                         <div class="col-lg-2 col-md-3">
                             <div class="single-footer-widget">
                                 <h3>Our company</h3>
                                 <ul class="footer-widget-list">
-                                    <li><a href="#">Delivery</a></li>
+                                    <li><a href="<?php echo base_url(); ?>login">Login</a></li>
+                                    <!-- <li><a href="#">Delivery</a></li>
                                     <li><a href="#">Legal Notice</a></li>
                                     <li><a href="#">Documentation</a></li>
                                     <li><a href="#">Secure payment</a></li>
                                     <li><a href="#">Contact us</a></li>
-                                    <li><a href="shop.html">Stores</a></li>
+                                    <li><a href="shop.html">Stores</a></li> -->
                                 </ul>
                             </div>
                         </div>
@@ -174,6 +165,7 @@
     <!-- Footer Area End -->
 
     <!-- All js here -->
+    <script src="<?php echo base_url(); ?>assets/frontend/assets/js/jquery-2.2.4.js"></script>
     <script src="<?php echo base_url(); ?>assets/frontend/assets/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/frontend/assets/js/vendor.js"></script>
 
@@ -189,6 +181,7 @@
     <script src="<?php echo base_url(); ?>assets/frontend/assets/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/frontend/assets/js/plugins.js"></script>
     <script src="<?php echo base_url(); ?>assets/frontend/assets/js/ajax-mail.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/assets/js/jquery.fancybox.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/frontend/assets/js/main.js"></script>
 </body>
 

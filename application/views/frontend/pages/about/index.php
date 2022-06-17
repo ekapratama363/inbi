@@ -4,7 +4,7 @@
         <!-- Breadcrumb Area Start -->
         <div class="breadcrumb-area bg-12 text-center">
             <div class="container">
-                <h1>About Us</h1>
+                <h1><?php echo $background->title; ?></h1>
             </div>
         </div>
         <!-- Breadcrumb Area End -->
@@ -14,66 +14,39 @@
         <section class="ftco-section pb-90">
             <div class="container">
                 <div class="row no-gutters">
-                    <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" style="background-image: url(assets/img/about.jpg);">
-						<a id="play-video_1" href="https://www.youtube.com/watch?v=4FcVL5uNcc0"class="lightbox-gallery-1 mfp-iframe icon-video popup-vimeo d-flex justify-content-center align-items-center">
-                            <span class="ti-control-play"></span>
+                    <div class="col-md-5 p-md-5 img img-2 d-flex justify-content-center align-items-center" 
+                        style="background-image: url('<?php echo base_url(); ?>uploads/about/<?php echo $about->image_header; ?>');">
+						<a id="play-video_1" href="<?php echo $about->sub_title; ?>"
+                            class="lightbox-gallery-1 mfp-iframe icon-video popup-vimeo d-flex justify-content-center align-items-center">
+                            <span class="fa fa-play"></span>
                         </a>
 					</div>
                     <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
                         <div class="heading-section mt-5 mb-4">
                             <div class="pl-lg-5 ml-md-5">
                                 <span class="subheading">About</span>
-                                <h2 class="mb-4">CV. INBI NUSANTARA SEJAHTERA</h2>
+                                <h2 class="mb-4"><?php echo $about->title; ?></h2>
                             </div>
                         </div>
                         <div class="pl-lg-5 ml-md-5">
-                            <p>INBI Nusantara is a company engaged in the production of concentrates of fruits and vegetables and also essential oils for the food, beverages and cosmetics company since 2016, 
-                                            located in the village Bunutin, Bangli, Bali. INBI Nusantara continues to grow and develop to create better quality products and with the best service as evidenced by 
-                                            the network of marketing distribution cooperation throughout Indonesia and in 2019 CV INBI Nusantara Sejahtera was formed.
-                            </p>
+                            <p><?php echo $about->description; ?></p>
                             
                             <div class="h_service_right">
                                 <div class="h_service_list">
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="assets/img/icon/checklist.png" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <h4>Best Service</h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="assets/img/icon/checklist.png" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <h4>Best Product Quality</h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="assets/img/icon/checklist.png" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <h4>Guaranteed Product</h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="assets/img/icon/checklist.png" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <h4>Trusted Company</h4>
-                                        </div>
-                                    </div>
-                                    <div class="media">
-                                        <div class="media-left">
-                                            <img src="assets/img/icon/checklist.png" alt="">
-                                        </div>
-                                        <div class="media-body">
-                                            <h4>Innovative</h4>
-                                        </div>
-                                    </div>
+                                    <?php if(count($mission->missions) > 0) { ?>
+                                        <?php for($x = 0; $x < count($mission->missions); $x++) { ?>
+                                            <?php if($mission->missions[$x]) { ?>
+                                                <div class="media">
+                                                    <div class="media-left">
+                                                        <img src="assets/img/icon/checklist.png" alt="">
+                                                    </div>
+                                                    <div class="media-body">
+                                                        <h4><?php echo $mission->missions[$x]; ?></h4>
+                                                    </div>
+                                                </div>
+                                            <?php } ?>
+                                        <?php } ?>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
@@ -92,39 +65,23 @@
                     </div>
                 </div>
                 <div class="row">
+                    <?php foreach($certificates as $certificate) { ?>
                     <div class="col-md-4">
                         <div class="item animate-box" data-animate-effect="fadeInUp">
-                            <div class="position-re o-hidden"> <img src="assets/img/services/certificate.jpg" alt="" style="max-width: 100%;"> </div>
+                            <div class="position-re o-hidden"> <img src="<?php echo base_url(); ?>uploads/certificate/<?php echo $certificate->image; ?>" alt="" style="max-width: 100%;"> </div>
                             <div class="con"> 
                                 <i class="ti-more"></i>
-                                <h5><a  href="assets/img/services/certificate.jpg" class="d-block dorothea-photo-item" data-caption="Photography" data-fancybox="gallery">Certificate of ABC</a></h5>
+                                <h5><a href="<?php echo base_url(); ?>uploads/certificate/<?php echo $certificate->image; ?>" 
+                                    class="d-block dorothea-photo-item" data-caption="Photography" 
+                                    data-fancybox="gallery"><?php echo $certificate->title; ?></a></h5>
                                 <div class="line"></div> 
-                                <a href="assets/img/services/certificate.jpg" class="d-block dorothea-photo-item" data-caption="Photography" data-fancybox="gallery"><i class="ti-zoom-in"></i></a>
+                                <a href="<?php echo base_url(); ?>uploads/certificate/<?php echo $certificate->image; ?>" 
+                                    class="d-block dorothea-photo-item" data-caption="Photography" data-fancybox="gallery">
+                                        <i class="ti-zoom-in"></i></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="item animate-box" data-animate-effect="fadeInUp">
-                            <div class="position-re o-hidden"> <img src="assets/img/services/certificate.jpg" alt="" style="max-width: 100%;"> </div>
-                            <div class="con"> 
-                                <i class="ti-more"></i>
-                                <h5><a  href="assets/img/services/certificate.jpg" class="d-block dorothea-photo-item" data-caption="Photography" data-fancybox="gallery">Certificate of ABC</a></h5>
-                                <div class="line"></div> 
-                                <a href="assets/img/services/certificate.jpg" class="d-block dorothea-photo-item" data-caption="Photography" data-fancybox="gallery"><i class="ti-zoom-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="item animate-box" data-animate-effect="fadeInUp">
-                            <div class="position-re o-hidden"> <img src="assets/img/services/certificate.jpg" alt="" style="max-width: 100%;"> </div>
-                            <div class="con"> 
-                                <i class="ti-more"></i>
-                                <h5><a  href="assets/img/services/certificate.jpg" class="d-block dorothea-photo-item" data-caption="Photography" data-fancybox="gallery">Certificate of ABC</a></h5>
-                                <div class="line"></div> 
-                                <a href="assets/img/services/certificate.jpg" class="d-block dorothea-photo-item" data-caption="Photography" data-fancybox="gallery"><i class="ti-zoom-in"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -134,46 +91,16 @@
             <div class="container">
                 <div class="custom-row">
                     <div class="blog-carousel">
-                        <div class="custom-col text-center">
-                            <div class="single-blog">
-                                <div class="blog-image">
-                                    <img src="assets/img/iso.png" alt="">
+                        <?php foreach($madeofs as $madeof) { ?>
+                            <div class="custom-col text-center">
+                                <div class="single-blog">
+                                    <div class="blog-image">
+                                        <img src="<?php echo base_url(); ?>uploads/made_of/<?php echo $madeof->image; ?>" 
+                                            alt="">
+                                    </div>
                                 </div>
-                                
                             </div>
-                        </div>
-                        <div class="custom-col text-center">
-                            <div class="single-blog">
-                                <div class="blog-image">
-                                    <img src="assets/img/halal.png" alt="">
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class="custom-col text-center">
-                            <div class="single-blog">
-                                <div class="blog-image">
-                                    <img src="assets/img/mui.png" alt="">
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class="custom-col text-center">
-                            <div class="single-blog">
-                                <div class="blog-image">
-                                    <img src="assets/img/tuv1.png" alt="">
-                                </div>
-                                
-                            </div>
-                        </div>
-                        <div class="custom-col text-center">
-                            <div class="single-blog">
-                                <div class="blog-image">
-                                    <img src="assets/img/tuv2.png" alt="">
-                                </div>
-                                
-                            </div>
-                        </div>
+                        <?php } ?>
                     </div>
                 </div>
             </div>

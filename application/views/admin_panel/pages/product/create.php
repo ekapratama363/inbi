@@ -37,7 +37,7 @@
             <div class="form-group">
               <div class="mb-3">
                 <label for="description">Description</label>
-                <textarea class="form-control" id="description" name="description" rows="2"><?php echo set_value('description'); ?></textarea>
+                <textarea class="form-control ckeditor" id="description" name="description" rows="2"><?php echo set_value('description'); ?></textarea>
              </div>
             </div>
             <div class="form-group">

@@ -7,8 +7,8 @@
 	        <?php foreach($sliders as $slider){ ?>
             <div class="ht-single-slide" style="background-image: url(<?php echo base_url(); ?>uploads/slider/<?php echo $slider->image; ?>)">
                 <div class="ht-hero-content-one container">
-                    <h3><?php echo $slider->title ?></h3>
-                    <h1 class="cssanimation leDoorCloseLeft sequence">100% Natural</h1>
+                    <!-- <h3><?php echo $slider->title ?></h3> -->
+                    <h1 class="cssanimation leDoorCloseLeft sequence"><?php echo $slider->title ?></h1>
                     <p><?php echo $slider->description ?></p>
                 </div>
             </div>
@@ -23,23 +23,18 @@
             <div class="row">
                 <div class="col-lg-6 col-md-6">
                     <div class="organic-about-img">
-                        <img src="<?php echo base_url(); ?>assets/frontend/assets/img/banner/5lgm_3cv8_220304.jpg" alt="">
+                        <img src="<?php echo base_url(); ?>uploads/profile/<?php echo $profile->image ?>" alt="profile">
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 align-self-center">
                     <div class="organic-about-text">
                         <div class="banner-logo">
-                            <img src="<?php echo base_url(); ?>assets/frontend/assets/img/logo/logo_inbi.png" style="width: 70px;" alt="">
+                            <img src="<?php echo base_url(); ?>uploads/company_profile/<?php echo $company_profile->logo; ?>" style="width: 70px;" alt="logo">
                         </div>
-                        <h4>who we are</h4>
-                        <p style="font-size: 14px;">INBI Nusantara is a company engaged in the production of
-                            concentrates of fruits and vegetables and also essential oils for the food, beverages and
-                            cosmetics company since 2016, located in the village Bunutin, Bangli, Bali.
-                            We are very commit to produce raw materials for fruit and vegetable concentrates and
-                            essential oils in accordance with Halal Policy, as well as Food Safety Systems consistently
-                            to meet the needs and customer satisfaction of the product quality.</p>
+                        <h4><?php echo $profile->title; ?></h4>
+                        <p style="font-size: 14px;"><?php echo $profile->description; ?></p>
                         <div class="signature">
-                            <img src="<?php echo base_url(); ?>assets/frontend/assets/img/banner/signature2.png" alt="">
+                            <img src="<?php echo base_url(); ?>uploads/company_profile/<?php echo $company_profile->signature ?>" alt="signature">
                         </div>
                     </div>
                 </div>
@@ -59,45 +54,19 @@
         </br></br>
         <div class="container">
             <div class="row">
-                <div class="col-md-6 col-lg-4 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 services text-center">
-                        <div class="icon d-flex justify-content-center align-items-center mb-4">
-                            <img src="<?php echo base_url(); ?>assets/frontend/assets/img/icon/fruit.png" alt="">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="heading">High Quality</h3>
-                            <p>We develop and manufacture the high quality concentrate of fruit and vegetables,
-                                ingredients of pharmacy and essential oil with focus on the cosmetic company and food &
-                                beverage company.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-4 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 services text-center">
-                        <div class="icon d-flex justify-content-center align-items-center mb-4">
-                            <img src="<?php echo base_url(); ?>assets/frontend/assets/img/icon/tea.png" alt="">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="heading">Experienced Company</h3>
-                            <p>We are a professional manufacturing company that produces concentrate of fruits and
-                                vegetables and also essential oil. Our production, Quality Control and R&D department
-                                consist of experienced team. Our Employees are well trained in GMP and HACCP practices.
-                            </p>
+                <?php foreach($why_choose_us as $wcu) { ?>
+                    <div class="col-md-6 col-lg-4 d-flex align-self-stretch ftco-animate">
+                        <div class="media block-6 services text-center">
+                            <div class="icon d-flex justify-content-center align-items-center mb-4">
+                                <img src="<?php echo base_url(); ?>uploads/why_choose_us/<?php echo $wcu->image ?>" alt="image">
+                            </div>
+                            <div class="media-body">
+                                <h3 class="heading"><?php echo $wcu->title; ?></h3>
+                                <p><?php echo $wcu->description; ?></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-4 d-flex align-self-stretch ftco-animate">
-                    <div class="media block-6 services text-center">
-                        <div class="icon d-flex justify-content-center align-items-center mb-4">
-                            <img src="<?php echo base_url(); ?>assets/frontend/assets/img/icon/drinks.png" alt="">
-                        </div>
-                        <div class="media-body">
-                            <h3 class="heading">Innovative</h3>
-                            <p>Besides being professional company, we are also very innovative. Through our innovative
-                                and experimental breakthroughs, the products we make have unique characteristics.</p>
-                        </div>
-                    </div>
-                </div>
+                <?php } ?>
             </div>
         </div>
     </div>
