@@ -43,6 +43,7 @@ class Article extends CI_Controller {
 
     public function page($id) 
     {
+        $data['background'] = $this->Background_model->get_background($this->uri->segment(1));
         $data['company_profile'] = $this->Company_profile_model->get_company_profile();
         $data['article'] = $this->Article_model->get_article_by_id($id);
         $data['recent_articles'] = $this->Article_model->get_article(3, 0);

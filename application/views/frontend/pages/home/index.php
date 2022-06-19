@@ -81,60 +81,25 @@
                 </div>
             </div>
 
-            <div class="bg-white py-4 mb-4">
-                <div class="row mx-4 my-4 product-item-2 align-items-start">
-                    <div class="col-md-6 mb-5 mb-md-0">
-                        <img src="<?php echo base_url(); ?>assets/frontend/assets/img/foodbeverage.png" style="border-radius: 5px;" alt="Image"
-                            class="img-fluid">
-                    </div>
+            <?php $no = 1; foreach($recent_categories as $category) { ?>
+                <div class="bg-white py-4 mb-4">
+                    <div class="row mx-4 my-4 product-item-2 align-items-start">
+                        <div class="col-md-6 mb-5 mb-md-0 <?php echo $no % 2 == 0 ? 'order-1 order-md-2' : '' ?>">
+                            <img src="<?php echo base_url() ?>uploads/product_category/<?php echo $category->image ?>" style="border-radius: 5px;" alt="Image"
+                                class="img-fluid">
+                        </div>
 
-                    <div class="col-md-5 ml-auto product-title-wrap">
-                        <span class="number">01.</span>
-                        <h3 class="text-black mb-4 font-weight-bold">Food & Beverage</h3>
-                        <p class="mb-4">INBI food & beverage are manufactured in compliance GMP standard to ensure the
-                            high quality as well as safety system food consistently to meet the needs and customer
-                            satisfaction of the product quality.</p>
+                        <div class="col-md-5 <?php echo $no % 2 == 0 ? 'ml' : 'mr' ?>-auto product-title-wrap">
+                            <span class="number">0<?php echo $no++; ?>.</span>
+                            <h3 class="text-black mb-4 font-weight-bold"><?php echo $category->category; ?></h3>
+                            <p class="mb-4"><?php echo $category->description ?></p>
 
-                        <a href="news-details.html" class="default-btn">See Product</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="bg-white py-4">
-                <div class="row mx-4 my-4 product-item-2 align-items-start">
-                    <div class="col-md-6 mb-5 mb-md-0 order-1 order-md-2">
-                        <img src="<?php echo base_url(); ?>assets/frontend/assets/img/cosmetic.png" style="border-radius: 5px;" alt="Image" class="img-fluid">
-                    </div>
-
-                    <div class="col-md-5 mr-auto product-title-wrap order-2 order-md-1">
-                        <span class="number">02.</span>
-                        <h3 class="text-black mb-4 font-weight-bold">Cosmetic & Personal Care</h3>
-                        <p class="mb-4">INBI is committed to produce raw materials concentrate fruit and vegetable and
-                            essential oils in accordance with the policy halal, quality management, ‘Cara Pembuatan
-                            Kosmetik Yang Baik (CPKB)’ as well as safety system food consistently to meet the needs and
-                            customer satisfaction of the product quality.</p>
-
-                        <a href="news-details.html" class="default-btn">See Product</a>
+                            <a href="news-details.html" class="default-btn">See Product</a>
+                        </div>
                     </div>
                 </div>
-            </div>
+            <?php } ?>
 
-            <div class="bg-white py-4 mb-4">
-                <div class="row mx-4 my-4 product-item-2 align-items-start">
-                    <div class="col-md-6 mb-5 mb-md-0">
-                        <img src="<?php echo base_url(); ?>assets/frontend/assets/img/oil.png" style="border-radius: 5px;" alt="Image" class="img-fluid">
-                    </div>
-
-                    <div class="col-md-5 ml-auto product-title-wrap">
-                        <span class="number">03.</span>
-                        <h3 class="text-black mb-4 font-weight-bold">Essential Oil</h3>
-                        <p class="mb-4">Essential Oil are natural oils extracted from part of plants by various methods,
-                            having characteristic of high volatility with unique smell.</p>
-
-                        <a href="news-details.html" class="default-btn">See Product</a>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -146,7 +111,7 @@
                     <div class="intro_video_iner text-center">
                         <h2>Hello From Youtube!</h2>
                         <div class="intro_video_icon">
-                            <a id="play-video_1" href="https://www.youtube.com/watch?v=4FcVL5uNcc0"
+                            <a id="play-video_1" href="<?php echo $profile->link; ?>"
                                 class="big-icon-link lightbox-gallery-1 mfp-iframe video-play-button popup-youtube">
                                 <span class="ti-control-play"></span>
                             </a>
@@ -175,74 +140,28 @@
         <div class="container">
             <div class="custom-row">
                 <div class="blog-carousel">
-                    <div class="custom-col text-center">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="news-details.html"><img src="<?php echo base_url(); ?>assets/frontend/assets/img/blog/1.jpg" alt=""></a>
-                            </div>
-                            <div class="blog-text">
-                                <h4><a href="news-details.html">Coconut improve heart and immunity.</a></h4>
-                                <div class="post-meta">
-                                    <span class="author-name">post by: <span>Naturecircle Themes</span></span>
-                                    <span class="post-date"> - Oct 30,2018</span>
+                    
+                    <?php foreach($recent_articles as $article) { ?>
+                        <div class="custom-col text-center">
+                            <div class="single-blog">
+                                <div class="blog-image">
+                                    <a href="<?php echo base_url() ?>article/page/<?php echo $article->id ?>">
+                                        <img src="<?php echo base_url(); ?>uploads/article/<?php echo $article->image ?>" 
+                                        alt="<?php echo $article->title; ?>"></a>
                                 </div>
-                                <p>Coconut milk is one of the healthiest foods on world, health benefits of coconut milk
-                                    make it quite popular.</p>
-                                <a href="news-details.html" class="default-btn">Read more</a>
+                                <div class="blog-text">
+                                    <h4><a href="<?php echo base_url() ?>article/page/<?php echo $article->id ?>"><?php echo $article->title; ?></a></h4>
+                                    <div class="post-meta">
+                                        <span class="author-name">post by: <span>admin</span></span>
+                                        <span class="post-date"> - <?php echo $article->created_at ?></span>
+                                    </div>
+                                    <p><?php echo $article->description; ?></p>
+                                    <a href="<?php echo base_url() ?>article/page/<?php echo $article->id ?>" class="default-btn">Read more</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="custom-col text-center">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="news-details.html"><img src="<?php echo base_url(); ?>assets/frontend/assets/img/blog/2.jpg" alt=""></a>
-                            </div>
-                            <div class="blog-text">
-                                <h4><a href="news-details.html">The most healthful food you can eat.</a></h4>
-                                <div class="post-meta">
-                                    <span class="author-name">post by: <span>Naturecircle Themes</span></span>
-                                    <span class="post-date"> - Sep 11,2018</span>
-                                </div>
-                                <p>Health benefits of apple include improved digestion, prevention of stomach disorders,
-                                    gallstones.</p>
-                                <a href="news-details.html" class="default-btn">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="custom-col text-center">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="news-details.html"><img src="<?php echo base_url(); ?>assets/frontend/assets/img/blog/3.jpg" alt=""></a>
-                            </div>
-                            <div class="blog-text">
-                                <h4><a href="news-details.html">Delicious and nutritious vegetable.</a></h4>
-                                <div class="post-meta">
-                                    <span class="author-name">post by: <span>Naturecircle Themes</span></span>
-                                    <span class="post-date"> - Apr 22,2018</span>
-                                </div>
-                                <p>Research shows drinking beetroot juice benefit digestion, boost athletic performance.
-                                    They are a good source.</p>
-                                <a href="news-details.html" class="default-btn">Read more</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="custom-col text-center">
-                        <div class="single-blog">
-                            <div class="blog-image">
-                                <a href="news-details.html"><img src="<?php echo base_url(); ?>assets/frontend/assets/img/blog/1.jpg" alt=""></a>
-                            </div>
-                            <div class="blog-text">
-                                <h4><a href="news-details.html">Coconut improve heart and immunity.</a></h4>
-                                <div class="post-meta">
-                                    <span class="author-name">post by: <span>Naturecircle Themes</span></span>
-                                    <span class="post-date"> - Oct 30,2018</span>
-                                </div>
-                                <p>Coconut milk is one of the healthiest foods on world, health benefits of coconut milk
-                                    make it quite popular.</p>
-                                <a href="news-details.html" class="default-btn">Read more</a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
+
                 </div>
             </div>
         </div>

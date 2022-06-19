@@ -15,7 +15,7 @@
 
     <!-- All css here -->
 
-    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/frontend/css/themify-icons.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/frontend/themify-icons.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/frontend/assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/frontend/assets/css/themify-icons.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/frontend/assets/css/font-awesome.min.css">
@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/frontend/assets/css/plugins.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/frontend/assets/css/style.css">
     <link rel="stylesheet" href="<?php echo base_url(); ?>assets/frontend/assets/css/flaticon.css">
+    <link rel="stylesheet" href="<?php echo base_url(); ?>assets/frontend/pagination.css">
 
     <script src="<?php echo base_url(); ?>assets/frontend/assets/js/vendor/modernizr-3.5.0.min.js"></script>
 </head>
@@ -165,9 +166,12 @@
     <!-- Footer Area End -->
 
     <!-- All js here -->
+
     <script src="<?php echo base_url(); ?>assets/frontend/assets/js/jquery-2.2.4.js"></script>
     <script src="<?php echo base_url(); ?>assets/frontend/assets/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/frontend/assets/js/vendor.js"></script>
+    <!-- <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/assets/js/owl.carousel.min.js"></script>
+    <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/assets/js/jquery.stellar.min.js"></script> -->
 
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/assets/js/slide/jquery-migrate-1.4.1.min.js"></script>
     <script type="text/javascript" src="<?php echo base_url(); ?>assets/frontend/assets/js/slide/jquery.easing.1.3.js"></script>

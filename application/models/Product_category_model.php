@@ -7,6 +7,18 @@ class Product_category_model extends CI_Model
         $this->load->database();
     }
 
+    public function get_categories($limit = NULL, $start = NULL, $search = NULL)
+    {
+        $query = $this->db->select('*')
+            ->from('product_categories');
+
+        $query = $query->order_by('id', 'desc')
+            ->limit($limit, $start)
+            ->get();
+        
+        return $query->result_object();
+    }
+
     public function set_product_category($data) 
     {
         return $this->db->insert('product_categories', $data);

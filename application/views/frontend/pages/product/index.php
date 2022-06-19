@@ -2,9 +2,9 @@
         <!-- Header Area End -->
         <!-- Header Area End -->
         <!-- Breadcrumb Area Start -->
-        <div class="breadcrumb-area bg-12 text-center">
+        <div class="breadcrumb-area text-center" style="background: url('<?php echo base_url(); ?>uploads/background/<?php echo $background->image ?>') center center no-repeat">
             <div class="container">
-                <h1>Our Products</h1>
+                <h1><?php echo $background->title; ?></h1>
             </div>
         </div>
         <!-- Breadcrumb Area End -->

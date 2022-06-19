@@ -36,6 +36,14 @@
                   value="<?php echo isset($value->title) ? $value->title : ''; ?>">
               </div>
             </div>
+            
+            <div class="form-group">
+              <div class="mb-3">
+                <label for="link">Youtube Link</label>
+                <input type="text" class="form-control" id="link" name="link"
+                  value="<?php echo isset($value->link) ? $value->link : ''; ?>">
+              </div>
+            </div>
 
             <div class="form-group">
               <label>Image</label>

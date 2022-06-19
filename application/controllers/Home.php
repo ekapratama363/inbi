@@ -13,14 +13,11 @@ class Home extends CI_Controller {
         $this->load->library('session');
         
         $this->load->model('Company_profile_model');
-        $this->load->model('Made_of_model');
-        $this->load->model('Quality_model');
-        $this->load->model('What_we_do_model');
-        $this->load->model('Technology_model');
-        $this->load->model('Technology_item_model');
         $this->load->model('Why_choose_us_model');
         $this->load->model('Profile_model');
         $this->load->model('Slider_model');
+        $this->load->model('Article_model');
+        $this->load->model('Product_category_model');
     }
 
     public function index()
@@ -31,6 +28,8 @@ class Home extends CI_Controller {
         $data['profile'] = $this->Profile_model->get_profile();
         $data['why_choose_us'] = $this->Why_choose_us_model->get_why_choose_us();
         $data['company_profile'] = $this->Company_profile_model->get_company_profile();
+        $data['recent_articles'] = $this->Article_model->get_article(6, 0);
+        $data['recent_categories'] = $this->Product_category_model->get_categories(3, 0);
 
         $this->load->view('frontend/app', $data);
     }

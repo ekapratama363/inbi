@@ -39,6 +39,7 @@ class Profile extends CI_Controller {
         $id = $this->input->post('id');
 
         $this->form_validation->set_rules('title', 'title', 'required');
+        $this->form_validation->set_rules('link', 'link', 'required');
         $this->form_validation->set_rules('description', 'description', 'required');
 
         if ($this->form_validation->run() == FALSE){
@@ -47,6 +48,7 @@ class Profile extends CI_Controller {
             $this->load->view('admin_panel/app', $data);
         } else {
             $data = [
+                'link' => $this->input->post('link'),
                 'title' => $this->input->post('title'),
                 'description' => $this->input->post('description'),
             ];
