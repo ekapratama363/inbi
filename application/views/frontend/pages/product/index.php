@@ -27,8 +27,6 @@
                 </div>
 
                 <div class="row service_price_inner">
-
-
                 <?php foreach($products as $product) { ?>
                     <div class="col-md-4 col-xs-6">
                         <div class="server_price_item">
@@ -41,22 +39,27 @@
                                     <div class="tex_ques_inner">
                                         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                                 
-                                            <?php foreach($product->prod_cat_details as $prod) { ?>
+                                            <?php $no=1; foreach($product->prod_cat_details as $key=> $prod) { ?>
                                                 <div class="panel panel-default">
-                                                    <div class="panel-heading" role="tab" id="headingOne">
+                                                    <div class="panel-heading" role="tab" id="<?php echo  $no % 2 != 0 ? 'headingOne' : 'headingTwo' ?>">
                                                         <h4 class="panel-title">
-                                                            <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                            <a <?php echo  $no % 2 != 0 ? 'collapsed' : '' ?> 
+                                                                role="button" data-toggle="collapse" data-parent="#accordion" 
+                                                                href="#<?php echo  $no % 2 != 0 ? 'collapseOne' : 'collapseTwo' ?>" 
+                                                                aria-expanded="true" aria-controls="<?php echo  $no % 2 != 0 ? 'collapseOne' : 'collapseTwo' ?>">
                                                             <h5><?php echo $prod->products->title ?></h5>
                                                             </a>
                                                         </h4>
                                                     </div>
-                                                    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                                                    <div id="<?php echo  $no % 2 != 0 ? 'collapseOne' : 'collapseTwo' ?>" 
+                                                        class="panel-collapse <?php echo  $no % 2 != 0 ? 'collapse in' : '' ?>" 
+                                                        role="tabpanel" aria-labelledby="<?php echo  $no % 2 != 0 ? 'headingOne' : 'headingTwo' ?>">
                                                         <div class="">
                                                             <?php echo $prod->products->description ?>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            <?php } ?>
+                                            <?php $no++; } ?>
                                         </div>
                                     </div>
                                 </div>
