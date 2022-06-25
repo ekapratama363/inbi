@@ -39,6 +39,7 @@ class Contact extends CI_Controller {
 
         $data['filePage'] = 'frontend/pages/contact/index';
         $data['company_profile'] = $this->Company_profile_model->get_company_profile();
+        $data['background'] = $this->Background_model->get_background($this->uri->segment(1));
 
         if ($this->form_validation->run() == FALSE){
             $this->load->view('frontend/app', $data);

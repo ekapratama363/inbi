@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Product extends CI_Controller {
+class Product_image extends CI_Controller {
 
     public function __construct()
     {
@@ -12,7 +12,7 @@ class Product extends CI_Controller {
         $this->load->library('form_validation');
         $this->load->library('session');
 
-        $this->load->model('Product_model');
+        $this->load->model('Product_image_model');
         $this->load->model('Product_category_model');
         $this->load->model('Product_category_detail_model');
         
@@ -26,23 +26,23 @@ class Product extends CI_Controller {
     public function index()
     {
 
-        $data['filePage'] = 'admin_panel/pages/product/index';
+        $data['filePage'] = 'admin_panel/pages/product_image/index';
 
         $this->load->view('admin_panel/app', $data);
     }
 
     public function create()
     {
-        $data['filePage'] = 'admin_panel/pages/product/create';
+        $data['filePage'] = 'admin_panel/pages/product_image/create';
 
         $this->load->view('admin_panel/app', $data);
     }
 
     public function edit($id = NULL)
     {
-        $data['filePage'] = 'admin_panel/pages/product/edit';
+        $data['filePage'] = 'admin_panel/pages/product_image/edit';
         
-        $product = $this->Product_model->get_product_by_id($id);
+        $product = $this->Product_image_model->get_product_by_id($id);
         $product_category_detail = $this->Product_category_detail_model->get_product_category_detail_by_product_id($id);
 
         $product_categories = [];
@@ -60,7 +60,7 @@ class Product extends CI_Controller {
 
     public function ajax_by_id($id) 
     {
-        $product = $this->Product_model->get_product_by_id($id);
+        $product = $this->Product_image_model->get_product_by_id($id);
 
         echo json_encode($product);
     }
@@ -69,11 +69,11 @@ class Product extends CI_Controller {
     {
         $this->form_validation->set_rules('title', 'title', 'required');
         // $this->form_validation->set_rules('type', 'type', 'required');
-        $this->form_validation->set_rules('description', 'description', 'required');
+        // $this->form_validation->set_rules('description', 'description', 'required');
         // $this->form_validation->set_rules('category', 'category', 'required');
 
         if ($this->form_validation->run() == FALSE){
-            $data['filePage'] = 'admin_panel/pages/product/create';
+            $data['filePage'] = 'admin_panel/pages/product_image/create';
             $this->load->view('admin_panel/app', $data);
         } else {
             $filename = $_FILES['image']['name'];
@@ -86,7 +86,7 @@ class Product extends CI_Controller {
                 
                 $data = [
                     'title' => $this->input->post('title'),
-                    'description' => $this->input->post('description'),
+                    'description' =>'desc',// $this->input->post('description'),
                     // 'type' => $this->input->post('type'),
                     // 'icon' => $this->input->post('icon'),
                     // 'product_category_id' => $this->input->post('category'),
@@ -94,7 +94,7 @@ class Product extends CI_Controller {
                 ];
 
                 $this->db->trans_start();
-                $save = $this->Product_model->set_product($data);
+                $save = $this->Product_image_model->set_product($data);
                 foreach($this->input->post('category') as $cat) {
                     $product_category_detail = [
                         'product_category_id' => $cat,
@@ -107,13 +107,13 @@ class Product extends CI_Controller {
 
                 $this->session->set_flashdata('success', 'save data successfully');
 
-                redirect(base_url("admin_panel/products/product/create"));
+                redirect(base_url("admin_panel/products/product_image/create"));
 
                 // $message = 'The image filed is required.';
 
                 // $this->session->set_flashdata('failed', $message);
 
-                // redirect(base_url("admin_panel/products/product/create"));
+                // redirect(base_url("admin_panel/products/product_image/create"));
 
             } elseif ($ext != "jpg" && $ext != "png" && $ext != "jpeg" && $ext != "gif") {
                 
@@ -121,7 +121,7 @@ class Product extends CI_Controller {
 
                 $this->session->set_flashdata('failed', $message);
 
-                redirect(base_url("admin_panel/products/product/create"));
+                redirect(base_url("admin_panel/products/product_image/create"));
             
             } elseif ($_FILES["image"]["size"] > 2000000) {
                 
@@ -129,7 +129,7 @@ class Product extends CI_Controller {
 
                 $this->session->set_flashdata('failed', $message);
 
-                redirect(base_url("admin_panel/products/product/create"));
+                redirect(base_url("admin_panel/products/product_image/create"));
 
             } else {
         
@@ -137,7 +137,7 @@ class Product extends CI_Controller {
 
                     $data = [
                         'title' => $this->input->post('title'),
-                        'description' => $this->input->post('description'),
+                        'description' => 'desc',//$this->input->post('description'),
                         // 'type' => $this->input->post('type'),
                         // 'icon' => $this->input->post('icon'),
                         // 'product_category_id' => $this->input->post('category'),
@@ -145,7 +145,7 @@ class Product extends CI_Controller {
                     ];
     
                     $this->db->trans_start();
-                    $save = $this->Product_model->set_product($data);
+                    $save = $this->Product_image_model->set_product($data);
                     foreach($this->input->post('category') as $cat) {
                         $product_category_detail = [
                             'product_category_id' => $cat,
@@ -157,7 +157,7 @@ class Product extends CI_Controller {
          
                     $this->session->set_flashdata('success', 'save data successfully');
     
-                    redirect(base_url("admin_panel/products/product/create"));
+                    redirect(base_url("admin_panel/products/product_image/create"));
 
                 } else {
 
@@ -165,7 +165,7 @@ class Product extends CI_Controller {
 
                     $this->session->set_flashdata('failed', $message);
 
-                    redirect(base_url("admin_panel/products/product/create"));
+                    redirect(base_url("admin_panel/products/product_image/create"));
 
                 }
             }
@@ -177,11 +177,11 @@ class Product extends CI_Controller {
             //     // 'created_by' => 1,
             // ];
             
-            // $this->Product_model->set_product_detail($data);
+            // $this->Product_image_model->set_product_detail($data);
 
             // $this->session->set_flashdata('success', 'save data successfully');
 
-            // redirect(base_url("admin_panel/products/product/create"));
+            // redirect(base_url("admin_panel/products/product_image/create"));
 
         }
     }
@@ -191,12 +191,12 @@ class Product extends CI_Controller {
         $id = $this->input->post('id');
 
         $this->form_validation->set_rules('title', 'title', 'required');
-        $this->form_validation->set_rules('description', 'description', 'required');
+        // $this->form_validation->set_rules('description', 'description', 'required');
         // $this->form_validation->set_rules('type', 'type', 'required');
         // $this->form_validation->set_rules('category', 'category', 'required');
 
         if ($this->form_validation->run() == FALSE){
-            $product = $this->Product_model->get_product_by_id($id);
+            $product = $this->Product_image_model->get_product_by_id($id);
             $product_category_detail = $this->Product_category_detail_model->get_product_category_detail_by_product_id($id);
     
             $product_categories = [];
@@ -209,10 +209,10 @@ class Product extends CI_Controller {
             $data['value'] = $product;
             $data['product_categories'] = $product_categories;
             
-            $data['filePage'] = 'admin_panel/pages/product/edit';
+            $data['filePage'] = 'admin_panel/pages/product_image/edit';
             
             $this->load->view('admin_panel/app', $data);
-            // redirect(base_url("admin_panel/products/product/edit/{$id}"));
+            // redirect(base_url("admin_panel/products/product_image/edit/{$id}"));
         } else {
 
             $filename = $_FILES['image']['name'];
@@ -222,7 +222,7 @@ class Product extends CI_Controller {
 
                 $data = [
                     'title' => $this->input->post('title'),
-                    'description' => $this->input->post('description'),
+                    'description' => 'desc',//$this->input->post('description'),
                     // 'type' => $this->input->post('type'),
                     // 'icon' => $this->input->post('icon'),
                     // 'product_category_id' => $this->input->post('category'),
@@ -230,7 +230,7 @@ class Product extends CI_Controller {
                 ];
 
                 $this->db->trans_start();
-                $update = $this->Product_model->update_product_by_id($id, $data);
+                $update = $this->Product_image_model->update_product_by_id($id, $data);
                 $delete_product_category_detail =  $this->Product_category_detail_model->delete_product_category_detail_by_product_id($id);
 
                 foreach($this->input->post('category') as $cat) {
@@ -244,7 +244,7 @@ class Product extends CI_Controller {
      
                 $this->session->set_flashdata('success', 'update data successfully');
 
-                redirect(base_url("admin_panel/products/product/index"));
+                redirect(base_url("admin_panel/products/product_image/index"));
 
             } else {
 
@@ -259,7 +259,7 @@ class Product extends CI_Controller {
 
                     $this->session->set_flashdata('failed', $message);
 
-                    redirect(base_url("admin_panel/products/product/index"));
+                    redirect(base_url("admin_panel/products/product_image/index"));
                 
                 } elseif ($_FILES["image"]["size"] > 2000000) {
                     
@@ -267,7 +267,7 @@ class Product extends CI_Controller {
 
                     $this->session->set_flashdata('failed', $message);
 
-                    redirect(base_url("admin_panel/products/product/index"));
+                    redirect(base_url("admin_panel/products/product_image/index"));
 
                 } else {
 
@@ -276,7 +276,7 @@ class Product extends CI_Controller {
 
                         $data = [
                             'title' => $this->input->post('title'),
-                            'description' => $this->input->post('description'),
+                            'description' =>'desc',// $this->input->post('description'),
                             // 'type' => $this->input->post('type'),
                             // 'icon' => $this->input->post('icon'),
                             // 'product_category_id' => $this->input->post('category'),
@@ -284,7 +284,7 @@ class Product extends CI_Controller {
                         ];
 
                         $this->db->trans_start();
-                        $update = $this->Product_model->update_product_by_id($id, $data);
+                        $update = $this->Product_image_model->update_product_by_id($id, $data);
                         $delete_product_category_detail =  $this->Product_category_detail_model->delete_product_category_detail_by_product_id($id);
                         foreach($this->input->post('category') as $cat) {
                             $product_category_detail = [
@@ -298,7 +298,7 @@ class Product extends CI_Controller {
 
                         $this->session->set_flashdata('success', 'save data successfully');
         
-                        redirect(base_url("admin_panel/products/product/index"));
+                        redirect(base_url("admin_panel/products/product_image/index"));
 
                     } else {
 
@@ -306,7 +306,7 @@ class Product extends CI_Controller {
 
                         $this->session->set_flashdata('failed', $message);
 
-                        redirect(base_url("admin_panel/products/product/index"));
+                        redirect(base_url("admin_panel/products/product_image/index"));
 
                     }
                 }
@@ -319,10 +319,10 @@ class Product extends CI_Controller {
             //     'product_category_id' => $this->input->post('category'),
             // ];
 
-            // $this->Product_model->update_product_by_id($id, $data);
+            // $this->Product_image_model->update_product_by_id($id, $data);
             // $this->session->set_flashdata('success', 'update data successfully');
 
-            // redirect(base_url("admin_panel/products/product/index"));
+            // redirect(base_url("admin_panel/products/product_image/index"));
 
         }
     }
@@ -332,11 +332,11 @@ class Product extends CI_Controller {
 
         $message = 'Success delete data';
 
-        $this->Product_model->delete_product_by_id($id);
+        $this->Product_image_model->delete_product_by_id($id);
 
         $this->session->set_flashdata('success', $message);
 
-        redirect(base_url("admin_panel/products/product/index"));
+        redirect(base_url("admin_panel/products/product_image/index"));
         
     }
 
@@ -353,7 +353,7 @@ class Product extends CI_Controller {
     {
         $q = $this->input->get('q') ? $this->input->get('q') : NULL;
         
-        $data = $this->Product_model->ajax_get_product($q);
+        $data = $this->Product_image_model->ajax_get_product($q);
 
         echo json_encode($data);
     }
@@ -381,7 +381,7 @@ class Product extends CI_Controller {
             $array['order'] = 'desc';
         }
 
-        $totalFiltered = count($this->Product_model->get_ajax_list_product($array, $is_halal = 0));
+        $totalFiltered = count($this->Product_image_model->get_ajax_list_product($array));
 
         //check the length parameter and then take records
         if ($length > 0) {
@@ -389,7 +389,7 @@ class Product extends CI_Controller {
             $array['length'] = $length;
         }
 
-        $posts = $this->Product_model->get_ajax_list_product($array, $is_halal = 0);
+        $posts = $this->Product_image_model->get_ajax_list_product($array);
 
         if(sizeof($posts) > 0) {
             foreach($posts as $key => $value) {    
@@ -420,14 +420,14 @@ class Product extends CI_Controller {
                             "<img src='" . base_url() . "uploads/product/" . $value->image . "' width='50px' height='50px'>" 
                             : "no image";
                 $action = "
-                    <a href='".base_url()."admin_panel/products/product/edit/".$value->id."' 
+                    <a href='".base_url()."admin_panel/products/product_image/edit/".$value->id."' 
                         class='btn btn-success' 
                         style='margin-right: 5px;' title='Edit'>
                         <i class='fa fa-edit'></i>
                     </a>
 
                     <a onclick='".'return confirm("'."delete this item?".'")'."'
-                        href='".base_url()."admin_panel/products/product/delete/".$value->id."' 
+                        href='".base_url()."admin_panel/products/product_image/delete/".$value->id."' 
                         class='btn btn-danger delete-list'
                         title='Delete'>
                         <i class='fa fa-trash'></i>
@@ -469,14 +469,14 @@ class Product extends CI_Controller {
 
         if($type == 'delete') {
 
-            $delete = $this->Product_model->delete_product_by_array_id($array_id);
+            $delete = $this->Product_image_model->delete_product_by_array_id($array_id);
 
             if($delete) {
                 $this->session->set_flashdata('success', 'delete data successfully');
-                redirect(base_url("admin_panel/products/product/index"));
+                redirect(base_url("admin_panel/products/product_image/index"));
             } else {
                 $this->session->set_flashdata('failed', 'delete data failed');
-                redirect(base_url("admin_panel/products/product/index"));
+                redirect(base_url("admin_panel/products/product_image/index"));
             }
         }
     }

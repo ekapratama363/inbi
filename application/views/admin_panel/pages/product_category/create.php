@@ -42,6 +42,14 @@
                 </div>
               </div>
             </div>
+            <div class="form-group">
+              <div class="mb-3">
+                <label>Icon</label>
+                <div class="input-group col-xs-12">
+                  <input type="file" name="icon" id="icon" class="form-control file-upload-info" placeholder="Upload Icon" required>
+                </div>
+              </div>
+            </div>
 
             <div class="form-group">
               <div class="mb-3">

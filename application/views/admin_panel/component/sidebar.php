@@ -94,24 +94,41 @@
                     <ul class="sub-menu" aria-expanded="false">
                         <li>
                             <a href="<?php echo base_url(); ?>admin_panel/products/background" 
-                                class="<?php if($seg3 == 'background') echo 'active'; ?>">Background</a>
-                        </li>
-                        <li>
-                            <a href="<?php echo base_url(); ?>admin_panel/products/product_description" 
-                                class="<?php if($seg3 == 'product_description') echo 'active'; ?>">Product Description</a>
+                                class="<?php if($seg2 == 'products' && $seg3 == 'background') echo 'active'; ?>">Background</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url(); ?>admin_panel/products/product_category" 
-                                class="<?php if($seg3 == 'product_category') echo 'active'; ?>">Product Category</a>
+                                class="<?php if($seg2 == 'products' && $seg3 == 'product_category') echo 'active'; ?>">Product Category</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url(); ?>admin_panel/products/product" 
-                                class="<?php if($seg3 == 'product') echo 'active'; ?>">Product</a>
+                                class="<?php if($seg2 == 'products' && $seg3 == 'product') echo 'active'; ?>">Product</a>
                         </li>
-                        <!-- <li>
-                            <a href="<?php echo base_url(); ?>admin_panel/products/raw_material" 
-                                class="<?php if($seg3 == 'raw_material') echo 'active'; ?>">Raw Material</a>
-                        </li> -->
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/products/product_image" 
+                                class="<?php if($seg2 == 'products' && $seg3 == 'product_image') echo 'active'; ?>">Product Image</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="<?php if($seg2 == 'product_halals') echo 'mm-active'; ?>">
+                    <a href="javascript: void(0);" class="has-arrow waves-effect">
+                        <i class="mdi mdi-folder-multiple"></i>
+                        <span>Product Halals</span>
+                    </a>
+                    <ul class="sub-menu" aria-expanded="false">
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/product_halals/background" 
+                                class="<?php if($seg2 == 'product_halals' && $seg3 == 'background') echo 'active'; ?>">Background</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/product_halals/product_category" 
+                                class="<?php if($seg2 == 'product_halals' && $seg3 == 'product_category') echo 'active'; ?>">Product Category</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/product_halals/product" 
+                                class="<?php if($seg2 == 'product_halals' && $seg3 == 'product') echo 'active'; ?>">Product</a>
+                        </li>
                     </ul>
                 </li>
 

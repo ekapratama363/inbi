@@ -90,7 +90,8 @@ class Product extends CI_Controller {
                     // 'type' => $this->input->post('type'),
                     // 'icon' => $this->input->post('icon'),
                     // 'product_category_id' => $this->input->post('category'),
-                    'image'     => '',//$_FILES['image']['name'],
+                    'image'     => '',//$_FILES['image']['name'],  
+                    'is_halal' => 1
                 ];
 
                 $this->db->trans_start();
@@ -107,13 +108,13 @@ class Product extends CI_Controller {
 
                 $this->session->set_flashdata('success', 'save data successfully');
 
-                redirect(base_url("admin_panel/products/product/create"));
+                redirect(base_url("admin_panel/product_halals/product/create"));
 
                 // $message = 'The image filed is required.';
 
                 // $this->session->set_flashdata('failed', $message);
 
-                // redirect(base_url("admin_panel/products/product/create"));
+                // redirect(base_url("admin_panel/product_halals/product/create"));
 
             } elseif ($ext != "jpg" && $ext != "png" && $ext != "jpeg" && $ext != "gif") {
                 
@@ -121,7 +122,7 @@ class Product extends CI_Controller {
 
                 $this->session->set_flashdata('failed', $message);
 
-                redirect(base_url("admin_panel/products/product/create"));
+                redirect(base_url("admin_panel/product_halals/product/create"));
             
             } elseif ($_FILES["image"]["size"] > 2000000) {
                 
@@ -129,7 +130,7 @@ class Product extends CI_Controller {
 
                 $this->session->set_flashdata('failed', $message);
 
-                redirect(base_url("admin_panel/products/product/create"));
+                redirect(base_url("admin_panel/product_halals/product/create"));
 
             } else {
         
@@ -141,7 +142,8 @@ class Product extends CI_Controller {
                         // 'type' => $this->input->post('type'),
                         // 'icon' => $this->input->post('icon'),
                         // 'product_category_id' => $this->input->post('category'),
-                        'image'     => $_FILES['image']['name'],
+                        'image'     => $_FILES['image']['name'], 
+                        'is_halal' => 1
                     ];
     
                     $this->db->trans_start();
@@ -157,7 +159,7 @@ class Product extends CI_Controller {
          
                     $this->session->set_flashdata('success', 'save data successfully');
     
-                    redirect(base_url("admin_panel/products/product/create"));
+                    redirect(base_url("admin_panel/product_halals/product/create"));
 
                 } else {
 
@@ -165,7 +167,7 @@ class Product extends CI_Controller {
 
                     $this->session->set_flashdata('failed', $message);
 
-                    redirect(base_url("admin_panel/products/product/create"));
+                    redirect(base_url("admin_panel/product_halals/product/create"));
 
                 }
             }
@@ -181,7 +183,7 @@ class Product extends CI_Controller {
 
             // $this->session->set_flashdata('success', 'save data successfully');
 
-            // redirect(base_url("admin_panel/products/product/create"));
+            // redirect(base_url("admin_panel/product_halals/product/create"));
 
         }
     }
@@ -212,7 +214,7 @@ class Product extends CI_Controller {
             $data['filePage'] = 'admin_panel/pages/product/edit';
             
             $this->load->view('admin_panel/app', $data);
-            // redirect(base_url("admin_panel/products/product/edit/{$id}"));
+            // redirect(base_url("admin_panel/product_halals/product/edit/{$id}"));
         } else {
 
             $filename = $_FILES['image']['name'];
@@ -226,7 +228,8 @@ class Product extends CI_Controller {
                     // 'type' => $this->input->post('type'),
                     // 'icon' => $this->input->post('icon'),
                     // 'product_category_id' => $this->input->post('category'),
-                    'image'     => $this->input->post('image_hidden'),
+                    'image'     => $this->input->post('image_hidden'), 
+                    'is_halal' => 1
                 ];
 
                 $this->db->trans_start();
@@ -244,7 +247,7 @@ class Product extends CI_Controller {
      
                 $this->session->set_flashdata('success', 'update data successfully');
 
-                redirect(base_url("admin_panel/products/product/index"));
+                redirect(base_url("admin_panel/product_halals/product/index"));
 
             } else {
 
@@ -259,7 +262,7 @@ class Product extends CI_Controller {
 
                     $this->session->set_flashdata('failed', $message);
 
-                    redirect(base_url("admin_panel/products/product/index"));
+                    redirect(base_url("admin_panel/product_halals/product/index"));
                 
                 } elseif ($_FILES["image"]["size"] > 2000000) {
                     
@@ -267,7 +270,7 @@ class Product extends CI_Controller {
 
                     $this->session->set_flashdata('failed', $message);
 
-                    redirect(base_url("admin_panel/products/product/index"));
+                    redirect(base_url("admin_panel/product_halals/product/index"));
 
                 } else {
 
@@ -280,7 +283,8 @@ class Product extends CI_Controller {
                             // 'type' => $this->input->post('type'),
                             // 'icon' => $this->input->post('icon'),
                             // 'product_category_id' => $this->input->post('category'),
-                            'image' => $_FILES['image']['name'],
+                            'image' => $_FILES['image']['name'], 
+                            'is_halal' => 1
                         ];
 
                         $this->db->trans_start();
@@ -298,7 +302,7 @@ class Product extends CI_Controller {
 
                         $this->session->set_flashdata('success', 'save data successfully');
         
-                        redirect(base_url("admin_panel/products/product/index"));
+                        redirect(base_url("admin_panel/product_halals/product/index"));
 
                     } else {
 
@@ -306,7 +310,7 @@ class Product extends CI_Controller {
 
                         $this->session->set_flashdata('failed', $message);
 
-                        redirect(base_url("admin_panel/products/product/index"));
+                        redirect(base_url("admin_panel/product_halals/product/index"));
 
                     }
                 }
@@ -322,7 +326,7 @@ class Product extends CI_Controller {
             // $this->Product_model->update_product_by_id($id, $data);
             // $this->session->set_flashdata('success', 'update data successfully');
 
-            // redirect(base_url("admin_panel/products/product/index"));
+            // redirect(base_url("admin_panel/product_halals/product/index"));
 
         }
     }
@@ -336,7 +340,7 @@ class Product extends CI_Controller {
 
         $this->session->set_flashdata('success', $message);
 
-        redirect(base_url("admin_panel/products/product/index"));
+        redirect(base_url("admin_panel/product_halals/product/index"));
         
     }
 
@@ -381,7 +385,7 @@ class Product extends CI_Controller {
             $array['order'] = 'desc';
         }
 
-        $totalFiltered = count($this->Product_model->get_ajax_list_product($array, $is_halal = 0));
+        $totalFiltered = count($this->Product_model->get_ajax_list_product($array, $is_halal = 1));
 
         //check the length parameter and then take records
         if ($length > 0) {
@@ -389,7 +393,7 @@ class Product extends CI_Controller {
             $array['length'] = $length;
         }
 
-        $posts = $this->Product_model->get_ajax_list_product($array, $is_halal = 0);
+        $posts = $this->Product_model->get_ajax_list_product($array, $is_halal = 1);
 
         if(sizeof($posts) > 0) {
             foreach($posts as $key => $value) {    
@@ -420,14 +424,14 @@ class Product extends CI_Controller {
                             "<img src='" . base_url() . "uploads/product/" . $value->image . "' width='50px' height='50px'>" 
                             : "no image";
                 $action = "
-                    <a href='".base_url()."admin_panel/products/product/edit/".$value->id."' 
+                    <a href='".base_url()."admin_panel/product_halals/product/edit/".$value->id."' 
                         class='btn btn-success' 
                         style='margin-right: 5px;' title='Edit'>
                         <i class='fa fa-edit'></i>
                     </a>
 
                     <a onclick='".'return confirm("'."delete this item?".'")'."'
-                        href='".base_url()."admin_panel/products/product/delete/".$value->id."' 
+                        href='".base_url()."admin_panel/product_halals/product/delete/".$value->id."' 
                         class='btn btn-danger delete-list'
                         title='Delete'>
                         <i class='fa fa-trash'></i>
@@ -473,10 +477,10 @@ class Product extends CI_Controller {
 
             if($delete) {
                 $this->session->set_flashdata('success', 'delete data successfully');
-                redirect(base_url("admin_panel/products/product/index"));
+                redirect(base_url("admin_panel/product_halals/product/index"));
             } else {
                 $this->session->set_flashdata('failed', 'delete data failed');
-                redirect(base_url("admin_panel/products/product/index"));
+                redirect(base_url("admin_panel/product_halals/product/index"));
             }
         }
     }

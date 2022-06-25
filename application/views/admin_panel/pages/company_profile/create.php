@@ -92,6 +92,14 @@
                   value="<?php echo isset($value->address) ? $value->address : ''; ?>">
               </div>
             </div>
+            
+            <div class="form-group">
+              <div class="mb-3">
+                <label for="working_hours">Working Hours</label>
+                <input type="text" class="form-control" id="working_hours" name="working_hours"
+                  value="<?php echo isset($value->working_hours) ? $value->working_hours : ''; ?>">
+              </div>
+            </div>
 
             <div class="form-group">
               <label>Signature</label>

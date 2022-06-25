@@ -1,6 +1,6 @@
 <?php
 
-class Product_model extends CI_Model
+class Product_image_model extends CI_Model
 {
     public function __construct()
     {
@@ -9,7 +9,7 @@ class Product_model extends CI_Model
 
     public function set_product($data) 
     {
-        $this->db->insert('products', $data);
+        $this->db->insert('product_images', $data);
         $insert_id = $this->db->insert_id();
 
         return $insert_id;
@@ -18,12 +18,12 @@ class Product_model extends CI_Model
     public function ajax_product()
     {
         $query = $this->db->order_by('id', 'desc')
-                ->get('products'); 
+                ->get('product_images'); 
 
         return $query->row_object();
     }
 
-    public function get_ajax_list_product($data = NULL, $is_halal = null)
+    public function get_ajax_list_product($data = NULL)
     {
         $match = isset($data['search']) ? $data['search'] : '';
         
@@ -31,16 +31,12 @@ class Product_model extends CI_Model
                 ->where('(title LIKE \'%'.$match.'%\' 
                             or description LIKE \'%'.$match.'%\')')
                 ->order_by('id', isset($data['order']) ? 'asc' : 'desc');
-        
-        if ($is_halal) {
-            $query = $query->where('is_halal', $is_halal);
-        }
-
-        if (isset($data['length']) && isset($data['start'])) {
+                
+        if(isset($data['length']) && isset($data['start'])) {
             $query = $query->limit($data['length'], $data['start']);
         }
 
-        $query = $query->get('products');
+        $query = $query->get('product_images');
 
         return $query->result_object();
     }
@@ -50,13 +46,13 @@ class Product_model extends CI_Model
     
         $query = $this->db
                 ->select('*')
-                ->from('products')
+                ->from('product_images')
                 ->where('product.id', $id)
                 ->get();
 
         return $query->result_object();
 
-        // $query = $this->db->get_where('products', ['id' => $id]);
+        // $query = $this->db->get_where('product_images', ['id' => $id]);
 
         // return $query->row_object();
     }
@@ -66,20 +62,20 @@ class Product_model extends CI_Model
     
         $query = $this->db
                 ->select('*')
-                ->from('products')
-                ->where('products.id', $id)
+                ->from('product_images')
+                ->where('product_images.id', $id)
                 ->get();
 
         return $query->row_object();
 
-        // $query = $this->db->get_where('products', ['id' => $id]);
+        // $query = $this->db->get_where('product_images', ['id' => $id]);
 
         // return $query->row_object();
     }
 
     public function update_product_by_id($id, $data)
     {
-        $query = $this->db->where('id', $id)->update('products', $data);
+        $query = $this->db->where('id', $id)->update('product_images', $data);
 
         return $query;
     }
@@ -87,7 +83,7 @@ class Product_model extends CI_Model
     public function delete_product_by_id($id)
     {
         $this->db->where(['id' => $id]);
-	    $this->db->delete('products');
+	    $this->db->delete('product_images');
     }
 
     public function ajax_get_product($q = NULL)
@@ -98,7 +94,7 @@ class Product_model extends CI_Model
             $this->db->limit(15);
         }
 
-        $query = $this->db->get('products');
+        $query = $this->db->get('product_images');
 
         return $query->result_object();
     }
@@ -106,16 +102,16 @@ class Product_model extends CI_Model
     public function get_product($limit = NULL, $start = NULL, $category = NULL)
     {
         $query = $this->db
-                ->select('products.id, products.title, products.description, products.image,
+                ->select('product_images.id, product_images.title, product_images.description, product_images.image,
                     product_categories.description as product_categories_description, product_categories.category,
                     product_categories.slug')
-                ->from('products')
-                ->join('product_categories', 'product_categories.id = products.product_categories_id', 'left')
-                // ->where('(products.title LIKE \'%'.$match.'%\' 
-                //             or products.description LIKE \'%'.$match.'%\'
+                ->from('product_images')
+                ->join('product_categories', 'product_categories.id = product_images.product_categories_id', 'left')
+                // ->where('(product_images.title LIKE \'%'.$match.'%\' 
+                //             or product_images.description LIKE \'%'.$match.'%\'
                 //             or product_categories.category LIKE \'%'.$match.'%\')')
                 ->where('product_categories.slug', $category)
-                ->order_by('products.id', 'desc')
+                ->order_by('product_images.id', 'desc')
                 ->limit($limit, $start)
                 ->get();
         
@@ -125,27 +121,27 @@ class Product_model extends CI_Model
     public function count_product($category = NULl)
     {
         $query = $this->db
-                ->select('products.id, products.title, products.description, products.image,
+                ->select('product_images.id, product_images.title, product_images.description, product_images.image,
                     product_categories.description as product_categories_description, product_categories.category,
                     product_categories.slug')
-                ->from('products')
+                ->from('product_images')
                 ->join('product_categories', 'product_categories.id = product.product_categories_id', 'left')
                 // ->where('(product.title LIKE \'%'.$match.'%\' 
                 //             or product.description LIKE \'%'.$match.'%\'
                 //             or product_categories.category LIKE \'%'.$match.'%\')')
                 ->where('product_categories.category', $category)
-                ->order_by('products.id', 'desc')
+                ->order_by('product_images.id', 'desc')
                 // ->limit($limit, $start);
                 ->get();
 
         return $query->num_rows();
 
-		// return $this->db->get('products')->num_rows();
+		// return $this->db->get('product_images')->num_rows();
 	}
 
     public function delete_product_by_array_id($id)
     {
-        $query = $this->db->where_in('id', $id)->delete('products');
+        $query = $this->db->where_in('id', $id)->delete('product_images');
 
         return $query;
     }

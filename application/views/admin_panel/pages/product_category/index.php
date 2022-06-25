@@ -22,6 +22,7 @@
                             <th style="width: 5%">No</th>
                             <th>Category</th>
                             <th>Description</th>
+                            <th>Icon</th>
                             <th>Image</th>
                             <th>Action</th>
                         </tr>
@@ -67,6 +68,7 @@
                 {"data": "no"},
                 {"data": "category"},
                 {"data": "description"},
+                {"data": "icon"},
                 {"data": "image"},
                 {"data": "action"},
             ],

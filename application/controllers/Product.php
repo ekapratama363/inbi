@@ -19,40 +19,70 @@ class Product extends CI_Controller {
         $this->load->model('Product_model');
         $this->load->model('Product_category_detail_model');
         $this->load->model('Background_model');
+        $this->load->model('Product_image_model');
     }
 
-    public function index()
+    private function get_products()
     {
-        $data['filePage'] = 'frontend/pages/product/index';
+        $data['length'] = 3;
+        $data['start']  = 0;
+        $product_categories = $this->Product_category_model->get_ajax_list_product_category($data, $is_halal = 0);
+        
+        foreach ($product_categories as $key => $product_category ) {
+            $product_categories[$key]->prod_cat_details = $this->Product_category_detail_model->get_product_category_detail_by_product_category_id($product_category->id);
+        }
+        
+        $products_all = $product_categories;
+        foreach ($products_all as $key => $product_category ) {
+            foreach ($product_category->prod_cat_details as $k => $prod_cat_details) {
+                $product = $this->Product_model->get_product_by_id($prod_cat_details->product_id);
+                
+                if($product) {
+                    $products_all[$key]->prod_cat_details[$k]->products = $product;
 
-        $data['company_profile'] = $this->Company_profile_model->get_company_profile();
-        $data['product_description'] = $this->Product_description_model->get_product_description();
-        $data['raw_material'] = $this->Raw_material_model->get_raw_material();
+                    $product_category = $this->Product_category_detail_model->get_product_category_detail_by_product_id($prod_cat_details->product_id);
+                    $products_all[$key]->prod_cat_details[$k]->categories = $product_category;
+                } else {
+                    unset($products_all[$key]->prod_cat_details[$k]);
+                }
+            }
+        }
 
-        $data['background'] = $this->Background_model->get_background($this->uri->segment(1));
-
-        $product_categories = $this->Product_category_model->get_ajax_list_product_category();
+        return $products_all;
+    }
+    
+    private function get_product_images()
+    {
+        $product_categories = $this->Product_category_model->get_ajax_list_product_category(null, $is_halal = 0);
         
         foreach ($product_categories as $key => $product_category ) {
             $product_categories[$key]->prod_cat_details = $this->Product_category_detail_model->get_product_category_detail_by_product_category_id($product_category->id);
         }
 
-        foreach ($product_categories as $key => $product_category ) {
-            foreach ($product_category->prod_cat_details as $k => $prod_cat_details) {
-                $product = $this->Product_model->get_product_by_id($prod_cat_details->product_id);
-                
-                if($product) {
-                    $product_categories[$key]->prod_cat_details[$k]->products = $product;
+        $product_images = $product_categories;
+        foreach ((object)$product_images as $key => $product_image ) {
+            foreach ($product_image->prod_cat_details as $k => $prod_cat_details) {
 
-                    $product_category = $this->Product_category_detail_model->get_product_category_detail_by_product_id($prod_cat_details->product_id);
-                    $product_categories[$key]->prod_cat_details[$k]->categories = $product_category;
+                $images = $this->Product_image_model->get_product_by_id($prod_cat_details->product_id);
+
+                if ($images) {
+                    $product_images[$key]->prod_cat_details[$k]->product_images = $images;
                 } else {
-                    unset($product_categories[$key]->prod_cat_details[$k]);
+                    unset($product_images[$key]->prod_cat_details[$k]);
                 }
             }
         }
 
-        $data['products'] = $product_categories;
+        return $product_images;
+    }
+
+    public function index()
+    {
+        $data['filePage'] = 'frontend/pages/product/index';
+        $data['company_profile'] = $this->Company_profile_model->get_company_profile();
+        $data['background'] = $this->Background_model->get_background($this->uri->segment(1));
+        $data['products'] = $this->get_products();
+        $data['product_images'] = $this->get_product_images();
 
         $this->load->view('frontend/app', $data);
     }

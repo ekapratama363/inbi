@@ -57,6 +57,7 @@ class Product_category extends CI_Controller {
             $data = [
                 'category' => $this->input->post('category'),
                 'description' => $this->input->post('description'),  
+                'is_halal' => 1
             ];
 
             $message = "";
@@ -82,7 +83,7 @@ class Product_category extends CI_Controller {
                 $this->session->set_flashdata('success', 'save data successfully');
             }
 
-            redirect(base_url("admin_panel/products/product_category/create"));
+            redirect(base_url("admin_panel/product_halals/product_category/create"));
 
         }
     }
@@ -103,6 +104,7 @@ class Product_category extends CI_Controller {
             $data = [
                 'category' => $this->input->post('category'),
                 'description' => $this->input->post('description'),  
+                'is_halal' => 1
             ];
 
             $message = "";
@@ -128,7 +130,7 @@ class Product_category extends CI_Controller {
                 $this->session->set_flashdata('success', 'save data successfully');
             }
 
-            redirect(base_url("admin_panel/products/product_category/index"));
+            redirect(base_url("admin_panel/product_halals/product_category/index"));
         }
     }
 
@@ -141,7 +143,7 @@ class Product_category extends CI_Controller {
 
         $this->session->set_flashdata('success', $message);
 
-        redirect(base_url("admin_panel/products/product_category/index"));
+        redirect(base_url("admin_panel/product_halals/product_category/index"));
         
     }
 
@@ -176,7 +178,7 @@ class Product_category extends CI_Controller {
             $array['order'] = 'desc';
         }
 
-        $totalFiltered = count($this->Product_category_model->get_ajax_list_product_category($array, $is_halal = 0));
+        $totalFiltered = count($this->Product_category_model->get_ajax_list_product_category($array, $is_halal = 1));
 
         //check the length parameter and then take records
         if ($length > 0) {
@@ -184,7 +186,7 @@ class Product_category extends CI_Controller {
             $array['length'] = $length;
         }
 
-        $posts = $this->Product_category_model->get_ajax_list_product_category($array, $is_halal = 0);
+        $posts = $this->Product_category_model->get_ajax_list_product_category($array, $is_halal = 1);
 
         if(sizeof($posts) > 0) {
             $no = $start;
@@ -195,14 +197,14 @@ class Product_category extends CI_Controller {
                 $image = "<img src='" . base_url() . "uploads/product_category/" . $value->image . "' width='50px' height='50px'>";
                 
                 $action = "
-                    <a href='".base_url()."admin_panel/products/product_category/edit/".$value->id."' 
+                    <a href='".base_url()."admin_panel/product_halals/product_category/edit/".$value->id."' 
                         class='btn btn-success' 
                         style='margin-right: 5px;' title='Edit'>
                         <i class='fa fa-edit'></i>
                     </a>
 
                     <a onclick='".'return confirm("'."delete this item?".'")'."'
-                        href='".base_url()."admin_panel/products/product_category/delete/".$value->id."' class='btn btn-danger delete-list'>
+                        href='".base_url()."admin_panel/product_halals/product_category/delete/".$value->id."' class='btn btn-danger delete-list'>
                         <i class='fa fa-trash'></i>
                     </a>
                 ";

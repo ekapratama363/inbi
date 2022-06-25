@@ -58,6 +58,7 @@ class Company_profile extends CI_Controller {
                 'phone' => $this->input->post('phone'),
                 'email' => $this->input->post('email'),
                 'address' => $this->input->post('address'),
+                'working_hours' => $this->input->post('working_hours'),
                 'social_medias' => json_encode($social_medias),
             ];
 

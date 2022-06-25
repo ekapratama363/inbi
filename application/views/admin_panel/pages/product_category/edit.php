@@ -63,6 +63,28 @@
 
             <div class="form-group">
               <div class="mb-3">
+                <label>Icon</label>
+                <div class="input-group col-xs-12">
+                  <input type="file" name="icon" id="icon" class="form-control file-upload-info" placeholder="Upload Icon">
+                </div>
+              </div>
+            </div>
+
+            <input type="hidden" name="icon_hidden" value="<?php echo isset($value->icon) ? $value->icon : ''; ?>">
+            <?php if(isset($value->icon)) { ?>
+            <div class="form-group">
+              <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="<?php echo base_url() . 'uploads/product_category/' . $value->icon ; ?>" 
+                  alt="Card icon cap">
+                <div class="card-body">
+                  <p class="card-text"><?php echo $value->icon; ?></p>
+                </div>
+              </div>
+            </div>
+            <?php } ?>
+
+            <div class="form-group">
+              <div class="mb-3">
                 <label for="description">Description</label>
                 <textarea class="form-control" id="description" name="description" rows="2"><?php echo isset($value->description) ? $value->description : ''; ?></textarea>
               </div>

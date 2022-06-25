@@ -44,7 +44,7 @@
               </div>
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <div class="mb-3">
                 <label>Image</label>
                 <div class="input-group col-xs-12">
@@ -63,11 +63,8 @@
                   <p class="card-text"><?php echo $value->image; ?></p>
                 </div>
               </div>
-
-                <!-- <img src="<?php echo isset($value->image) ? base_url() . 'uploads/product_category/' . $value->image : ''; ?>" 
-                  width='300px' height='150px' alt="<?php echo $value->image; ?>"> -->
             </div>
-            <?php } ?>
+            <?php } ?> -->
             <div class="form-group">
               <div class="mb-3">
                   <label>Category </label>
@@ -94,7 +91,7 @@
         $("#category").select2({
           // placeholder: 'Choose Category',
           width: '100%',
-          multiple:true,
+          multiple:false,
           // allowClear: true,
           ajax: {
             url:  "<?php echo base_url() . $this->uri->segment(1) .'/'. $this->uri->segment(2) .'/'. $this->uri->segment(3); ?>/ajax_product_category",

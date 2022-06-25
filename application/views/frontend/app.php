@@ -41,6 +41,7 @@
                                 <li><a href="<?php echo base_url(); ?>">Home</a></li>
                                 <li><a href="<?php echo base_url(); ?>about">About Us</a></li>
                                 <li><a href="<?php echo base_url(); ?>product">Our Product</a></li>
+                                <li><a href="<?php echo base_url(); ?>product_halal">Halal Product</a></li>
                                 <li><a href="<?php echo base_url(); ?>policy">Policy</a></li>
                                 <li><a href="<?php echo base_url(); ?>article">Blog</a></li>
                                 <li><a href="<?php echo base_url(); ?>contact">contact</a></li>
@@ -81,6 +82,7 @@
                         <li><a href="<?php echo base_url(); ?>">Home</a></li>
                         <li><a href="<?php echo base_url(); ?>about">About Us</a></li>
                         <li><a href="<?php echo base_url(); ?>product">Our Product</a></li>
+                        <li><a href="<?php echo base_url(); ?>product_halal">Halal Product</a></li>
                         <li><a href="<?php echo base_url(); ?>policy">Policy</a></li>
                         <li><a href="<?php echo base_url(); ?>article">Blog</a></li>
                         <li><a href="<?php echo base_url(); ?>contact">contact</a></li>
