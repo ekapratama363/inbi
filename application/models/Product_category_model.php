@@ -7,12 +7,27 @@ class Product_category_model extends CI_Model
         $this->load->database();
     }
 
+    public function count_categories($is_halal = NULL)
+    {
+        $query = $this->db
+                ->select('*')
+                ->from('product_categories');
+
+        if ($is_halal !== NULL) {
+            $query = $query->where('is_halal', $is_halal);
+        }
+
+        $query = $query->get();
+
+        return $query->num_rows();
+	}
+
     public function get_categories($limit = NULL, $start = NULL, $search = NULL, $is_halal = NULL)
     {
         $query = $this->db->select('*')
             ->from('product_categories');
 
-        if ($is_halal) {
+        if ($is_halal !== NULL) {
             $query = $query->where('is_halal', $is_halal);
         }
 
@@ -42,7 +57,7 @@ class Product_category_model extends CI_Model
         $query = $this->db->where('(category LIKE \'%'.$match.'%\')')
                 ->order_by('id', isset($data['order']) ? 'desc' : 'asc');
         
-        if ($is_halal) {
+        if ($is_halal !== NULL) {
             $query = $query->where('is_halal', $is_halal);
         }
 
@@ -75,12 +90,16 @@ class Product_category_model extends CI_Model
 	    $this->db->delete('product_categories');
     }
 
-    public function ajax_get_product_category($q = NULL)
+    public function ajax_get_product_category($q = NULL, $is_halal = NULL)
     {
         if($q) {
             $this->db->like('category', $q);
         } else {
             $this->db->limit(15);
+        }
+
+        if ($is_halal !== NULL) {
+            $this->db->where('is_halal', $is_halal);
         }
 
         $query = $this->db->get('product_categories');

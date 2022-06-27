@@ -51,7 +51,7 @@ class Article_model extends CI_Model
         $query = $this->db->select('*')
                 ->where('(title LIKE \'%'.$match.'%\' 
                             or description LIKE \'%'.$match.'%\')')
-                ->order_by('id', isset($data['order']) ? 'desc' : 'asc');
+                ->order_by('id', isset($data['order']) ? 'asc' : 'desc');
                 
         if(isset($data['length']) && isset($data['start'])) {
 
@@ -110,6 +110,7 @@ class Article_model extends CI_Model
                 ->where('(title LIKE \'%'.$q.'%\' 
                             or description LIKE \'%'.$q.'%\')')
                 ->limit($limit, $start)
+                ->order_by('id', 'desc')
                 ->get('articles');
         
         return $query->result_object();

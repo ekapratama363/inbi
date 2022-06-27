@@ -14,20 +14,24 @@
 			<div class="col-xl-9 col-lg-8">
 				<div class="single-post-item text-center">
 
-					<div class="text-center">
-						<img src="<?php echo base_url() ?>uploads/article/<?php echo $article->image ?>" 
-							alt="<?php echo $article->image ?>" 
-							class="img-fluid">
-					</div>
-
-					<!-- <div class="single-post-img">
+					<div class="single-post-img">
 						<div class="owl-carousel owl-theme home-slider">
 							<div>
 								<a class="a-block d-flex align-items-center height-lg"
 									style="background-image: url('<?php echo base_url() ?>uploads/article/<?php echo $article->image ?>'); "></a>
 							</div>
+        
+							<div>
+								<a class="a-block d-flex align-items-center height-lg" 
+									style="background-image: url('<?php echo base_url() ?>uploads/article/<?php echo $article->other_image_1 ?>'); "></a>
+							</div>
+							
+							<div>
+								<a class="a-block d-flex align-items-center height-lg" 
+									style="background-image: url('<?php echo base_url() ?>uploads/article/<?php echo $article->other_image_2 ?>'); "></a>
+							</div>
 						</div>
-					</div> -->
+					</div>
 
 					<h3 class="single-post-title"><a><?php echo $article->title; ?></a></h3>
 					<div class="single-post-meta">
@@ -39,38 +43,9 @@
 						<p><?php echo $article->description; ?></p>
 					</div>
 				</div>
-
-
 			</div>
 			<div class="col-xl-3 col-lg-4">
 				<div class="sidebar-wrapper">
-					<!-- <div class="sidebar-widget sidebar-search-widget">
-						<h3>Search</h3>
-						<form action="#" class="sidebar-search-box">
-							<input type="text" placeholder="Search...">
-							<button type="button"><i class="fa fa-search"></i></button>
-						</form>
-					</div> -->
-					<!-- <div class="sidebar-widget">
-						<h3>Blog Archives</h3>
-						<div class="sidebar-widget-option-wrapper">
-							<div class="sidebar-widget-option">
-								<a href="blog-details.html">March 2015 <span>(1)</span></a>
-							</div>
-							<div class="sidebar-widget-option">
-								<a href="blog-details.html">December 2015 <span>(3)</span></a>
-							</div>
-							<div class="sidebar-widget-option">
-								<a href="blog-details.html">Novermber 2014 <span>(7)</span></a>
-							</div>
-							<div class="sidebar-widget-option">
-								<a href="blog-details.html">September 2015 <span>(1)</span></a>
-							</div>
-							<div class="sidebar-widget-option">
-								<a href="blog-details.html">August 2015 <span>(3)</span></a>
-							</div>
-						</div>
-					</div> -->
 					<div class="sidebar-widget">
 						<h3>Recent Posts</h3>
 						<div class="sidebar-widget-option-wrapper">
@@ -79,10 +54,8 @@
                                     <a href="<?php echo base_url() ?>article/page/<?php echo $article->id ?>"><?php echo $article->title ?></a>
                                 </div>
                             <?php } ?>
-
 						</div>
 					</div>
-
 				</div>
 			</div>
 		</div>

@@ -29,7 +29,7 @@ class Home extends CI_Controller {
         $data['why_choose_us'] = $this->Why_choose_us_model->get_why_choose_us();
         $data['company_profile'] = $this->Company_profile_model->get_company_profile();
         $data['recent_articles'] = $this->Article_model->get_article(6, 0);
-        $data['recent_categories'] = $this->Product_category_model->get_categories(3, 0);
+        $data['recent_categories'] = $this->Product_category_model->get_categories(NULL, NULL, NULL, $is_halal = 0);
 
         $this->load->view('frontend/app', $data);
     }

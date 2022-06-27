@@ -45,9 +45,22 @@
                 <label>Image</label>
                 <div class="input-group col-xs-12">
                   <input type="file" name="image" id="image" class="form-control file-upload-info" placeholder="Upload Image">
-                  <!-- <span class="input-group-append">
-                    <button class="file-upload-browse btn btn-info" type="button">Upload</button>
-                  </span> -->
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="mb-3">
+                <label>Other Image</label>
+                <div class="input-group col-xs-12">
+                  <input type="file" name="other_image_1" id="image" class="form-control file-upload-info" placeholder="Upload Image">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="mb-3">
+                <label>Other Image</label>
+                <div class="input-group col-xs-12">
+                  <input type="file" name="other_image_2" id="image" class="form-control file-upload-info" placeholder="Upload Image">
                 </div>
               </div>
             </div>

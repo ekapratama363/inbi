@@ -32,7 +32,7 @@ class Product_model extends CI_Model
                             or description LIKE \'%'.$match.'%\')')
                 ->order_by('id', isset($data['order']) ? 'asc' : 'desc');
         
-        if ($is_halal) {
+        if ($is_halal !== NULL) {
             $query = $query->where('is_halal', $is_halal);
         }
 

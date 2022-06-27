@@ -47,9 +47,6 @@
               <div class="mb-3">
                 <div class="input-group col-xs-12">
                   <input type="file" name="image" id="image" class="form-control file-upload-info" placeholder="Upload Image">
-                  <!-- <span class="input-group-append">
-                    <button class="file-upload-browse btn btn-info" type="button">Upload</button>
-                  </span> -->
                 </div>
               </div>
             </div>
@@ -63,6 +60,54 @@
                     alt="Card image cap">
                   <div class="card-body">
                     <p class="card-text"><?php echo $value->image; ?></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <?php } ?>
+
+            <div class="form-group">
+              <label>Other Image</label>
+              <div class="mb-3">
+                <div class="input-group col-xs-12">
+                  <input type="file" name="other_image_1" id="image" class="form-control file-upload-info" placeholder="Upload Image">
+                </div>
+              </div>
+            </div>
+
+            <input type="hidden" name="ohter_image_1_hidden" value="<?php echo isset($value->other_image_1) ? $value->other_image_1 : ''; ?>">
+            <?php if(isset($value->other_image_1)) { ?>
+            <div class="form-group">
+              <div class="mb-3">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="<?php echo base_url() . 'uploads/article/' . $value->other_image_1 ; ?>" 
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text"><?php echo $value->other_image_1; ?></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <?php } ?>
+
+            <div class="form-group">
+              <label>Other Image</label>
+              <div class="mb-3">
+                <div class="input-group col-xs-12">
+                  <input type="file" name="other_image_2" id="image" class="form-control file-upload-info" placeholder="Upload Image">
+                </div>
+              </div>
+            </div>
+
+            <input type="hidden" name="other_image_2_hidden" value="<?php echo isset($value->other_image_2) ? $value->other_image_2 : ''; ?>">
+            <?php if(isset($value->other_image_2)) { ?>
+            <div class="form-group">
+              <div class="mb-3">
+                <div class="card" style="width: 18rem;">
+                  <img class="card-img-top" src="<?php echo base_url() . 'uploads/article/' . $value->other_image_2 ; ?>" 
+                    alt="Card image cap">
+                  <div class="card-body">
+                    <p class="card-text"><?php echo $value->other_image_2; ?></p>
                   </div>
                 </div>
               </div>

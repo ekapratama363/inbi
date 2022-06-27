@@ -32,6 +32,8 @@
                             <!-- <th>Icon</th> -->
                             <!-- <th>Category</th> -->
                             <th>Image</th>
+                            <th>Other Image</th>
+                            <th>Other Image</th>
                             <!-- <th>Page</th> -->
                             <th style="width: 5%">Action</th>
                         </tr>
@@ -77,6 +79,8 @@
                 {"data": "description"},
                 // {"data": "product_categories"},
                 {"data": "image"},
+                {"data": "other_image_1"},
+                {"data": "other_image_2"},
                 {"data": "action"},
             ],
             columnDefs : [

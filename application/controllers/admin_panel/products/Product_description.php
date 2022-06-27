@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Vision extends CI_Controller {
+class Product_description extends CI_Controller {
 
     public function __construct()
     {
@@ -11,10 +11,7 @@ class Vision extends CI_Controller {
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->library('session');
-
-		$this->load->helper('upload_file');
-
-        $this->load->model('Vision_model');
+        $this->load->model('Product_description_model');
         
 		if($this->session->userdata('is_login') != "true"){
 			redirect(base_url("admin_panel/auth"));
@@ -23,17 +20,12 @@ class Vision extends CI_Controller {
 
     public function index($id="")
     {
-        $data['filePage'] = 'admin_panel/pages/vision/create';
+        $data['filePage'] = 'admin_panel/pages/product_description/create';
 
-        $get_vision     = $this->Vision_model->get_vision();
-        $vision_id      = isset($get_vision->id) ? $get_vision->id : null;
-        $vision         = $this->Vision_model->get_vision_by_id($vision_id);
-        
-        if($vision) {
-            $vision->visions = json_decode($vision->visions);
-        }
+        $get_data   = $this->Product_description_model->get_data($is_halal = 0);
+        $id         = isset($get_data->id) ? $get_data->id : null;
 
-        $data['value']   = $vision;
+        $data['value'] = $this->Product_description_model->get_data_by_id($id);
 
         $this->load->view('admin_panel/app', $data);
     }
@@ -45,17 +37,17 @@ class Vision extends CI_Controller {
         $data = [
             'title' => $this->input->post('title'),
             'description' => $this->input->post('description'),
-            'visions' => json_encode($this->input->post('visions')),
+            'is_halal' => 0,
         ];
         
-        $save = $this->Vision_model->update_vision_by_id($id, $data);
+        $save = $this->Product_description_model->update_data_by_id($id, $data);
 
         if($save) {
             $this->session->set_flashdata('success', 'save data successfully');
         } else {
             $this->session->set_flashdata('failed', 'save data failed');
         }
-        redirect(base_url("admin_panel/abouts/vision"));
+        redirect(base_url("admin_panel/products/product_description"));
     }
 
 }

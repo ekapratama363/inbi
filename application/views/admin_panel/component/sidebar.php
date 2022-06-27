@@ -108,6 +108,10 @@
                             <a href="<?php echo base_url(); ?>admin_panel/products/product_image" 
                                 class="<?php if($seg2 == 'products' && $seg3 == 'product_image') echo 'active'; ?>">Product Image</a>
                         </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/products/product_description" 
+                                class="<?php if($seg2 == 'products' && $seg3 == 'product_description') echo 'active'; ?>">Product Description</a>
+                        </li>
                     </ul>
                 </li>
 
@@ -128,6 +132,10 @@
                         <li>
                             <a href="<?php echo base_url(); ?>admin_panel/product_halals/product" 
                                 class="<?php if($seg2 == 'product_halals' && $seg3 == 'product') echo 'active'; ?>">Product</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url(); ?>admin_panel/product_halals/product_description" 
+                                class="<?php if($seg2 == 'product_halals' && $seg3 == 'product_description') echo 'active'; ?>">Product Description</a>
                         </li>
                     </ul>
                 </li>

@@ -58,100 +58,35 @@ class Article extends CI_Controller {
             $data['filePage'] = 'admin_panel/pages/article/create';
             $this->load->view('admin_panel/app', $data);
         } else {
-            $filename = $_FILES['image']['name'];
-            $ext = pathinfo($filename, PATHINFO_EXTENSION);
+            $data = [
+                'title' => $this->input->post('title'),
+                'description' => $this->input->post('description'),
+            ];
 
-            $target_dir = "uploads/article/";
-            $target_file = $target_dir . basename($filename);
-        
-            if (!$filename) {
-                
-                $data = [
-                    'title' => $this->input->post('title'),
-                    'description' => $this->input->post('description'),
-                    // 'icon' => $this->input->post('icon'),
-                    // 'article_category_id' => $this->input->post('category'),
-                    'image'     => '',//$_FILES['image']['name'],
-                ];
-
-                $this->db->trans_start();
-                
-                $save = $this->Article_model->set_article($data);
-                
-                $this->db->trans_complete(); 
-     
-
-                $this->session->set_flashdata('success', 'save data successfully');
-
-                redirect(base_url("admin_panel/article/create"));
-
-                // $message = 'The image filed is required.';
-
-                // $this->session->set_flashdata('failed', $message);
-
-                // redirect(base_url("admin_panel/article/create"));
-
-            } elseif ($ext != "jpg" && $ext != "png" && $ext != "jpeg" && $ext != "gif") {
-                
-                $message = 'The filetype you are attempting to upload is not allowed.';
-
-                $this->session->set_flashdata('failed', $message);
-
-                redirect(base_url("admin_panel/article/create"));
-            
-            } elseif ($_FILES["image"]["size"] > 2000000) {
-                
-                $message = 'Sorry, your file is too large.';
-
-                $this->session->set_flashdata('failed', $message);
-
-                redirect(base_url("admin_panel/article/create"));
-
-            } else {
-        
-                if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-
-                    $data = [
-                        'title' => $this->input->post('title'),
-                        'description' => $this->input->post('description'),
-                        // 'icon' => $this->input->post('icon'),
-                        // 'article_category_id' => $this->input->post('category'),
-                        'image'     => $_FILES['image']['name'],
-                    ];
-    
-                    $this->db->trans_start();
-                    $save = $this->Article_model->set_article($data);
-                   
-                    $this->db->trans_complete(); 
-         
-                    $this->session->set_flashdata('success', 'save data successfully');
-    
-                    redirect(base_url("admin_panel/article/create"));
-
-                } else {
-
-                    $message = 'Upload image failed';
-
-                    $this->session->set_flashdata('failed', $message);
-
-                    redirect(base_url("admin_panel/article/create"));
-
+            $message = "";
+            if($_FILES['image']['name'] || $_FILES['other_image_1']['name'] || $_FILES['other_image_2']['name']) {
+                foreach($_FILES as $key => $file) {
+                    if($file['name']) {
+                        $upload = upload_file($file, 'article');
+                        if($upload == $file['name']) {
+                            $image  = [$key => $upload];
+                            $data = array_merge($data, $image);
+                        } else {
+                            $message = $upload;
+                        }
+                    }
                 }
-            }
-            // $data = [
-            //     'title' => $this->input->post('title'),
-            //     'description' => $this->input->post('description'),
-            //     // 'icon' => $this->input->post('icon'),
-            //     'article_category_id' => $this->input->post('category'),
-            //     // 'created_by' => 1,
-            // ];
+            } 
             
-            // $this->Article_model->set_article_detail($data);
+            $save = $this->Article_model->set_article($data);
+            
+            if($message) {
+                $this->session->set_flashdata('failed', $message);
+            } else {
+                $this->session->set_flashdata('success', 'save data successfully');
+            }
 
-            // $this->session->set_flashdata('success', 'save data successfully');
-
-            // redirect(base_url("admin_panel/article/create"));
-
+            redirect(base_url("admin_panel/article/create"));
         }
     }
         
@@ -169,98 +104,35 @@ class Article extends CI_Controller {
             $this->load->view('admin_panel/app', $data);
         } else {
 
-            $filename = $_FILES['image']['name'];
+            $data = [
+                'title' => $this->input->post('title'),
+                'description' => $this->input->post('description'),
+            ];
 
-            if(!$filename) {
-
-
-                $data = [
-                    'title' => $this->input->post('title'),
-                    'description' => $this->input->post('description'),
-                    // 'icon' => $this->input->post('icon'),
-                    // 'article_category_id' => $this->input->post('category'),
-                    'image'     => $this->input->post('image_hidden'),
-                ];
-
-                $this->db->trans_start();
-                $update = $this->Article_model->update_article_by_id($id, $data);
-                
-                $this->db->trans_complete(); 
-     
-                $this->session->set_flashdata('success', 'update data successfully');
-
-                redirect(base_url("admin_panel/article/index"));
-
-            } else {
-
-                $ext = pathinfo($filename, PATHINFO_EXTENSION);
-
-                $target_dir = "uploads/article/";
-                $target_file = $target_dir . basename($filename);
-            
-                if ($ext != "jpg" && $ext != "png" && $ext != "jpeg" && $ext != "gif") {
-                    
-                    $message = 'The filetype you are attempting to upload is not allowed.';
-
-                    $this->session->set_flashdata('failed', $message);
-
-                    redirect(base_url("admin_panel/article/index"));
-                
-                } elseif ($_FILES["image"]["size"] > 2000000) {
-                    
-                    $message = 'Sorry, your file is too large.';
-
-                    $this->session->set_flashdata('failed', $message);
-
-                    redirect(base_url("admin_panel/article/index"));
-
-                } else {
-
-                    if (move_uploaded_file($_FILES["image"]["tmp_name"], $target_file)) {
-
-
-                        $data = [
-                            'title' => $this->input->post('title'),
-                            'description' => $this->input->post('description'),
-                            // 'icon' => $this->input->post('icon'),
-                            // 'article_category_id' => $this->input->post('category'),
-                            'image' => $_FILES['image']['name'],
-                        ];
-
-                        $this->db->trans_start();
-                        $update = $this->Article_model->update_article_by_id($id, $data);
-                        
-                        $this->db->trans_complete(); 
-            
-
-                        $this->session->set_flashdata('success', 'save data successfully');
-        
-                        redirect(base_url("admin_panel/article/index"));
-
-                    } else {
-
-                        $message = 'Upload image failed';
-
-                        $this->session->set_flashdata('failed', $message);
-
-                        redirect(base_url("admin_panel/article/index"));
-
+            $message = "";
+            if($_FILES['image']['name'] || $_FILES['other_image_1']['name'] || $_FILES['other_image_2']['name']) {
+                foreach($_FILES as $key => $file) {
+                    if($file['name']) {
+                        $upload = upload_file($file, 'article');
+                        if($upload == $file['name']) {
+                            $image  = [$key => $upload];
+                            $data = array_merge($data, $image);
+                        } else {
+                            $message = $upload;
+                        }
                     }
                 }
+            } 
+            
+            $update = $this->Article_model->update_article_by_id($id, $data);
+            
+            if($message) {
+                $this->session->set_flashdata('failed', $message);
+            } else {
+                $this->session->set_flashdata('success', 'save data successfully');
             }
 
-            // $data = [
-            //     'title' => $this->input->post('title'),
-            //     'description' => $this->input->post('description'),
-            //     // 'icon' => $this->input->post('icon'),
-            //     'article_category_id' => $this->input->post('category'),
-            // ];
-
-            // $this->Article_model->update_article_by_id($id, $data);
-            // $this->session->set_flashdata('success', 'update data successfully');
-
-            // redirect(base_url("admin_panel/article/index"));
-
+            redirect(base_url("admin_panel/article/index"));
         }
     }
 
@@ -319,6 +191,14 @@ class Article extends CI_Controller {
                 $image = ($value->image != '') ? 
                             "<img src='" . base_url() . "uploads/article/" . $value->image . "' width='50px' height='50px'>" 
                             : "no image";
+
+                $image_1 = ($value->other_image_1 != '') ? 
+                            "<img src='" . base_url() . "uploads/article/" . $value->other_image_1 . "' width='50px' height='50px'>" 
+                            : "no image";
+
+                $image_2 = ($value->other_image_2 != '') ? 
+                            "<img src='" . base_url() . "uploads/article/" . $value->other_image_2 . "' width='50px' height='50px'>" 
+                            : "no image";
                 $action = "
                     <a href='".base_url()."admin_panel/article/edit/".$value->id."' 
                         class='btn btn-success' 
@@ -335,6 +215,8 @@ class Article extends CI_Controller {
 
                 $posts[$key]->description = '<p data-toggle="tooltip" data-placement="bottom" title="'.$value->description.'">' . substr($value->description, 0, 20) . '...</p>';
                 $posts[$key]->image = $image;
+                $posts[$key]->other_image_1 = $image_1;
+                $posts[$key]->other_image_2 = $image_2;
                 $posts[$key]->action = $action;
                 $posts[$key]->no = $no;
                 $posts[$key]->check_box = $check_box;

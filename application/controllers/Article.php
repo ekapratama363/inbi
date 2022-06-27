@@ -21,7 +21,6 @@ class Article extends CI_Controller {
 
     public function index($start = "")
     {
-
         $total                = $this->Article_model->count_article();
         $config['base_url']   = base_url()."article/";
         $config['total_rows'] = $total;

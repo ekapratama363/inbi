@@ -348,7 +348,7 @@ class Product extends CI_Controller {
     {
         $q = $this->input->get('q') ? $this->input->get('q') : NULL;
         
-        $data = $this->Product_category_model->ajax_get_product_category($q);
+        $data = $this->Product_category_model->ajax_get_product_category($q, $is_halal = 1);
 
         echo json_encode($data);
     }

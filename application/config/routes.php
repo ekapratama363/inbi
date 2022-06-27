@@ -54,6 +54,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['article/(:num)'] = 'article/index/$1';
+$route['product/(:num)'] = 'product/index/$1';
+$route['product_halal/(:num)'] = 'product_halal/index/$1';
 $route['login'] = 'admin_panel/auth/index';
 $route['admin_panel/policy/background/update_background'] = 'admin_panel/policy/update_background';
 $route['admin_panel/article/background/update_background'] = 'admin_panel/article/update_background';

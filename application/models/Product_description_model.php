@@ -7,66 +7,47 @@ class Product_description_model extends CI_Model
         $this->load->database();
     }
 
-    public function set_product_description($data) 
+    public function get_data($is_halal = null)
     {
-        return $this->db->insert('product_descriptions', $data);
-    }
+        $query = $this->db
+                ->select('*')
+                ->from('product_descriptions');
 
-    public function get_ajax_list_product_description($data = NULL)
-    {
-        $match = isset($data['search']) ? $data['search'] : '';
-        
-        $query = $this->db->where('(title LIKE \'%'.$match.'%\')')
-                ->order_by('id', isset($data['order']) ? 'desc' : 'asc');
-                
-        if(isset($data['length']) && isset($data['start'])) {
-            $query = $query->limit($data['length'], $data['start']);
+        if ($is_halal !== null) {
+            $query = $query->where('is_halal', $is_halal);
         }
 
-        $query = $query->get('product_descriptions');
+        $query = $query->get();
 
-        return $query->result_object();
+        return $query->row_object();
+
     }
 
-    public function get_product_description_by_id($id)
+    public function set_data($data) 
     {
-        $query = $this->db->get_where('product_descriptions', ['id' => $id]);
+        $this->db->insert('product_descriptions', $data);
+        $insert_id = $this->db->insert_id();
+
+        return $insert_id;
+    }
+
+    public function get_data_by_id($id)
+    {
+    
+        $query = $this->db
+                ->select('*')
+                ->from('product_descriptions')
+                ->where('product_descriptions.id', $id)
+                ->get();
 
         return $query->row_object();
     }
 
-    public function update_product_description_by_id($id, $data)
+    public function update_data_by_id($id, $data)
     {
         $query = $this->db->where('id', $id)->update('product_descriptions', $data);
 
         return $query;
-    }
-
-    public function delete_product_description_by_id($id)
-    {
-        $this->db->where(['id' => $id]);
-	    $this->db->delete('product_descriptions');
-    }
-
-    public function ajax_get_product_description($q = NULL)
-    {
-        if($q) {
-            $this->db->like('title', $q);
-        } else {
-            $this->db->limit(15);
-        }
-
-        $query = $this->db->get('product_descriptions');
-
-        return $query->result_object();
-    }
-
-    public function get_product_description()
-    {
-        $query = $this->db->order_by('id', 'desc')
-                ->get('product_descriptions'); 
-
-        return $query->result_object();
     }
 
 }

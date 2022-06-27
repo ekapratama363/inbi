@@ -16,13 +16,11 @@
                     <div class="section-img d-flex justify-content-center">
                         <img src="assets/img/icon/products-icon.png" alt="">
                     </div>
-                    <h2><span>Our </span>Products</h2>
+                    <h2><?php echo $product_description->title; ?></h2>
                 </div>
                 <div class="container text-center">
                     <div class="section-title-img">
-                        <p>The best product from INBI are the Aloe Vera Extract , Papaya Extract, Yam Bean Extract, Lemon Extract which have been popular among cosmetic factory. Green Tea Extract , 
-                            Coffee Extract and Ginger Extract are popular among food and beverage factory. Kaffir Lime Oil, Cajuput Oil and Turmeric oil are also popular among essential oil factory which have encouraged 
-                            us to continue in developing a better product and quality.</p>
+                        <p><?php echo $product_description->description; ?></p></p>
                     </div>
                 </div>
 
@@ -67,5 +65,13 @@
                         </div>
                     </div>
                 <?php } ?>
+
+                <div class="row mt-5">
+                    <div class="col text-center">
+                        <div class="block-27">
+                            <?php echo $this->pagination->create_links(); ?>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
